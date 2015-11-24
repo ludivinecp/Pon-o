@@ -228,7 +228,7 @@ Service.create([{ title: 'nature1',
               price: 50,
               description: 'balade dans la nature',
               date: '2015-11-10',
-              hour: '05:00:00',
+              time: '05:00:00',
               number_of_people: 4,
               centre_id: 1 }])
 
@@ -237,7 +237,7 @@ Service.create([{ title: 'decouverte1',
               price: 30,
               description: 'decouverte de lequitation',
               date: '2016-01-01',
-              hour: '03:00:00',
+              time: '03:00:00',
               number_of_people: 5,
               centre_id: 3}])
 
@@ -247,7 +247,7 @@ Service.create([{ title: 'sport1',
               price: 70,
               description: 'activité sportive avec saut dobstacles',
               date: '2015-11-15',
-              hour: '02:00:00',
+              time: '02:00:00',
               number_of_people: 3,
               centre_id: 3 }])
 
@@ -256,7 +256,7 @@ Service.create([{ title: 'sport2',
               price: 70,
               description: 'activité sportive balaise',
               date: '2016-02-20',
-              hour: '08:00:00',
+              time: '08:00:00',
               centre_id: 4 }])
 
 Service.create([{ title: 'decouverte2',
@@ -264,7 +264,7 @@ Service.create([{ title: 'decouverte2',
               price: 30,
               description: 'decouverte du poney',
               date: '2016-03-10',
-              hour: '01:00:00',
+              time: '01:00:00',
               number_of_people: 1,
               centre_id: 5 }])
 
@@ -273,7 +273,7 @@ Service.create([{ title: 'nature2',
               price: 50,
               description: 'balade dans la nature cool',
               date: '2016-02-01',
-              hour: '09:00:00',
+              time: '09:00:00',
               number_of_people: 7,
               centre_id: 6 }])
 
@@ -282,7 +282,7 @@ Service.create([{ title: 'sport3',
               price: 70,
               description: 'activité sportive haut level',
               date: '2016-01-05',
-              hour: '01:00:00',
+              time: '01:00:00',
               number_of_people: 8,
               centre_id: 7 }])
 
@@ -291,7 +291,7 @@ Service.create([{ title: 'nature3',
               price: 50,
               description: 'promenade relaxante',
               date: '2015-11-29',
-              hour: '02:00:00',
+              time: '02:00:00',
               number_of_people: 9,
               centre_id: 8 }])
 
@@ -300,7 +300,7 @@ Service.create([{ title: 'decouvert3',
               price: '30',
               description: 'decouverte du cheval',
               date: '2015-11-07',
-              hour: '04:00:00',
+              time: '04:00:00',
               number_of_people: 5,
               centre_id: 9 }])
 
@@ -309,6 +309,6 @@ Service.create([{ title: 'sport4',
               price: 70,
               description: 'activité sportive pas trop dur',
               date: '2015-11-18',
-              hour: '04:00:00',
+              time: '04:00:00',
               number_of_people: 3,
               centre_id: 10 }])
