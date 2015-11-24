@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Index</h1>
+
+
+<% @services.each do |service| %>
+  <div>
+    <h2 style="font-weight:bold"><%= centre.name %></br></h2>
+                                 <%= centre.user.ville %></br>
+      <ul>
+       <% centre.services.each do |service| %>
+        <li><%= service.try(:title) %>
+            <%= service.try(:price) %>€ 
+            <%= link_to 'Reserver !',  show_service_path(service)%></li> 
+        <%end%>
+      </ul>
+    <%end%>     
+  </div>
+<br>
+
+
+

@@ -1,0 +1,12 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Services#show</h1>
+
+
+<h2><%= @service.title %></h2>
+
+<%= @centre.name %></br>
+<%= @service.price %>€</br>
+<%= @service.description %></br>
+
+<%=link_to 'Reserver !', bookings_path %>
