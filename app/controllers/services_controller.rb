@@ -3,6 +3,7 @@ class ServicesController < ApplicationController
   def index
     @services = Service.all
     @centres = Centre.all
+    @search = Search.find(params[:id])
   end
 
   def show

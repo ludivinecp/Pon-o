@@ -5,8 +5,7 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  <link rel="stylesheet" type="text/css"
-     href="http://yegor256.github.io/tacit/tacit.min.css"/> 
+  <meta nom="viewport" content="width=device-width, initial-scale=1.0"> 
 </head>
 <body>
   <% if notice %>
@@ -27,7 +26,16 @@
     <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
   <% end %>
 </p>
+
+<%= render 'layouts/header' %>
+ <div class="container">
+    <% flash.each do |nom, msg| %>
+      <%=  content_tag(:div, msg, class: "alert alert-danger")%>
+    <% end %>
+
 <%= yield %>
+
+  </div>
 
 </body>
 </html>
