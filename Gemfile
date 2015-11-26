@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
+gem 'jquery-turbolinks'
 
+gem 'masonry-rails'
 gem 'bootstrap-sass'
 gem 'devise'
 gem 'pry'
