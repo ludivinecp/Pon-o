@@ -1,20 +1,14 @@
 Rails.application.routes.draw do
 
   devise_for :users
-
-  get 'bookings'  => 'bookings#new'
-  get 'index'     => 'services#index'
-  get 'show/:id'  => 'services#show', as: :show_service
-  get 'home'      => 'users#home'
-  get 'user'      => 'devise/sessions#new'
-
-
-
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   root 'services#index'
+  resources :users
+  resources :services
+  resources :bookings
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

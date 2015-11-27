@@ -7,5 +7,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_one :centre
   has_many :bookings
+  validates_presence_of  :first_name, :last_name, :nickname, :level, :phone
   # mount_uploader :avatar, AvatarUploader
 end
