@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 gem 'jquery-turbolinks'
-
+gem 'carrierwave'
 gem 'masonry-rails'
 gem 'bootstrap-sass'
 gem 'devise'
