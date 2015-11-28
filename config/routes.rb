@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'services#index'
   resources :users
+  resources :centres
   resources :services
   resources :bookings
   # The priority is based upon order of creation: first created -> highest priority.
