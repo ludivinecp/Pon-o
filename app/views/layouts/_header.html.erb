@@ -1,14 +1,29 @@
-<nav class="navbar navbar-static-top navbar-default" role="navigaton">
+<nav class="navbar navbar-fixed-top navbar-default " role="navigaton" style="/* IE10+ */
+background-image: -ms-linear-gradient(top, #FA9C06 10%, #D98805 90%);
+
+/* Mozilla Firefox */
+background-image: -moz-linear-gradient(top, #FA9C06 10%, #D98805 90%);
+
+/* Opera */
+background-image: -o-linear-gradient(top, #FA9C06 10%, #D98805 90%);
+
+/* Webkit (Safari/Chrome 10) */
+background-image: -webkit-gradient(linear, left top, left bottom, color-stop(10, #FA9C06), color-stop(90, #D98805));
+
+/* Webkit (Chrome 11+) */
+background-image: -webkit-linear-gradient(top, #FA9C06 10%, #D98805 90%); box-shadow: 0px 2px 2px #888888;
+">
   <div class="container">
     <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
+    <div class="navbar-header" style="margin-top:25px;">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <%= link_to " Poneo", root_path, class:"navbar-brand"%>
+      <!-- <%= link_to " Poneo", root_path, class:"navbar-brand"%> -->
+      <%= link_to "pONéO !", root_path, {:style=>"color: white; font-family: 'Luckiest Guy', cursive; font-size: 3em;", :class => "css_class"}%>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -24,6 +39,9 @@
         <% else %>
           <li><%= link_to "Sign in", new_user_session_path %></li>
         <% end %>
+        <% if user_signed_in? %>
+          <li style="color:white; padding-top: 16px; padding-left: 30px;">Bonjour,  <strong><%= current_user.first_name%>!</strong></li>
+        <%end%>
 
       </ul>
     </div><!-- /.navbar-collapse -->
