@@ -1,4 +1,74 @@
 <p id="notice"><%= notice %></p>
-
-<%= link_to 'Edit', edit_centre_path(@centre) %> |
-<%= link_to 'Back', centres_path %>
+<div class="section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h4 class="text-right"><span class="btn btn-default"><%= link_to 'Modifier le profil', edit_centre_path(@centre) %></span>
+</h4>
+          </div>
+        <div class="row">
+          <div class="col-md-12">
+            <h1 style="text-align:center;">Profil de: <%=@centre.name%></h1><br/><br>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <img src="http://pingendo.github.io/pingendo-bootstrap/assets/placeholder.png"
+            class="img-responsive">
+          </div>
+          <div class="col-md-7">
+            <h3>Description</h3>
+            <p class="lead">Lorem c quam felis, ultricies
+              nec, pellentesque eu, pretium quis, sem. Nulla consequat massa&nbsp;</p>
+            <ul>
+              <li>Ville: <%=@user.city%></li>
+              <li>Numéro ffe: <%=@centre.ffe%></li>
+              <li>Numéro siret: <%=@centre.siret%></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h1>Prestations délivrées:</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <img src="http://pingendo.github.io/pingendo-bootstrap/assets/placeholder.png"
+            class="img-responsive">
+            <h2>A Title</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisici elit,
+              <br>sed eiusmod tempor incidunt ut labore et dolore magna aliqua.
+              <br>Ut enim ad minim veniam, quis nostrud</p>
+          </div>
+          <div class="col-md-4">
+            <img src="http://pingendo.github.io/pingendo-bootstrap/assets/placeholder.png"
+            class="img-responsive">
+            <h2>A title</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisici elit,
+              <br>sed eiusmod tempor incidunt ut labore et dolore magna aliqua.
+              <br>Ut enim ad minim veniam, quis nostrud</p>
+          </div>
+          <div class="col-md-4">
+            <img src="http://pingendo.github.io/pingendo-bootstrap/assets/placeholder.png"
+            class="img-responsive">
+            <h2>A title</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisici elit,
+              <br>sed eiusmod tempor incidunt ut labore et dolore magna aliqua.
+              <br>Ut enim ad minim veniam, quis nostrud</p>
+          </div>
+        </div>
+      </div>
+    </div>
