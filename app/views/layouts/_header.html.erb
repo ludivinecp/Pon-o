@@ -11,7 +11,7 @@ background-image: -o-linear-gradient(top, #FA9C06 10%, #D98805 90%);
 background-image: -webkit-gradient(linear, left top, left bottom, color-stop(10, #FA9C06), color-stop(90, #D98805));
 
 /* Webkit (Chrome 11+) */
-background-image: -webkit-linear-gradient(top, #FA9C06 10%, #D98805 90%); box-shadow: 0px 2px 2px #888888;
+background-image: -webkit-linear-gradient(top, #FA9C06 10%, #D98805 90%); box-shadow: 0px 1px 2px #888888;
 ">
   <div class="container">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -33,9 +33,9 @@ background-image: -webkit-linear-gradient(top, #FA9C06 10%, #D98805 90%); box-sh
         <% if user_signed_in? %>
 
             </li>
-          <li><%= link_to "Account settings", edit_user_registration_path %></li>
+          <li><%= link_to "Mon compte", edit_user_registration_path %></li>
           <li><%= link_to "Mon profil", user_path(current_user.id)  %></li>
-          <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+          <li><%= link_to "Me déconnecter", destroy_user_session_path, method: :delete %></li>
         <% else %>
           <li><%= link_to "Sign in", new_user_session_path %></li>
         <% end %>

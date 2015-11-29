@@ -7,7 +7,7 @@
 <h2>Modifier mon mot de passe</h2>
   <div class="form-group">
     <%= f.label :email %><br />
-    <%= f.text_field :email, autofocus: true, class:"form-control" %>
+    <%= f.email_field :email, autofocus: true, class:"form-control" %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -16,17 +16,17 @@
 
   <div class="form-group">
     <%= f.label :Nouveau_mot_de_passe %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.text_field :password, autocomplete: "off", class:"form-control" %>
+    <%= f.password_field :password, autocomplete: "off", class:"form-control" %>
   </div>
 
   <div class="form-group">
     <%= f.label :confirmation_du_mot_de_passe %><br />
-    <%= f.text_field :password_confirmation, autocomplete: "off", class:"form-control" %>
+    <%= f.password_field :password_confirmation, autocomplete: "off", class:"form-control" %>
   </div>
 
   <div class="form-group">
     <%= f.label :mot_de_passe_actuel %> <i>(Pour valider les changements)</i><br />
-    <%= f.text_field :current_password, autocomplete: "off", class:"form-control" %>
+    <%= f.password_field :current_password, autocomplete: "off", class:"form-control" %>
   </div>
   <div class="actions">
       <%= f.submit "Mettre à jour", class:'btn btn-default' %>
