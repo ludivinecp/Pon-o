@@ -3,10 +3,10 @@ class ServicesController < ApplicationController
   def index
     @services = Service.all
     @centres = Centre.all
-    
-  end
 
+  end
   def show
+
     @service = Service.find(params[:id])
     @centre = Centre.find(params[:id])
   end

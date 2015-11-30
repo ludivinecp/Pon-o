@@ -1,0 +1,55 @@
+<div class="col-md-3"></div>
+  <div class="col-md-6">
+<%=form_for(@user) do |f| %>
+<div class="form-group">
+    <%= f.label :Prénom%> <span style="color:red">*</span>
+    <%= f.text_field :first_name, class:'form-control' %>
+  </div>
+  <div class="form-group">
+      <%= f.label :Nom %> <span style="color:red">*</span>
+      <%= f.text_field :last_name, class:'form-control' %>
+    </div>
+      <div class="form-group">
+          <%= f.label :Niveau %> <br />
+          <%= f.select(:gender, options_for_select([["Je ne sais pas où est la queue", "je ne sais pas où est la queue"], ["je tiens sur la selle", "je tiens sur la selle"], ["Galop 456","Galop 456"]]), {}, {class: "form-control"})%>
+        </div>
+    <div class="form-group">
+        <%= f.label :Pseudo %> <span style="color:red">*</span>
+        <%= f.text_field :nickname, class:'form-control' %>
+      </div>
+      <div class="form-group">
+          <%= f.label :Numéro_de_téléphone %> <span style="color:red">*</span>
+          <%= f.text_field :phone, class:'form-control' %>
+        </div>
+      <div class="form-group">
+          <%= f.label :Age %>
+          <%= f.number_field :age, class:'form-control' %>
+        </div>
+        <div class="form-group">
+            <%= f.label :Address %>
+            <%= f.text_area :address, class:'form-control' %>
+          </div>
+          <div class="form-group">
+              <%= f.label :Ville %>
+              <%= f.text_field :city, class:'form-control' %>
+            </div>
+          <div class="form-group">
+              <%= f.label :Sexe %> <br />
+              <%= f.select(:gender, options_for_select([["Féminin", true], ["Masculin", false ]]), {}, {class: "form-control"})%>
+            </div>
+            <div class="form-group">
+                <%= f.label :Poids %>
+                <%= f.number_field :weight, class:'form-control' %>
+              </div>
+              <div class="form-group">
+                  <%= f.label :Taille %>
+                  <%= f.number_field :tall, class:'form-control' %>
+                </div>
+                  <div class="form-group">
+                      <%= f.hidden_field :user_id, :value => current_user.id, class:'form-control' %>
+                    </div>
+                    <div class="actions">
+                      <%= f.submit "Valider mon profil", class:'btn btn-default' %>
+                    </div>
+                  </div>
+<%end%>
