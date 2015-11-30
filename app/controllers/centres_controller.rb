@@ -5,6 +5,9 @@ class CentresController < ApplicationController
   end
 
   def show
+
+    @centre = Centre.find(params[:id])
+    @user = User.find(params[:id])
   end
 
   def new
@@ -12,6 +15,7 @@ class CentresController < ApplicationController
   end
 
   def edit
+    @centre = Centre.find(params[:id])
   end
 
   def create
@@ -29,14 +33,11 @@ class CentresController < ApplicationController
   end
 
   def update
-    respond_to do |format|
-      if @centre.update(centre_params)
-        format.html { redirect_to @centre, notice: 'Centre was successfully updated.' }
-        format.json { render :show, status: :ok, location: @centre }
-      else
-        format.html { render :edit }
-        format.json { render json: @centre.errors, status: :unprocessable_entity }
-      end
+    @centre = Centre.find(params[:id])
+    if @centre.update(centre_params)
+      redirect_to centre_path(@centre.id)
+    else
+    render :edit
     end
   end
 
@@ -54,6 +55,7 @@ class CentresController < ApplicationController
     end
 
     def centre_params
-      params[:centre]
+      # params[:centre]
+      params.require(:centre).permit(:name, :ffe, :siret)
     end
 end
