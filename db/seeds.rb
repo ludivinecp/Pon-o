@@ -40,60 +40,70 @@ Centre.create([{
   siret: 12345,
   ffe: 'azerty1234',
   name: 'Arras du beau dada',
+  address: '13 rue de la gare aubervilliers',
   user_id: 1
 }])
 Centre.create([{
   siret: 246810,
   ffe: 'qwerty5678',
   name: 'Centre du cheval krotal',
+  address: '14 avenue de l\'opéra paris',
   user_id: 2
 }])
 Centre.create([{
   siret: 6969696,
   ffe: 'qsdf9876',
   name: 'Galop\'s style',
+  address: '2 Rue Georges Guynemer La Loupe',
   user_id: 3
 }])
 Centre.create([{
   siret: 112358,
   ffe: 'fibo011',
   name: 'hihihi equitation',
+  address: '3 rue de la gare la loupe ',
   user_id: 4
 }])
 Centre.create([{
   siret: 1357911,
   ffe: 'imp135n',
   name: 'Poney manège',
+  address: '3 avenue des champs elysées paris',
   user_id: 5
 }])
 Centre.create([{
   siret: 2250255,
   ffe: 'sym101010',
   name: 'Galop 65',
+  address: '4 rue de vaugirard paris',
   user_id: 6
 }])
 Centre.create([{
   siret: 687980,
   ffe: 'Le ranch',
   name: 'Le gite du petit chêne',
+  address: '3 rue marcel proust orleans',
   user_id: 7
 }])
 Centre.create([{
   siret: 11223344,
   ffe: 'repet1111',
   name: 'Le ranch de bebert',
+  address: '',
   user_id: 8
 }])
 Centre.create([{
   siret: 102030,
   ffe: 'diz10aine',
   name: 'Les cowboys au fond du jardin',
+  address: '4 rue de la gare angers',
   user_id: 9
 }])
 Centre.create([{
   siret: 209812,
   ffe: 'EGulopZ1',
   name: 'Ymca club',
+  address: '3 rue de la paix paris',
   user_id: 10
 }])
 
