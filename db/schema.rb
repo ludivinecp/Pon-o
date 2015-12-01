@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151126181117) do
+ActiveRecord::Schema.define(version: 20151201090150) do
 
   create_table "bookings", force: :cascade do |t|
     t.integer  "number_of_people"
@@ -32,12 +32,35 @@ ActiveRecord::Schema.define(version: 20151126181117) do
     t.string   "ffe"
     t.string   "name"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string   "avatar"
+    t.string   "address"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.boolean  "admin",      default: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   add_index "centres", ["user_id"], name: "index_centres_on_user_id"
+
+  create_table "riders", force: :cascade do |t|
+    t.integer  "age"
+    t.string   "gender"
+    t.integer  "weight"
+    t.integer  "tall"
+    t.string   "nickname"
+    t.string   "level"
+    t.boolean  "centre"
+    t.string   "last_name"
+    t.string   "first_name"
+    t.integer  "phone"
+    t.string   "address"
+    t.boolean  "admin",      default: false
+    t.integer  "user_id"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  add_index "riders", ["user_id"], name: "index_riders_on_user_id"
 
   create_table "services", force: :cascade do |t|
     t.string   "title"
@@ -50,39 +73,23 @@ ActiveRecord::Schema.define(version: 20151126181117) do
     t.integer  "centre_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
-    t.string   "avatar"
   end
 
   add_index "services", ["centre_id"], name: "index_services_on_centre_id"
 
   create_table "users", force: :cascade do |t|
-    t.integer  "age"
-    t.string   "gender"
-    t.integer  "weight"
-    t.integer  "tall"
-    t.string   "nickname"
-    t.string   "level"
-    t.boolean  "centre",                 default: false
-    t.string   "last_name"
-    t.string   "first_name"
-    t.integer  "phone"
-    t.string   "address"
-    t.string   "email",                  default: "",    null: false
-    t.string   "encrypted_password",     default: "",    null: false
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,     null: false
+    t.integer  "sign_in_count",          default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
-    t.string   "city"
-    t.float    "latitude"
-    t.float    "longitude"
-    t.string   "avatar"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

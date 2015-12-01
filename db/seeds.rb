@@ -1,3 +1,41 @@
+User.create([{ email: 'guest@wcs.com',
+              password: 'jecode4laloupe',
+              
+              
+  }])
+User.create([{ email: 'ludivine@wcs.com',
+              password: 'jecode4laloupe',
+              
+  }])
+User.create([{ email: 'nelly@wcs.com',
+              password: 'jecode4laloupe',
+              
+  }])
+User.create([{ email: 'victor@wcs.com',
+              password: 'jecode4laloupe',
+              
+  }])
+User.create([{ email: 'ph@wcs.com',
+              password: 'jecode4laloupe',
+              
+  }])
+User.create([{ email: 'mathieu@wcs.com',
+              password: 'jecode4laloupe',
+  }])
+User.create([{ email: 'Lucie@wcs.com',
+              password: 'jecode4laloupe',
+  }])
+User.create([{ email: 'erwann@wcs.com',
+              password: 'jecode4laloupe',
+  }])
+User.create([{ email: 'alex@wcs.com',
+              password: 'jecode4laloupe',
+  }])
+User.create([{ email: 'romain@wcs.com',
+              password: 'jecode4laloupe',
+  }])
+
+
 Centre.create([{
   siret: 12345,
   ffe: 'azerty1234',
@@ -59,169 +97,148 @@ Centre.create([{
   user_id: 10
 }])
 
-User.create([{ email: 'guest@wcs.com',
-              password: 'jecode4laloupe',
-              last_name: 'Guest',
+Rider.create([{ last_name: 'Guest',
               first_name: 'Bulma',
               phone: '0123456789',
               address: '6 place jules nadi',
-              city: 'Narbonne',
               age: 29,
               gender:'homme',
               weight: 70,
               tall: 175,
               nickname: 'Adam',
               level: 'Debutant',
+              user_id: 11
               
   }])
 
-User.create([{ email: 'ludivine@wcs.com',
-              password: 'jecode4laloupe',
-              last_name: 'ludivine',
+Rider.create([{last_name: 'ludivine',
               first_name: 'coipel',
               phone: '0678907654',
               address: '3 rue joliot curie',
-              city: 'la loupe',
               age: 58,
               gender:'homme',
               weight: 85,
               tall: 170,
               nickname: 'grisous',
               level: 'Intermediaire',
+              user_id: 12
               
 
   }])
 
-User.create([{ email: 'nelly@wcs.com',
-              password: 'jecode4laloupe',
-              last_name: 'nelly',
+Rider.create([{ last_name: 'nelly',
               first_name: 'darte',
               phone: '0987678945',
               address: '45 avenue du général leclerc',
-              city: 'Maisons-alfort',
               age: 36,
               gender:'femme',
               weight: 80,
               tall: 165,
               nickname: 'Dada',
               level: 'Confirme',
+              user_id: 13
               
   }])
 
-User.create([{ email: 'victor@wcs.com',
-              password: 'jecode4laloupe',
-              last_name: 'victor',
+Rider.create([{ last_name: 'victor',
               first_name: 'goutay',
               phone: '0974534567',
               address: '14 rue de la gare',
-              city: 'La loupe',
               age: 21,
               gender:'homme',
               weight: 67,
               tall: 190,
               nickname: 'Poulet',
               level: 'Debutant',
+              user_id: 14
               
 
   }])
 
-User.create([{ email: 'ph@wcs.com',
-              password: 'jecode4laloupe',
-              last_name: 'PH',
+Rider.create([{ last_name: 'PH',
               first_name: 'haffner',
               phone: '0123456765',
               address: '12 rue du bac',
-              city: 'Paris',
               age: 19,
               gender:'femme',
               weight: 60,
               tall: 170,
               nickname: 'Youpi',
               level: 'Confirme',
+              user_id: 15
               
 
   }])
 
-User.create([{ email: 'mathieu@wcs.com',
-              password: 'jecode4laloupe',
-              last_name: 'mathieu',
+Rider.create([{last_name: 'mathieu',
               first_name: 'loret',
               phone: '0976785467',
               address: '3 rue d\'Alésia',
-              city: 'Paris',
               age: 62,
               gender:'femme',
               weight: 60,
               tall: 160,
               nickname: 'Lola',
               level: 'Debutant',
-              centre: false
+              user_id: 16
+              
 
   }])
 
-User.create([{ email: 'Lucie@wcs.com',
-              password: 'jecode4laloupe',
-              last_name: 'lucie',
+Rider.create([{ last_name: 'lucie',
               first_name: 'de la roche',
               phone: '0989645678',
               address: '12 rue du bac',
-              city: 'Paris',
               age: 45,
               gender:'femme',
               weight: 49,
               tall: 160,
               nickname: 'Baby_girl',
               level: 'Confirme',
-              centre: false
+              user_id: 17
+              
 
   }])
-User.create([{ email: 'erwann@wcs.com',
-              password: 'jecode4laloupe',
-              last_name: 'erwann',
+Rider.create([{ last_name: 'erwann',
               first_name: 'prat',
               phone: '0987678456',
               address: '62 rue du 11 novembre',
-              city: 'sury le comtal',
               age: 68,
               gender:'homme',
               weight: 70,
               tall: 160,
               nickname: 'SuperPapy',
               level: 'Intermediaire',
-              centre: false
+              user_id: 18
+              
 
   }])
-User.create([{ email: 'alex@wcs.com',
-              password: 'jecode4laloupe',
-              last_name: 'alexandra',
+Rider.create([{ last_name: 'alexandra',
               first_name: 'dupuis',
               phone: '0967896545',
               address: '3 rue jean vende',
-              city: 'Andrezieux',
               age: 41,
               gender: 'homme',
               weight: 90,
               tall: 190,
               nickname: 'Rocky',
               level: 'Debutant',
-              centre: false
+              user_id: 19
+              
 
   }])
-User.create([{ email: 'romain@wcs.com',
-              password: 'jecode4laloupe',
-              last_name: 'romain',
+Rider.create([{last_name: 'romain',
               first_name: 'dardan',
               phone: '0978965745',
               address: '3 rue du faubourg saint antoine',
-              city: 'Paris',
               age: 24,
               gender: 'femme',
               weight: 55,
               tall: 165,
               nickname: 'Chouquette',
               level: 'Confirmé',
-              centre: false
-
+              user_id: 20
+              
   }])
 Service.create([{ title: 'nature1',
               category:'nature',
