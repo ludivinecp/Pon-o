@@ -18,6 +18,7 @@
 <div class="row">
   <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
 
+<<<<<<< HEAD
     
     <div class="pins" class="transitions-enabled">
       <p><% @services.each do |service|%></p>
@@ -26,6 +27,16 @@
           <h2><%= service.title %></h2>
           <div class="image_centre">
           <%= image_tag "poneo-8.jpg" %>
+=======
+  <div class="col-md-offset-5"><div>
+        <p><% @services.each do |service|%></p>
+          <div>
+            <h2><%= service.title %></h2>
+            <p> price: € <%= service.price%></p>
+            <p> Categorie: <%= service.category %></p>
+            <p> Adresse: <%= service.centre.address %></p>
+            <%= link_to 'Réserver', service, class:'btn btn-success'%>
+>>>>>>> 756ca7a2d780e74b956f02ec789caa8b67a3ac0f
           </div>
             <div class="panel-body">
               
