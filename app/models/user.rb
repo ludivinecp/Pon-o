@@ -6,6 +6,12 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_one :rider
   has_one :centre
+  after_create :notification
   # validates_presence_of  :nickname, :first_name, :last_name, :level, :phone
   # mount_uploader :avatar, AvatarUploader
+
+  private
+def notification
+  UserMailer.confirmation(self).deliver_now
+end
 end
