@@ -7,7 +7,6 @@ class CentresController < ApplicationController
   def show
 
     @centre = Centre.find(params[:id])
-    @user = User.find(params[:id])
   end
 
   def new
@@ -57,6 +56,6 @@ class CentresController < ApplicationController
 
     def centre_params
       # params[:centre]
-      params.require(:centre).permit(:name, :ffe, :siret)
+      params.require(:centre).permit(:name, :ffe, :siret, :address, :phone, :picture)
     end
 end
