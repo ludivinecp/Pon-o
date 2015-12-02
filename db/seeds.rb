@@ -34,6 +34,10 @@ User.create([{ email: 'alex@wcs.com',
 User.create([{ email: 'romain@wcs.com',
               password: 'jecode4laloupe',
   }])
+User.create([{ email: 'poneoproject@gmail.com',
+              password: 'jecode4laloupe',
+              admin: true
+  }])
 
 
 Centre.create([{

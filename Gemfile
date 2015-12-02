@@ -1,4 +1,8 @@
 source 'https://rubygems.org'
+#Admin
+gem 'fastercsv'
+gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
+
 gem 'jquery-turbolinks'
 gem 'carrierwave'
 gem 'masonry-rails'
