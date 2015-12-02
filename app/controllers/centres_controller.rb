@@ -1,6 +1,7 @@
 class CentresController < ApplicationController
   before_action :authenticate_user!
-  before_filter :admin_only, :except => :show
+  before_action :admin_only, only:[:show, :edit, :update]
+  before_action :centre_only
 
   def index
     @centres = Centre.all
@@ -63,8 +64,15 @@ class CentresController < ApplicationController
     end
 
     def admin_only
-    unless current_user.admin?
+      unless current_user.admin?
+        redirect_to "/", :alert => "Access denied."
+      end
+    end
+
+    def centre_only
+    unless Centre.find(params[current_user.id])
       redirect_to "/", :alert => "Access denied."
     end
   end
 end
+

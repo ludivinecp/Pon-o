@@ -1,6 +1,6 @@
 class RidersController < ApplicationController
   before_action :authenticate_user!
-  before_filter :rider_only
+  before_action :rider_only
   def show
     @rider = Rider.find(params[:id])
   end
@@ -10,5 +10,11 @@ class RidersController < ApplicationController
   end
 
   def update
+  end
+
+  def rider_only
+    unless Rider.find(current_user.id)
+      redirect_to "/", :alert => "Access denied."
+    end
   end
 end

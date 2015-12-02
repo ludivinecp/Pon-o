@@ -1,5 +1,5 @@
 class ServicesController < ApplicationController
-  before_filter :admin_only, :except => :index, :show
+  # before_action :admin_only, only: [:index, :show]
   def index
     if params[:search].present?
     # @centres = Centre.near(params[:search], params[:distance] || 50, order: :distance)
