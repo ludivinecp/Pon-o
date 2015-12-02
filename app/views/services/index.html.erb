@@ -3,12 +3,12 @@
   <h2> Services</h2>
   <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
     <h2>Custom search field</h2>
-        <div id="custom-search-input">1
-            <div class="input-group col-md-12">2
-                <input type="text" class="form-control input-lg" placeholder="Recherche" />3
-                <span class="input-group-btn">4
-                    <button class="btn btn-info btn-lg" type="button">5
-                        <i class="glyphicon glyphicon-search"></i>6
+        <div id="custom-search-input">
+            <div class="input-group col-md-12">
+                <input type="text" class="form-control input-lg" placeholder="Recherche" />
+                <span class="input-group-btn">
+                    <button class="btn btn-info btn-lg" type="button">
+                        <i class="glyphicon glyphicon-search"></i>
                     </button>
                 </span>
             </div>
@@ -20,18 +20,15 @@
   <%= label :search, "Search services near : " %>
   <%= text_field_tag :search, params[:search] %>
 
-  <%= label :distance, "Distance : " %>
-  <%= text_field_tag :distance, params[:distance] %>
-
   <%= submit_tag "Search" %>
 <% end %>
 
 <div class="row">
   <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
-
+    <p><% @centres.each do |centre|%></p>
     
     <div class="pins" class="transitions-enabled">
-      <p><% @services.each do |service|%></p>
+      <p><% centre.services.each do |service|%></p>
         <div class="box panel panel-default">
 
           <h2><%= service.title %></h2>
@@ -50,6 +47,7 @@
             </div>
         </div>
 
+      <% end %>
       <% end %>
 
     </div>
