@@ -1,14 +1,24 @@
 class ServicesController < ApplicationController
 
   def index
-    @services = Service.all
-    @centres = Centre.all
-
+    if params[:search].present?
+    # @centres = Centre.near(params[:search], params[:distance] || 50, order: :distance)
+      @centres = Centre.near(params[:search], 50)
+      @hash = Gmaps4rails.build_markers(@centres) do |centre, marker|
+        marker.lat centre.latitude
+        marker.lng centre.longitude
+      end
+    else
+      @centres = Centre.all
+      @services = Service.all
+    end
   end
+
   def show
 
     @service = Service.find(params[:id])
     @centre = Centre.find(params[:id])
+    @centres = Centre.all
   end
 
   def new
