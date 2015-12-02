@@ -17,8 +17,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-4">
-            <img src="http://pingendo.github.io/pingendo-bootstrap/assets/placeholder.png"
-            class="img-responsive">
+    <%=image_tag @centre.picture.url if @centre.picture?%>
           </div>
           <div class="col-md-7">
             <h3>Description</h3>
