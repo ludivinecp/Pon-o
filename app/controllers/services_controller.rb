@@ -1,5 +1,5 @@
 class ServicesController < ApplicationController
-
+  before_filter :admin_only, :except => :index, :show
   def index
     if params[:search].present?
     # @centres = Centre.near(params[:search], params[:distance] || 50, order: :distance)
@@ -69,5 +69,11 @@ class ServicesController < ApplicationController
 
     def service_params
       params[:service]
+    end
+
+    def admin_only
+      unless current_user.admin?
+        redirect_to "/", :alert => "Access denied."
+      end
     end
 end
