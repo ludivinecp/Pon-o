@@ -5,6 +5,24 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   # before_action :configure_devise_permitted_parameters, if: :devise_controller?
+  def authenticate_admin!
+    unless current_user.admin
+      redirect_to root_path, alert: "Accès refusé"
+    end
+  end
+
+  def authenticate_center!
+    unless !!current_user.centre
+      redirect_to root_path, alert: "Accès refusé"
+    end
+  end
+
+  def authenticate_rider!
+    unless !!current_user.rider
+      redirect_to root_path, alert: "Accès refusé"
+    end
+  end
+
 
   # protected
 

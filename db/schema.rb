@@ -11,21 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151202140117) do
+ActiveRecord::Schema.define(version: 20151203121617) do
 
   create_table "bookings", force: :cascade do |t|
     t.integer  "number_of_people"
     t.integer  "total_price"
     t.integer  "centre_id"
-    t.integer  "user_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
     t.integer  "service_id"
+    t.integer  "rider_id"
   end
 
   add_index "bookings", ["centre_id"], name: "index_bookings_on_centre_id"
+  add_index "bookings", ["rider_id"], name: "index_bookings_on_rider_id"
   add_index "bookings", ["service_id"], name: "index_bookings_on_service_id"
-  add_index "bookings", ["user_id"], name: "index_bookings_on_user_id"
 
   create_table "centres", force: :cascade do |t|
     t.integer  "siret"
@@ -92,6 +92,7 @@ ActiveRecord::Schema.define(version: 20151202140117) do
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
     t.boolean  "admin",                  default: false
+    t.boolean  "centre",                 default: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

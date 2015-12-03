@@ -1,7 +1,7 @@
 class CentresController < ApplicationController
   before_action :authenticate_user!
-  before_action :admin_only, only:[:show, :edit, :update]
-  before_action :centre_only
+  before_action :authenticate_admin!
+  before_action :authenticate_center!, only: [:show, :edit, :update]
 
   def index
     @centres = Centre.all
@@ -62,17 +62,6 @@ class CentresController < ApplicationController
       # params[:centre]
       params.require(:centre).permit(:name, :ffe, :siret)
     end
-
-    def admin_only
-      unless current_user.admin?
-        redirect_to "/", :alert => "Access denied."
-      end
-    end
-
-    def centre_only
-    unless Centre.find(params[current_user.id])
-      redirect_to "/", :alert => "Access denied."
-    end
-  end
+ 
 end
 

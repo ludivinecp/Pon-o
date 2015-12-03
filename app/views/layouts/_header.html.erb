@@ -32,13 +32,22 @@ background-image: -webkit-linear-gradient(top, #FA9C06 10%, #D98805 90%); box-sh
       
         <li><%= link_to "Accueil", root_path %></li>
         <% if user_signed_in? %>
+
           <% if current_user.admin? %>
             <%= link_to "Admin", rails_admin_path%>
           <%end%>
-          <li style="color:white; padding-top: 16px; padding-left: 30px;">Bonjour <strong><%= current_user.centre.try(:name)%></strong>
+
+          <li style="color:white; padding-top: 16px; padding-left: 30px;">
+          Bonjour <strong><%= current_user.centre.try(:name)%></strong>
           <strong><%= current_user.rider.try(:first_name)%>!</strong></li>
+
           <li><%= link_to "Mon compte", edit_user_registration_path %></li>
-          <li><%= link_to "Mon profil", rider_path(current_user.id)  %></li>
+            <% if !!current_user.rider %>
+             <li><%= link_to "Mon profil", rider_path(current_user.rider.id)  %></li>
+            <%else%>
+               <li><%= link_to "Mon profil", centre_path(current_user.centre.id)  %></li>
+            <%end%>
+
           <li><%= link_to "Me déconnecter", destroy_user_session_path, method: :delete %></li>
         <% else %>
           <li><%= link_to "Connexion", new_user_session_path %></li>

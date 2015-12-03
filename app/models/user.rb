@@ -4,8 +4,8 @@ class User < ActiveRecord::Base
   
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  has_one :rider
-  has_one :centre
+  has_one :rider, required: false
+  has_one :centre, required: false
   after_create :notification
   # validates_presence_of  :nickname, :first_name, :last_name, :level, :phone
   # mount_uploader :avatar, AvatarUploader
