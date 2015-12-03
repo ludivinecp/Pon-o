@@ -1,4 +1,6 @@
 source 'https://rubygems.org'
+#seeds generator
+gem 'faker'
 #Admin
 gem 'fastercsv'
 gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
