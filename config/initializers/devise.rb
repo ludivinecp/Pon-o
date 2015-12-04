@@ -3,7 +3,7 @@
 Devise.setup do |config|
   #Replace example.com with your own domain name
   config.mailer_sender = 'poneo.mailer@gmail.com '
-
+#facebook and devise authentification
   require 'devise/orm/active_record'
   config.case_insensitive_keys = [ :email ]
   config.strip_whitespace_keys = [ :email ]
