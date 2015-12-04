@@ -4,6 +4,11 @@ class ApplicationController < ActionController::Base
   require 'carrierwave/orm/activerecord'
   protect_from_forgery with: :exception
 
+  #facebook auth
+  def new_session_path(scope)
+    new_user_session_path
+  end
+
   # before_action :configure_devise_permitted_parameters, if: :devise_controller?
 
   # protected

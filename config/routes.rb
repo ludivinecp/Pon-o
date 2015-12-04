@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
-
-
-  devise_for :users
-
+  #facebook Authentification (with devise)
+  #devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" } 
+ devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -12,7 +11,7 @@ Rails.application.routes.draw do
   resources :centres
   resources :services
   resources :bookings
-  resources  :riders
+  resources :riders
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
