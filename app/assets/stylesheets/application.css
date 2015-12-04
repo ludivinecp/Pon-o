@@ -15,3 +15,27 @@
  *= require_self
  *= require_tree .
  */
+
+ .calendar th {
+    width: 120px;
+    text-align: center;
+
+
+  }
+
+ .calendar td {
+  height: 100px;
+  border: dotted 1px black;
+  text-align: center;
+ }
+
+ h2, .planning{
+  color:orange;
+  margin-left: 50px;
+
+ }
+
+ .section {
+
+  margin-top: 50px;
+ }

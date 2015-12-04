@@ -7,6 +7,7 @@ gem 'devise'
 gem 'pry'
 gem 'bootstrap_form'
 gem 'twitter-bootstrap-rails'
+gem "simple_calendar"
 #facebook auth
 gem 'omniauth-facebook'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
