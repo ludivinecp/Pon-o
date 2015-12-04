@@ -93,26 +93,20 @@ GEM
       warden (~> 1.2.3)
     erubis (2.7.0)
     execjs (2.6.0)
-<<<<<<< HEAD
     faker (1.6.1)
       i18n (~> 0.5)
     fastercsv (1.5.5)
     font-awesome-rails (4.5.0.0)
       railties (>= 3.2, < 5.0)
-=======
     faraday (0.9.2)
       multipart-post (>= 1.2, < 3)
->>>>>>> 784250901f06d7ab9d8aca79eee88364c0d21d60
     geocoder (1.2.12)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     gmaps4rails (2.1.2)
-<<<<<<< HEAD
     haml (4.0.7)
       tilt
-=======
     hashie (3.4.3)
->>>>>>> 784250901f06d7ab9d8aca79eee88364c0d21d60
     i18n (0.7.0)
     jbuilder (2.3.2)
       activesupport (>= 3.0.0, < 5)
@@ -127,13 +121,10 @@ GEM
     jquery-ui-rails (5.0.5)
       railties (>= 3.2.16)
     json (1.8.3)
-<<<<<<< HEAD
     kaminari (0.16.3)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
-=======
     jwt (1.5.2)
->>>>>>> 784250901f06d7ab9d8aca79eee88364c0d21d60
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.3)
@@ -145,12 +136,9 @@ GEM
     mini_portile (0.6.2)
     minitest (5.8.3)
     multi_json (1.11.2)
-<<<<<<< HEAD
     nested_form (0.3.2)
-=======
     multi_xml (0.5.5)
     multipart-post (2.0.0)
->>>>>>> 784250901f06d7ab9d8aca79eee88364c0d21d60
     nokogiri (1.6.6.4)
       mini_portile (~> 0.6.0)
     oauth2 (1.0.0)
