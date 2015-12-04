@@ -8,5 +8,3 @@ Service.create ([{Faker::Name.title
                   Faker::Number.number(10) }])
 
 
-
-               
