@@ -4,11 +4,23 @@ class User < ActiveRecord::Base
   
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  has_one :rider, required: false
-  has_one :centre, required: true
+  has_one :rider
+  has_one :centre
   after_create :notification
+  after_create :unique_role
   # validates_presence_of  :nickname, :first_name, :last_name, :level, :phone
-  # mount_uploader :avatar, AvatarUploader
+
+ 
+  def unique_role
+    if self.is_centre?
+      usercenter = Centre.new(user_id: self.id)
+      usercenter.save
+    else
+      userrider = Rider.new(user_id: self.id)
+      userrider.save
+    end
+  end
+
 
   private
 def notification

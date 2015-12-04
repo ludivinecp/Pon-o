@@ -42,10 +42,10 @@ background-image: -webkit-linear-gradient(top, #FA9C06 10%, #D98805 90%); box-sh
           <strong><%= current_user.rider.try(:first_name)%>!</strong></li>
 
           <li><%= link_to "Mon compte", edit_user_registration_path %></li>
-            <% if !!current_user.rider %>
-             <li><%= link_to "Mon profil", rider_path(current_user.rider.id)  %></li>
+            <% if current_user.is_centre? %>
+            <li><%= link_to "Mon profil", centre_path(current_user.centre.id)  %></li>
             <%else%>
-               <li><%= link_to "Mon profil", centre_path(current_user.centre.id)  %></li>
+                <li><%= link_to "Mon profil", rider_path(current_user.rider.id)  %></li>
             <%end%>
 
           <li><%= link_to "Me déconnecter", destroy_user_session_path, method: :delete %></li>

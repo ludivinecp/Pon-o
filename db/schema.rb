@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151203121617) do
+ActiveRecord::Schema.define(version: 20151204141135) do
 
   create_table "bookings", force: :cascade do |t|
     t.integer  "number_of_people"
@@ -35,9 +35,8 @@ ActiveRecord::Schema.define(version: 20151203121617) do
     t.string   "address"
     t.float    "latitude"
     t.float    "longitude"
-    t.boolean  "admin",      default: false
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string   "phone"
   end
 
@@ -92,7 +91,7 @@ ActiveRecord::Schema.define(version: 20151203121617) do
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
     t.boolean  "admin",                  default: false
-    t.boolean  "centre",                 default: false
+    t.boolean  "is_centre",              default: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

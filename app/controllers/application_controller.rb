@@ -23,6 +23,15 @@ class ApplicationController < ActionController::Base
     end
   end
 
+   def rider?
+  # renvoie true quand admin est false ET centre est false
+  admin && centre
+  end
+
+  def centre?
+  # renvoie true quand admin est false ET centre est true
+  admin && !centre
+  end
 
   # protected
 
