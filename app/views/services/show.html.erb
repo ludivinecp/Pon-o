@@ -9,4 +9,11 @@
 <%= @service.price %>€</br>
 <%= @service.description %></br>
 
-<%=link_to 'Reserver !', new_booking_path, method: :get%>
+
+<%=form_for @booking, url: new_booking_path, method: :get do |f|%>
+  <%= f.label :nombre_de_personnes%>
+  <%= f.number_field :number_of_people%>
+  <%=f.hidden_field :rider_id, :value => current_user.id%>
+  <%=f.hidden_field :service_id, :value => @service%>
+  <%=f.submit "Reserver !"%>
+<%end%>

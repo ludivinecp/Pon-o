@@ -3,8 +3,7 @@ class Booking < ActiveRecord::Base
   belongs_to :service
   belongs_to :rider
 
-  def book
-    
-    
+  def total_price
+    self.number_of_people * service.price    
   end
 end

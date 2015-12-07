@@ -11,6 +11,7 @@ class BookingsController < ApplicationController
   def new
  
     @booking = Booking.new
+    
 
   end
 
@@ -23,16 +24,17 @@ class BookingsController < ApplicationController
 
     respond_to do |format|
       if @booking.save
-        format.html { redirect_to @booking, notice: 'Booking was successfully created.' }
-        format.json { render :show, status: :created, location: @booking }
+        render :update, notice: 'Please check' 
       else
-        format.html { render :new }
-        format.json { render json: @booking.errors, status: :unprocessable_entity }
+        redirect_to show_service_path
       end
     end
   end
 
   def update
+    @service = Service.find(params[:id])
+    @centre = Centre.find(params[:id])
+    @booking = Booking.new(booking_params)
     respond_to do |format|
       if @booking.update(booking_params)
         format.html { redirect_to @booking, notice: 'Booking was successfully updated.' }
@@ -58,6 +60,6 @@ class BookingsController < ApplicationController
     end
 
     def booking_params
-      params[:booking]
+       params.require(:booking).permit(:number_of_people)
     end
 end
