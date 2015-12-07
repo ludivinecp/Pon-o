@@ -9,4 +9,4 @@
 <%= @service.price %>€</br>
 <%= @service.description %></br>
 
-<%=link_to 'Reserver !', bookings_path %>
+<%=link_to 'Reserver !', new_booking_path, method: :get%>

@@ -9,13 +9,16 @@ class BookingsController < ApplicationController
   end
 
   def new
+ 
     @booking = Booking.new
+
   end
 
   def edit
   end
 
   def create
+
     @booking = Booking.new(booking_params)
 
     respond_to do |format|
