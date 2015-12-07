@@ -3,12 +3,12 @@
 
 $body-bg: white;
 $font-family-sans-serif:           'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
- $navbar-default-bg:                #E38E05;
+$navbar-default-bg:                black;
 
 
 $navbar-default-link-color:         white;
 $brand-primary:                     #f39c12;
-$jumbotron-bg:                      #ecf0f1;
+// $jumbotron-bg:                      #FAFAFA;
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
 
@@ -41,4 +41,3 @@ $jumbotron-bg:                      #ecf0f1;
 .buttons {
   margin-top:40px;
 }
-

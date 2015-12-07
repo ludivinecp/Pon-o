@@ -10,24 +10,24 @@
 
 User.create([{ email: 'guest@wcs.com',
               password: 'jecode4laloupe',
-              
-              
+
+
   }])
 User.create([{ email: 'ludivine@wcs.com',
               password: 'jecode4laloupe',
-              
+
   }])
 User.create([{ email: 'nelly@wcs.com',
               password: 'jecode4laloupe',
-              
+
   }])
 User.create([{ email: 'victor@wcs.com',
               password: 'jecode4laloupe',
-              
+
   }])
 User.create([{ email: 'ph@wcs.com',
               password: 'jecode4laloupe',
-              
+
   }])
 User.create([{ email: 'mathieu@wcs.com',
               password: 'jecode4laloupe',
@@ -128,7 +128,7 @@ Rider.create([{ last_name: 'Guest',
               nickname: 'Adam',
               level: 'Debutant',
               user_id: 11
-              
+
   }])
 
 Rider.create([{last_name: 'ludivine',
@@ -142,7 +142,7 @@ Rider.create([{last_name: 'ludivine',
               nickname: 'grisous',
               level: 'Intermediaire',
               user_id: 12
-              
+
 
   }])
 
@@ -157,7 +157,7 @@ Rider.create([{ last_name: 'nelly',
               nickname: 'Dada',
               level: 'Confirme',
               user_id: 13
-              
+
   }])
 
 Rider.create([{ last_name: 'victor',
@@ -171,7 +171,7 @@ Rider.create([{ last_name: 'victor',
               nickname: 'Poulet',
               level: 'Debutant',
               user_id: 14
-              
+
 
   }])
 
@@ -186,7 +186,7 @@ Rider.create([{ last_name: 'PH',
               nickname: 'Youpi',
               level: 'Confirme',
               user_id: 15
-              
+
 
   }])
 
@@ -201,7 +201,7 @@ Rider.create([{last_name: 'mathieu',
               nickname: 'Lola',
               level: 'Debutant',
               user_id: 16
-              
+
 
   }])
 
@@ -216,7 +216,7 @@ Rider.create([{ last_name: 'lucie',
               nickname: 'Baby_girl',
               level: 'Confirme',
               user_id: 17
-              
+
 
   }])
 Rider.create([{ last_name: 'erwann',
@@ -230,7 +230,7 @@ Rider.create([{ last_name: 'erwann',
               nickname: 'SuperPapy',
               level: 'Intermediaire',
               user_id: 18
-              
+
 
   }])
 Rider.create([{ last_name: 'alexandra',
@@ -244,7 +244,7 @@ Rider.create([{ last_name: 'alexandra',
               nickname: 'Rocky',
               level: 'Debutant',
               user_id: 19
-              
+
 
   }])
 Rider.create([{last_name: 'romain',
@@ -258,7 +258,7 @@ Rider.create([{last_name: 'romain',
               nickname: 'Chouquette',
               level: 'Confirmé',
               user_id: 20
-              
+
   }])
 Service.create([{ title: 'nature1',
               category:'nature',

@@ -1,66 +1,124 @@
-<div class="container-fluid">
-<div class="row">
-  <h2> Services</h2>
-  <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
-    <h3>Rechercher les centres équestres</h3>
-        <div class="input-group">
-
-
-
-              <%= form_tag services_path, method: :get do %>
-             
-              <%= text_field_tag :search, params[:search], class:'input-large'%>
-         
-              <%= submit_tag "Search", class:'btn btn-success' %>
-              <% end %>
-
-
-</div>
-
-
-
-<div class="row">
-  <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
-    <p><% @centres.each do |centre|%></p>
-    
-    <div class="pins" class="transitions-enabled">
-      <p><% centre.services.each do |service|%></p>
-        <div class="box panel panel-default">
-
-          <h2><%= service.title %></h2>
-          <div class="image_centre">
-          <%= image_tag "poneo-8.jpg" %>
-            <p> price: € <%= service.price%></p>
-            <p> Categorie: <%= service.category %></p>
-            <p> Adresse: <%= service.centre.address %></p>
-            <%= link_to 'Réserver', service, class:'btn btn-success'%>
-          </div>
-        </div>
-
-      <% end %>
-      <% end %>
-
-    </div>
-    <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
-      
-    </div>
-  </div>
-</div>
-</div>
-
-<div style='width: 800px;'>
-  <div id="map" style='width: 800px; height: 400px;'></div>
-</div>
-
-<script type="text/javascript">
-handler = Gmaps.build('Google');
-handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-  markers = handler.addMarkers(<%=raw @hash.to_json %>);
-  handler.bounds.extendWith(markers);
-  handler.fitMapToBounds();
-});
-
-</script>
-<script src="//maps.google.com/maps/api/js?v=3.18&sensor=false&client=&key=&libraries=geometry&language=&hl=&region="></script> 
+<script src="//maps.google.com/maps/api/js?v=3.18&sensor=false&client=&key=&libraries=geometry&language=&hl=&region="></script>
 <script src="//google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.14/src/markerclusterer_packed.js"></script>
 <script src='//google-maps-utility-library-v3.googlecode.com/svn/tags/infobox/1.1.9/src/infobox_packed.js' type='text/javascript'></script>
+    <div class="section">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-7 jumbotron" style="overflow:scroll">
+            <h3 class="text-center" contenteditable="false">Recherche</h3>
+            <br/>
+          <div class="section">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-md-12">
+                  <div id="custom-search-input">
+                    <div class="input-group col-md-12">
+                      <input type="text" class="form-control input-lg" placeholder="Trouvez un lieu et amusez-vous !" />
+                        <span class="input-group-btn">
+                          <button class="btn btn-info btn-lg" type="button">
+                            <i class="glyphicon glyphicon-search"></i>
+                          </button>
+                        </span>
+                    </div>
+                  </div>
+                  <div id="custom-search-input">
+                      <div class="input-group col-md-12">
+                          <%= form_tag services_path, method: :get do %>
+                              <%= label :search, "Search services near : " %>
+                              <%= text_field_tag :search, params[:search] %>
+                              <%= submit_tag "Search" %>
+                          <%end %>
+<!-- search bar bootstrap/rails alike non fonctionnelle à retravailler:                          -->
+                              <!-- <%= text_field_tag :search, params[:search], class: "form-control input-lg", placeholder: "Trouver un lieu..." %> -->
+                          <!-- <%= button_tag(type: "submit", class: "btn btn-info btn-lg  ") do %> -->
+                              <!-- <i class="glyphicon glyphicon-search"></i> -->
+                          <!-- <%end%> -->
+                      </div>
+                  </div>
+                </div>
+              </div>
+                <div class="row"><div class="col-md-12"></div>
+                <div class="col-md-12"><hr></div></div>
+                <div class="row">
+
+                  <div class="col-md-offset-3">
+                    <p>Trier par:</p>
+                    <div class="btn-group btn-group-md">
+                      <a class="btn btn-default dropdown-toggle" data-toggle="dropdown"> Catégorie <span class="fa fa-caret-down"></span></a>
+                      <ul class="dropdown-menu" role="menu">
+                        <li>
+                          <a href="#">Action</a>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="btn-group btn-group-md">
+                      <a class="btn btn-default dropdown-toggle" data-toggle="dropdown"> Niveau <span class="fa fa-caret-down"></span></a>
+                      <ul class="dropdown-menu" role="menu">
+                        <li>
+                          <a href="">Action</a>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="btn-group btn-group-md">
+                      <a class="btn btn-default dropdown-toggle" data-toggle="dropdown"> Tranche d'âge <span class="fa fa-caret-down"></span></a>
+                      <ul class="dropdown-menu" role="menu">
+                        <li>
+                          <a href="#">Action</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <hr>
+                    <h3 class="text-center">Résultats</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="section">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-12">
+
+                      <p><% @centres.each do |centre|%></p>
+                      <div class="pins" class="transitions-enabled">
+                        <p><% centre.services.each do |service|%></p>
+                          <div class="box panel panel-default">
+
+                            <h2><%= service.title %></h2>
+                            <div class="image_centre">
+                            <%= image_tag "poneo-8.jpg" %>
+                              <p> price: € <%= service.price%></p>
+                              <p> Categorie: <%= service.category %></p>                              <%= link_to 'Réserver', service, class:'btn btn-success'%>
+                            </div>
+                          </div>
+
+                        <% end %>
+                      </div>
+                        <% end %>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <div class="col-md-5 hidden-sm hidden-xs">
+            <div>
+              <div id="map" style='width: 515px; height: 650px;'></div>
+            </div>
+          </div>
+            <script type="text/javascript">
+            handler = Gmaps.build('Google');
+            handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+              markers = handler.addMarkers(<%=raw @hash.to_json %>);
+              handler.bounds.extendWith(markers);
+              handler.fitMapToBounds();
+            });
+
+            </script>
+          </div>
+        </div>
+      </div>
+      </div>
