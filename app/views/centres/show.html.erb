@@ -29,6 +29,9 @@
               <li>Numéro ffe: <%=@centre.ffe%></li>
               <li>Numéro siret: <%=@centre.siret%></li>
             </ul>
+
+            <%= link_to 'Ajouter un service' ,new_service_path , class:'btn btn-primary' %>
+ 
           </div>
         </div>
       </div>
@@ -76,7 +79,8 @@
        <div class="section">
         <div class="row">
           <div class="col-md-12">
-            <h2 class="planning">Planning réservations</h2>
+            <h2 class="planning">Planning des réservations</h2></br>
+
 
 <% start_date = params.fetch(:start_date, Date.today).to_date %>
 <% date_range = (start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week).to_a %>             
@@ -101,7 +105,7 @@
                 <% end %>
             </tbody>
           </table>
-          <%= link_to 'Ajouter un service' ,new_service_path %>
+         
 
             </div>
           </div>

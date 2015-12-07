@@ -17,21 +17,26 @@
  */
 
  .calendar th {
-    width: 120px;
+    width: 150px;
     text-align: center;
 
 
   }
 
  .calendar td {
-  height: 100px;
+  height: 150px;
   border: dotted 1px black;
+  vertical-align: top;
   text-align: center;
+  color: brown;
+  font-weight: bold;
+  text-decoration: underline;
+
  }
 
  h2, .planning{
   color:orange;
-  margin-left: 50px;
+
 
  }
 
