@@ -17,7 +17,7 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
       if @booking.save
-        redirect_to booking_path(@booking), notice: 'Please check' 
+        redirect_to booking_path(@booking) 
       else
         redirect_to service_path(params[:id])
       end

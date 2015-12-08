@@ -21,6 +21,14 @@
 
     <div id="my_text"class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
       <p>Mes réservations</p>
+        <% if @rider.booking.nil?%>
+          <p> Vous n'avez pas encore de réservation </p>
+        <% else %>
+            <% @rider.bookings.each do |booking| %>
+            <%=booking.centre_id%>
+            <%end%>
+        <%end%>
+
     </div>
   </div>
 </div>
