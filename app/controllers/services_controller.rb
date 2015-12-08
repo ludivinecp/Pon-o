@@ -9,6 +9,7 @@ class ServicesController < ApplicationController
       @hash = Gmaps4rails.build_markers(@centres) do |centre, marker|
         marker.lat centre.latitude
         marker.lng centre.longitude
+        marker.infowindow "<a href='#{centre_path(centre)}'> #{centre.name} </a>"
       end
     else
       @centres = Centre.all
