@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nature: MyString
+  exploration: MyString
+  sport: MyString
+
+two:
+  nature: MyString
+  exploration: MyString
+  sport: MyString
