@@ -39,7 +39,6 @@ class ServicesController < ApplicationController
         format.html { render :new }
         format.json { render json: @service.errors, status: :unprocessable_entity }
       end
-    end
   end
 
   def update

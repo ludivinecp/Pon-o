@@ -6,29 +6,20 @@ class BookingsController < ApplicationController
   end
 
   def show
-    @booking = Booking.find(params[:id])
     @service = Service.find(params[:id])
     @centre = Centre.find(params[:id])
-  end
-
-  def new
-    @booking = Booking.new
-     @service = Service.find(params[:id])
-    @centre = Centre.find(params[:id])
+    @booking = Booking.find(params[:id])
   end
 
   def edit
   end
 
   def create
-    @service = Service.find(params[:id])
-    @centre = Centre.find(params[:id])
     @booking = Booking.new(booking_params)
-
       if @booking.save
-        render :show, notice: 'Please check' 
+        redirect_to booking_path(@booking), notice: 'Please check' 
       else
-        redirect_to show_service_path
+        redirect_to service_path(params[:id])
       end
   end
 
@@ -61,6 +52,6 @@ class BookingsController < ApplicationController
     end
 
     def booking_params
-       params.require(:booking).permit(:number_of_people)
+       params.require(:booking).permit(:number_of_people, :rider_id, :service_id)
     end
 end
