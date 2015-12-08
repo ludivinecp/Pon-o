@@ -10,4 +10,6 @@ class Booking < ActiveRecord::Base
   validates :number_of_people, presence: {
     message: "Le nombre de personne doit être renseigné."
   }
+  before_action :authenticate_user!
+
 end
