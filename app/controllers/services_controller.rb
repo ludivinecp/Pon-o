@@ -15,6 +15,11 @@ class ServicesController < ApplicationController
         marker.lat centre.latitude
         marker.lng centre.longitude
         marker.infowindow render_to_string(:partial => "/services/gmap", :locals => { :centre => centre})
+        marker.picture({
+          "url" => "http://people.mozilla.com/~faaborg/files/shiretoko/firefoxIcon/firefox-32.png",
+          "width" => 32,
+          "height" => 32
+          })
       end
   end
 
