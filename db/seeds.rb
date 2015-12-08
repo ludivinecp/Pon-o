@@ -1,6 +1,6 @@
 
 # Service.create ([{Faker::Name.title 
-#                   categories_id: 'sport',
+#                   category_id: 'sport',
 #                   Faker::Commerce.price,
 #                   Faker::Lorem.paragraph(2),
 #                   Faker::Date.forward(23),
@@ -261,7 +261,7 @@ Centre.create([{
 
 #   }])
 Service.create([{ title: 'nature1',
-              categories_id: 1,
+              category_id: 1,
               price: 50,
               description: 'balade dans la nature',
               date: '2015-11-10',
@@ -270,7 +270,7 @@ Service.create([{ title: 'nature1',
               centre_id: 1 }])
 
 Service.create([{ title: 'decouverte1',
-              categories_id: 2,
+              category_id: 2,
               price: 30,
               description: 'decouverte de lequitation',
               date: '2016-01-01',
@@ -280,7 +280,7 @@ Service.create([{ title: 'decouverte1',
 
 
 Service.create([{ title: 'sport1',
-              categories_id: 3,
+              category_id: 3,
               price: 70,
               description: 'activité sportive avec saut dobstacles',
               date: '2015-11-15',
@@ -289,7 +289,7 @@ Service.create([{ title: 'sport1',
               centre_id: 3 }])
 
 Service.create([{ title: 'sport2',
-              categories_id: 3,
+              category_id: 3,
               price: 70,
               description: 'activité sportive balaise',
               date: '2016-02-20',
@@ -297,7 +297,7 @@ Service.create([{ title: 'sport2',
               centre_id: 4 }])
 
 Service.create([{ title: 'decouverte2',
-              categories_id: 2,
+              category_id: 2,
               price: 30,
               description: 'decouverte du poney',
               date: '2016-03-10',
@@ -306,7 +306,7 @@ Service.create([{ title: 'decouverte2',
               centre_id: 5 }])
 
 Service.create([{ title: 'nature2',
-              categories_id:  1,
+              category_id:  1,
               price: 50,
               description: 'balade dans la nature cool',
               date: '2016-02-01',
@@ -315,7 +315,7 @@ Service.create([{ title: 'nature2',
               centre_id: 6 }])
 
 Service.create([{ title: 'sport3',
-              categories_id: 3,
+              category_id: 3,
               price: 70,
               description: 'activité sportive haut level',
               date: '2016-01-05',
@@ -324,7 +324,7 @@ Service.create([{ title: 'sport3',
               centre_id: 7 }])
 
 Service.create([{ title: 'nature3',
-              categories_id:  1,
+              category_id:  1,
               price: 50,
               description: 'promenade relaxante',
               date: '2015-11-29',
@@ -333,7 +333,7 @@ Service.create([{ title: 'nature3',
               centre_id: 8 }])
 
 Service.create([{ title: 'decouvert3',
-              categories_id: 2,
+              category_id: 2,
                price: '30',
               description: 'decouverte du cheval',
               date: '2015-11-07',
@@ -342,7 +342,7 @@ Service.create([{ title: 'decouvert3',
               centre_id: 9 }])
 
 Service.create([{ title: 'sport4',
-              categories_id: 3,
+              category_id: 3,
               price: 70,
               description: 'activité sportive pas trop dur',
               date: '2015-11-18',
