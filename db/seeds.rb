@@ -1,6 +1,6 @@
 
 # Service.create ([{Faker::Name.title 
-#                   category: 'sport',
+#                   category_id: 'sport',
 #                   Faker::Commerce.price,
 #                   Faker::Lorem.paragraph(2),
 #                   Faker::Date.forward(23),
@@ -117,151 +117,151 @@ Centre.create([{
   user_id: 10
 }])
 
-Rider.create([{ last_name: 'Guest',
-              first_name: 'Bulma',
-              phone: '0123456789',
-              address: '6 place jules nadi',
-              age: 29,
-              gender:'homme',
-              weight: 70,
-              tall: 175,
-              nickname: 'Adam',
-              level: 'Debutant',
-              user_id: 11
+# Rider.create([{ last_name: 'Guest',
+#               first_name: 'Bulma',
+#               phone: '0123456789',
+#               address: '6 place jules nadi',
+#               age: 29,
+#               gender:'homme',
+#               weight: 70,
+#               tall: 175,
+#               nickname: 'Adam',
+#               level: 'Debutant',
+#               user_id: 11
 
-  }])
+#   }])
 
-Rider.create([{last_name: 'ludivine',
-              first_name: 'coipel',
-              phone: '0678907654',
-              address: '3 rue joliot curie',
-              age: 58,
-              gender:'homme',
-              weight: 85,
-              tall: 170,
-              nickname: 'grisous',
-              level: 'Intermediaire',
-              user_id: 12
-
-
-  }])
-
-Rider.create([{ last_name: 'nelly',
-              first_name: 'darte',
-              phone: '0987678945',
-              address: '45 avenue du général leclerc',
-              age: 36,
-              gender:'femme',
-              weight: 80,
-              tall: 165,
-              nickname: 'Dada',
-              level: 'Confirme',
-              user_id: 13
-
-  }])
-
-Rider.create([{ last_name: 'victor',
-              first_name: 'goutay',
-              phone: '0974534567',
-              address: '14 rue de la gare',
-              age: 21,
-              gender:'homme',
-              weight: 67,
-              tall: 190,
-              nickname: 'Poulet',
-              level: 'Debutant',
-              user_id: 14
+# Rider.create([{last_name: 'ludivine',
+#               first_name: 'coipel',
+#               phone: '0678907654',
+#               address: '3 rue joliot curie',
+#               age: 58,
+#               gender:'homme',
+#               weight: 85,
+#               tall: 170,
+#               nickname: 'grisous',
+#               level: 'Intermediaire',
+#               user_id: 12
 
 
-  }])
+#   }])
 
-Rider.create([{ last_name: 'PH',
-              first_name: 'haffner',
-              phone: '0123456765',
-              address: '12 rue du bac',
-              age: 19,
-              gender:'femme',
-              weight: 60,
-              tall: 170,
-              nickname: 'Youpi',
-              level: 'Confirme',
-              user_id: 15
+# Rider.create([{ last_name: 'nelly',
+#               first_name: 'darte',
+#               phone: '0987678945',
+#               address: '45 avenue du général leclerc',
+#               age: 36,
+#               gender:'femme',
+#               weight: 80,
+#               tall: 165,
+#               nickname: 'Dada',
+#               level: 'Confirme',
+#               user_id: 13
 
+#   }])
 
-  }])
-
-Rider.create([{last_name: 'mathieu',
-              first_name: 'loret',
-              phone: '0976785467',
-              address: '3 rue d\'Alésia',
-              age: 62,
-              gender:'femme',
-              weight: 60,
-              tall: 160,
-              nickname: 'Lola',
-              level: 'Debutant',
-              user_id: 16
-
-
-  }])
-
-Rider.create([{ last_name: 'lucie',
-              first_name: 'de la roche',
-              phone: '0989645678',
-              address: '12 rue du bac',
-              age: 45,
-              gender:'femme',
-              weight: 49,
-              tall: 160,
-              nickname: 'Baby_girl',
-              level: 'Confirme',
-              user_id: 17
+# Rider.create([{ last_name: 'victor',
+#               first_name: 'goutay',
+#               phone: '0974534567',
+#               address: '14 rue de la gare',
+#               age: 21,
+#               gender:'homme',
+#               weight: 67,
+#               tall: 190,
+#               nickname: 'Poulet',
+#               level: 'Debutant',
+#               user_id: 14
 
 
-  }])
-Rider.create([{ last_name: 'erwann',
-              first_name: 'prat',
-              phone: '0987678456',
-              address: '62 rue du 11 novembre',
-              age: 68,
-              gender:'homme',
-              weight: 70,
-              tall: 160,
-              nickname: 'SuperPapy',
-              level: 'Intermediaire',
-              user_id: 18
+#   }])
+
+# Rider.create([{ last_name: 'PH',
+#               first_name: 'haffner',
+#               phone: '0123456765',
+#               address: '12 rue du bac',
+#               age: 19,
+#               gender:'femme',
+#               weight: 60,
+#               tall: 170,
+#               nickname: 'Youpi',
+#               level: 'Confirme',
+#               user_id: 15
 
 
-  }])
-Rider.create([{ last_name: 'alexandra',
-              first_name: 'dupuis',
-              phone: '0967896545',
-              address: '3 rue jean vende',
-              age: 41,
-              gender: 'homme',
-              weight: 90,
-              tall: 190,
-              nickname: 'Rocky',
-              level: 'Debutant',
-              user_id: 19
+#   }])
+
+# Rider.create([{last_name: 'mathieu',
+#               first_name: 'loret',
+#               phone: '0976785467',
+#               address: '3 rue d\'Alésia',
+#               age: 62,
+#               gender:'femme',
+#               weight: 60,
+#               tall: 160,
+#               nickname: 'Lola',
+#               level: 'Debutant',
+#               user_id: 16
 
 
-  }])
-Rider.create([{last_name: 'romain',
-              first_name: 'dardan',
-              phone: '0978965745',
-              address: '3 rue du faubourg saint antoine',
-              age: 24,
-              gender: 'femme',
-              weight: 55,
-              tall: 165,
-              nickname: 'Chouquette',
-              level: 'Confirmé',
-              user_id: 20
+#   }])
 
-  }])
+# Rider.create([{ last_name: 'lucie',
+#               first_name: 'de la roche',
+#               phone: '0989645678',
+#               address: '12 rue du bac',
+#               age: 45,
+#               gender:'femme',
+#               weight: 49,
+#               tall: 160,
+#               nickname: 'Baby_girl',
+#               level: 'Confirme',
+#               user_id: 17
+
+
+#   }])
+# Rider.create([{ last_name: 'erwann',
+#               first_name: 'prat',
+#               phone: '0987678456',
+#               address: '62 rue du 11 novembre',
+#               age: 68,
+#               gender:'homme',
+#               weight: 70,
+#               tall: 160,
+#               nickname: 'SuperPapy',
+#               level: 'Intermediaire',
+#               user_id: 18
+
+
+#   }])
+# Rider.create([{ last_name: 'alexandra',
+#               first_name: 'dupuis',
+#               phone: '0967896545',
+#               address: '3 rue jean vende',
+#               age: 41,
+#               gender: 'homme',
+#               weight: 90,
+#               tall: 190,
+#               nickname: 'Rocky',
+#               level: 'Debutant',
+#               user_id: 19
+
+
+#   }])
+# Rider.create([{last_name: 'romain',
+#               first_name: 'dardan',
+#               phone: '0978965745',
+#               address: '3 rue du faubourg saint antoine',
+#               age: 24,
+#               gender: 'femme',
+#               weight: 55,
+#               tall: 165,
+#               nickname: 'Chouquette',
+#               level: 'Confirmé',
+#               user_id: 20
+
+#   }])
 Service.create([{ title: 'nature1',
-              category:'nature',
+              category_id: 1,
               price: 50,
               description: 'balade dans la nature',
               date: '2015-11-10',
@@ -270,7 +270,7 @@ Service.create([{ title: 'nature1',
               centre_id: 1 }])
 
 Service.create([{ title: 'decouverte1',
-              category: 'decouverte',
+              category_id: 2,
               price: 30,
               description: 'decouverte de lequitation',
               date: '2016-01-01',
@@ -280,7 +280,7 @@ Service.create([{ title: 'decouverte1',
 
 
 Service.create([{ title: 'sport1',
-              category: 'sport',
+              category_id: 3,
               price: 70,
               description: 'activité sportive avec saut dobstacles',
               date: '2015-11-15',
@@ -289,7 +289,7 @@ Service.create([{ title: 'sport1',
               centre_id: 3 }])
 
 Service.create([{ title: 'sport2',
-              category: 'sport',
+              category_id: 3,
               price: 70,
               description: 'activité sportive balaise',
               date: '2016-02-20',
@@ -297,7 +297,7 @@ Service.create([{ title: 'sport2',
               centre_id: 4 }])
 
 Service.create([{ title: 'decouverte2',
-              category: 'decouverte',
+              category_id: 2,
               price: 30,
               description: 'decouverte du poney',
               date: '2016-03-10',
@@ -306,7 +306,7 @@ Service.create([{ title: 'decouverte2',
               centre_id: 5 }])
 
 Service.create([{ title: 'nature2',
-              category: 'nature',
+              category_id:  1,
               price: 50,
               description: 'balade dans la nature cool',
               date: '2016-02-01',
@@ -315,7 +315,7 @@ Service.create([{ title: 'nature2',
               centre_id: 6 }])
 
 Service.create([{ title: 'sport3',
-              category: 'sport',
+              category_id: 3,
               price: 70,
               description: 'activité sportive haut level',
               date: '2016-01-05',
@@ -324,7 +324,7 @@ Service.create([{ title: 'sport3',
               centre_id: 7 }])
 
 Service.create([{ title: 'nature3',
-              category: 'nature',
+              category_id:  1,
               price: 50,
               description: 'promenade relaxante',
               date: '2015-11-29',
@@ -333,8 +333,8 @@ Service.create([{ title: 'nature3',
               centre_id: 8 }])
 
 Service.create([{ title: 'decouvert3',
-              category: 'decouverte',
-              price: '30',
+              category_id: 2,
+               price: '30',
               description: 'decouverte du cheval',
               date: '2015-11-07',
               time: '04:00:00',
@@ -342,7 +342,7 @@ Service.create([{ title: 'decouvert3',
               centre_id: 9 }])
 
 Service.create([{ title: 'sport4',
-              category: 'sport',
+              category_id: 3,
               price: 70,
               description: 'activité sportive pas trop dur',
               date: '2015-11-18',
