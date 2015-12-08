@@ -13,6 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20151204141135) do
 
+
   create_table "bookings", force: :cascade do |t|
     t.integer  "number_of_people"
     t.integer  "total_price"
@@ -26,6 +27,13 @@ ActiveRecord::Schema.define(version: 20151204141135) do
   add_index "bookings", ["centre_id"], name: "index_bookings_on_centre_id"
   add_index "bookings", ["rider_id"], name: "index_bookings_on_rider_id"
   add_index "bookings", ["service_id"], name: "index_bookings_on_service_id"
+
+
+  create_table "categories", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "name"
+  end
 
   create_table "centres", force: :cascade do |t|
     t.integer  "siret"
@@ -73,8 +81,10 @@ ActiveRecord::Schema.define(version: 20151204141135) do
     t.integer  "centre_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.integer  "categories_id"
   end
 
+  add_index "services", ["categories_id"], name: "index_services_on_categories_id"
   add_index "services", ["centre_id"], name: "index_services_on_centre_id"
 
   create_table "users", force: :cascade do |t|

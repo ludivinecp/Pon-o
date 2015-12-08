@@ -7,4 +7,7 @@ class Booking < ActiveRecord::Base
   # def total_amount (number_of_people)
   # self.number_of_people * service.price   
   # end
+  validates :number_of_people, presence: {
+    message: "Le nombre de personne doit être renseigné."
+  }
 end
