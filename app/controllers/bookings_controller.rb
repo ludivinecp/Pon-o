@@ -6,29 +6,30 @@ class BookingsController < ApplicationController
   end
 
   def show
+    @booking = Booking.find(params[:id])
+    @service = Service.find(params[:id])
+    @centre = Centre.find(params[:id])
   end
 
   def new
- 
     @booking = Booking.new
-    
-
+     @service = Service.find(params[:id])
+    @centre = Centre.find(params[:id])
   end
 
   def edit
   end
 
   def create
-
+    @service = Service.find(params[:id])
+    @centre = Centre.find(params[:id])
     @booking = Booking.new(booking_params)
 
-    respond_to do |format|
       if @booking.save
-        render :update, notice: 'Please check' 
+        render :show, notice: 'Please check' 
       else
         redirect_to show_service_path
       end
-    end
   end
 
   def update

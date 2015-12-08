@@ -17,7 +17,6 @@ class ServicesController < ApplicationController
   end
 
   def show
-
     @service = Service.find(params[:id])
     @centre = Centre.find(params[:id])
     @booking = Booking.new
@@ -32,8 +31,7 @@ class ServicesController < ApplicationController
 
   def create
     @service = Service.new(service_params)
-
-    respond_to do |format|
+    
       if @service.save
         format.html { redirect_to @service, notice: 'Service was successfully created.' }
         format.json { render :show, status: :created, location: @service }
