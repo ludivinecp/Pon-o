@@ -5,7 +5,7 @@
 
 <h2><%= @service.title %></h2>
 
-<%= @centre.name %></br>
+<%=link_to "#{@centre.name}", centre_path(@centre)%></br> 
 <%= @service.price %>€</br>
 <%= @service.description %></br>
 <%=@service.date.strftime("%d/%m/%Y")%>
