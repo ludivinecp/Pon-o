@@ -2,6 +2,7 @@ class CentresController < ApplicationController
   before_action :authenticate_user!
   before_action :authenticate_admin!
   before_action :authenticate_center!, only: [:show, :edit, :update]
+  before_action :authenticate_rider!
 
   def index
     @centres = Centre.all

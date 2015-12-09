@@ -26,7 +26,7 @@
         <% else %>
             <ul>
             <% Booking.where(rider_id: @rider).each do |booking| %>  
-                <a href="/services/<%= booking.service.id%>"><%= booking.service.title%></a>
+                <a href="/services/<%= booking.service.id%>"><%= booking.service.title%></a></ul></br>
                 <%=booking.service.date.strftime("%d/%m/%Y")%>
             </p>
                 <%if booking.validation?%>
