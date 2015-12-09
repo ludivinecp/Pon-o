@@ -1,6 +1,7 @@
 class ServicesController < ApplicationController
-  before_action :authenticate_admin!, only: [:new, :create, :update, :edit]
+  before_action :authenticate_admin!, only: [:new, :create, :update, :edit, :destroy]
   before_action :authenticate_center!, only: [:edit, :update]
+  before_action :authenticate_rider!
 
   def index
     if params[:search].present?

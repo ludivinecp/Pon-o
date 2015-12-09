@@ -11,13 +11,13 @@ class ApplicationController < ActionController::Base
 
   # before_action :configure_devise_permitted_parameters, if: :devise_controller?
   def authenticate_admin!
-    unless current_user.admin
+    unless !!current_user.admin
       redirect_to root_path, alert: "Accès refusé"
     end
   end
 
   def authenticate_center!
-    unless !!current_user.centre
+    unless current_user.is_centre?
       redirect_to root_path, alert: "Accès refusé"
     end
   end
@@ -28,15 +28,15 @@ class ApplicationController < ActionController::Base
     end
   end
 
-   def rider?
-  # renvoie true quand admin est false ET centre est false
-  admin && centre
-  end
+  #  def rider?
+  # # renvoie true quand admin est false ET centre est false
+  # admin && centre
+  # end
 
-  def centre?
-  # renvoie true quand admin est false ET centre est true
-  admin && !centre
-  end
+  # def centre?
+  # # renvoie true quand admin est false ET centre est true
+  # admin && !centre
+  # end
 
   # protected
 
