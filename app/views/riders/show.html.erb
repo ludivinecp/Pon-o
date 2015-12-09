@@ -21,13 +21,13 @@
 
     <div id="my_text"class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
       <p>Mes réservations</p>
-        <% if @resa.nil?%>
+        <% if Booking.rider.nil?%>
           <p> Vous n'avez pas encore effectué de réservation </p>
         <% else %>
             <ul>
             <% Booking.rider.each do |booking| %>   <!--"Booking.rider" use the scope into model-->
             <li><%=booking%> </li>
-                <% if booking.validation?%>
+                <%if booking.validation?%>
                     <p>Validé</div>
                 <%else%>
                     <p>En attente de validation</div>
