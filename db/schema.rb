@@ -11,23 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151204141135) do
-
+ActiveRecord::Schema.define(version: 20151209101847) do
 
   create_table "bookings", force: :cascade do |t|
     t.integer  "number_of_people"
     t.integer  "total_price"
     t.integer  "centre_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
     t.integer  "service_id"
     t.integer  "rider_id"
+    t.boolean  "validation",       default: false
   end
 
   add_index "bookings", ["centre_id"], name: "index_bookings_on_centre_id"
   add_index "bookings", ["rider_id"], name: "index_bookings_on_rider_id"
   add_index "bookings", ["service_id"], name: "index_bookings_on_service_id"
-
 
   create_table "categories", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -72,19 +71,20 @@ ActiveRecord::Schema.define(version: 20151204141135) do
 
   create_table "services", force: :cascade do |t|
     t.string   "title"
-    t.string   "category"
     t.integer  "price"
     t.string   "description"
-    t.date     "date"
+    t.datetime "date"
     t.datetime "time"
     t.integer  "number_of_people"
     t.integer  "centre_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.integer  "category_id"
     t.integer  "categories_id"
   end
 
   add_index "services", ["categories_id"], name: "index_services_on_categories_id"
+  add_index "services", ["category_id"], name: "index_services_on_category_id"
   add_index "services", ["centre_id"], name: "index_services_on_centre_id"
 
   create_table "users", force: :cascade do |t|
