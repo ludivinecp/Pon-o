@@ -90,7 +90,8 @@
                             <div class="image_centre">
                             <%= image_tag "poneo-8.jpg" %>
                               <p> price: € <%= service.price%></p>
-                                                            <%= link_to 'Réserver', service, class:'btn btn-success'%>
+                              <p> Categorie: <%= Category.find(service.category_id).try(:name)%></p>                              
+                              <%= link_to 'Réserver', service, class:'btn btn-success'%>
                             </div>
                           </div>
 
