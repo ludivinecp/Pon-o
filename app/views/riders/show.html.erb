@@ -21,15 +21,25 @@
 
     <div id="my_text"class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
       <p>Mes réservations</p>
-        <% if @rider.booking.nil?%>
-          <p> Vous n'avez pas encore de réservation </p>
+        <% if @resa.nil?%>
+          <p> Vous n'avez pas encore effectué de réservation </p>
         <% else %>
-            <% @rider.bookings.each do |booking| %>
-            <%=booking.centre_id%>
-            <%end%>
+            <ul>
+            <% Booking.rider.each do |booking| %>   <!--"Booking.rider" use the scope into model-->
+            <li><%=booking%> </li>
+                <% if booking.validation?%>
+                    <p>Validé</div>
+                <%else%>
+                    <p>En attente de validation</div>
+                <%end%>
+            <%end%> 
+            </ul>
         <%end%>
+        
 
     </div>
   </div>
 </div>
 <%= link_to "Modifier mon Profil", edit_rider_path(current_user.id)%>
+
+

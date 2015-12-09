@@ -11,16 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151208173821) do
+ActiveRecord::Schema.define(version: 20151208225700) do
 
   create_table "bookings", force: :cascade do |t|
     t.integer  "number_of_people"
     t.integer  "total_price"
     t.integer  "centre_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
     t.integer  "service_id"
     t.integer  "rider_id"
+    t.boolean  "validation",       default: false
   end
 
   add_index "bookings", ["centre_id"], name: "index_bookings_on_centre_id"

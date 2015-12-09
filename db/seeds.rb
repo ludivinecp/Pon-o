@@ -7,7 +7,12 @@
 #                   Faker::Time.between(DateTime.now - 1, DateTime.now),
 #                   Faker::Number.number(10) }])
 
+User.create([{ email: 'admin@wcs.fr',
+              password: 'jecode4laloupe',
+              admin: true
+              
 
+  }])
 User.create([{ email: 'guest@wcs.com',
               password: 'jecode4laloupe',
 
@@ -15,6 +20,7 @@ User.create([{ email: 'guest@wcs.com',
   }])
 User.create([{ email: 'ludivine@wcs.com',
               password: 'jecode4laloupe',
+
 
   }])
 User.create([{ email: 'nelly@wcs.com',
