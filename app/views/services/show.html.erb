@@ -8,12 +8,18 @@
 <%= @centre.name %></br>
 <%= @service.price %>€</br>
 <%= @service.description %></br>
+<%=@service.date.strftime("%d/%m/%Y")%>
 
 
 <%=form_for @booking, url: create_booking_path, method: :post, action: :create do |f|%>
-  <%= f.label :nombre_de_personnes%>
-  <%= f.number_field :number_of_people%>
-  <%=f.hidden_field :rider_id, :value => current_user.id%>
-  <%=f.hidden_field :service_id, :value => @service.id%>
-  <%=f.submit "Reserver !"%>
+  <%if user_signed_in?%>
+    <%= f.label :nombre_de_personnes%>
+    <%= f.number_field :number_of_people%>
+    <%=f.hidden_field :rider_id, :value => current_user.id%>
+    <%=f.hidden_field :service_id, :value => @service.id%>
+    <%=f.submit "Reserver !"%>
+  <%else%>
+    <%=link_to "Connectez-vous afin de réserver", new_user_session_path%>
+  <%end%>
+
 <%end%>

@@ -9,4 +9,6 @@ class Booking < ActiveRecord::Base
   # end
   # before_action :authenticate_user!
 
+  scope :rider, -> {where(rider_id: 2)} #allow you to write "Booking.rider", instead of scope "Booking.where(rider_id: 2)}" every time you'll use it.
+
 end

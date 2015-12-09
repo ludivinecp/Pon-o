@@ -27,6 +27,7 @@ class ServicesController < ApplicationController
     @service = Service.find(params[:id])
     @centre = Centre.find(params[:id])
     @booking = Booking.new
+
   end
 
   def new

@@ -1,11 +1,11 @@
-<h1> <%=link_to centre.name, centre %> <h1>
+<h1> <%=link_to centre.name, centre %> </h1>
 	<%= centre.address %></br>
 	
   <% centre.services.each do |service| %>
 
   <%= service.price %>$</br>
-  <%= service.category %></br>
-  <%= link_to 'Réserver', bookings_path %>
+  <%= Category.find(service.category_id).try(:name) %></br>
+  <%= link_to 'Réserver', service_path(service), method: :get %>
 
   
 <% end %>
