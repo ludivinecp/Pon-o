@@ -8,6 +8,7 @@
 <%= @centre.name %></br>
 <%= @service.price %>€</br>
 <%= @service.description %></br>
+<%=@service.date.strftime("%d/%m/%Y")%>
 
 
 <%=form_for @booking, url: create_booking_path, method: :post, action: :create do |f|%>

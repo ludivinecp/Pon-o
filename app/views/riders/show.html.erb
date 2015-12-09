@@ -26,9 +26,11 @@
         <% else %>
             <ul>
             <% Booking.rider.each do |booking| %>   <!--"Booking.rider" use the scope into model-->
-            <li><%=booking%> </li>
+                <a href="/services/<%= booking.service.id%>"><%= booking.service.title%></a>
+                <%=booking.service.date.strftime("%d/%m/%Y")%>
+            </p>
                 <%if booking.validation?%>
-                    <p>Validé</div>
+                    <p>Validé</p>
                 <%else%>
                     <p>En attente de validation</div>
                 <%end%>
