@@ -7,30 +7,11 @@ class PictureUploader < CarrierWave::Uploader::Base
    include CarrierWave::MiniMagick
 
    version :avatar do
-     process resize_to_limit: [150, 150]
+     process resize_to_limit: [300, 300]
    end
    version :thumb do
-     process resize_to_limit: [300, 500]
+     process resize_to_fit: [300, 500]
    end
-  #  version :thumb do
-  #    process resize_to_limit: [50, 50]
-  #  end
-  #  version :thumb do
-  #    process resize_to_limit: [50, 50]
-  #  end
-  #  version :thumb do
-  #    process resize_to_limit: [50, 50]
-  #  end
-  #  version :image2 do
-  #    process resize_to_limit: [50, 50]
-  #  end
-  #  version :image3 do
-  #    process resize_to_limit: [50, 50]
-  #  end
-  #  version :image4 do
-  #    process resize_to_limit: [50, 50]
-  #  end
-
   # # Choose what kind of storage to use for this uploader:
   storage :file
   # storage :fog

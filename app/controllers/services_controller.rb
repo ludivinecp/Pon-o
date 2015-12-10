@@ -38,6 +38,8 @@ class ServicesController < ApplicationController
   end
 
   def edit
+    @service = Service.find(params[:id])
+    @centre = Centre.find(params[:id])
   end
 
   def create
@@ -53,14 +55,11 @@ class ServicesController < ApplicationController
   end
 
   def update
-    respond_to do |format|
-      if @service.update(service_params)
-        format.html { redirect_to @service, notice: 'Service was successfully updated.' }
-        format.json { render :show, status: :ok, location: @service }
-      else
-        format.html { render :edit }
-        format.json { render json: @service.errors, status: :unprocessable_entity }
-      end
+    @service = Service.find(params[:id])
+    if @service.update(service_params)
+      redirect_to service_path(@service.id)
+    else
+    render :edit
     end
   end
 
@@ -78,7 +77,7 @@ class ServicesController < ApplicationController
     end
 
     def service_params
-      params[:service]
+      #params[:service]
       params.require(:service).permit( :category, :price, :description, :date, :time, :number_of_people, :image1, :image2, :image3, :image4)
     end
 end
