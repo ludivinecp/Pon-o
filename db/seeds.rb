@@ -70,7 +70,6 @@ User.create([{ email: 'alex@wcs.com',
   }])
 User.create([{ email: 'romain@wcs.com',
               password: 'jecode4laloupe',
-<<<<<<< HEAD
               is_centre: true
   }])
 User.create([{ email: 'erwann@wcs.com',
@@ -83,7 +82,7 @@ User.create([{ email: 'alex@wcs.com',
   }])
 User.create([{ email: 'romain@wcs.com',
               password: 'jecode4laloupe',
-              is_centre: true
+              is_centre: true,
               admin: true,
   }])
 
