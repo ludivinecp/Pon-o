@@ -1,15 +1,14 @@
 class BookingsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :check_rider_or_admin_logged_in!
 
   def index
     @bookings = Booking.all
   end
 
   def show
-  end
-
-  def new
-    @booking = Booking.new
+    @service = Service.find(params[:id])
+    @centre = Centre.find(params[:id])
+    @booking = Booking.find(params[:id])
   end
 
   def edit
@@ -18,18 +17,17 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
 
-    respond_to do |format|
       if @booking.save
-        format.html { redirect_to @booking, notice: 'Booking was successfully created.' }
-        format.json { render :show, status: :created, location: @booking }
+        redirect_to booking_path(@booking) 
       else
-        format.html { render :new }
-        format.json { render json: @booking.errors, status: :unprocessable_entity }
+        redirect_to service_path(params[:id])
       end
-    end
   end
 
   def update
+    @service = Service.find(params[:id])
+    @centre = Centre.find(params[:id])
+    @booking = Booking.new(booking_params)
     respond_to do |format|
       if @booking.update(booking_params)
         format.html { redirect_to @booking, notice: 'Booking was successfully updated.' }
@@ -55,6 +53,6 @@ class BookingsController < ApplicationController
     end
 
     def booking_params
-      params[:booking]
+       params.require(:booking).permit(:number_of_people, :rider_id, :service_id)
     end
 end

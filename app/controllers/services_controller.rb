@@ -1,26 +1,36 @@
 class ServicesController < ApplicationController
-  before_action :authenticate_admin!, only: [:new, :create, :update, :edit]
-  before_action :authenticate_center!, only: [:edit, :update]
+  # before_action :authenticate_user!, only: [:edit, :update]
+  before_action :check_admin_logged_in!, only: [:show, :new, :create, :delete]
+  before_action :check_centre_or_admin_logged_in!, only: [:edit, :update]
+
+
 
   def index
     if params[:search].present?
     # @centres = Centre.near(params[:search], params[:distance] || 50, order: :distance)
       @centres = Centre.near(params[:search], 50)
-      @hash = Gmaps4rails.build_markers(@centres) do |centre, marker|
-        marker.lat centre.latitude
-        marker.lng centre.longitude
-      end
     else
       @centres = Centre.all
       @services = Service.all
     end
+
+    @hash = Gmaps4rails.build_markers(@centres) do |centre, marker|
+        marker.lat centre.latitude
+        marker.lng centre.longitude
+        marker.infowindow render_to_string(:partial => "/services/gmap", :locals => { :centre => centre})
+        marker.picture({
+          "url" => "http://people.mozilla.com/~faaborg/files/shiretoko/firefoxIcon/firefox-32.png",
+          "width" => 32,
+          "height" => 32
+          })
+      end
   end
 
   def show
-
     @service = Service.find(params[:id])
     @centre = Centre.find(params[:id])
-    @centres = Centre.all
+    @booking = Booking.new
+
   end
 
   def new
@@ -32,8 +42,7 @@ class ServicesController < ApplicationController
 
   def create
     @service = Service.new(service_params)
-
-    respond_to do |format|
+    
       if @service.save
         format.html { redirect_to @service, notice: 'Service was successfully created.' }
         format.json { render :show, status: :created, location: @service }
@@ -41,7 +50,6 @@ class ServicesController < ApplicationController
         format.html { render :new }
         format.json { render json: @service.errors, status: :unprocessable_entity }
       end
-    end
   end
 
   def update
