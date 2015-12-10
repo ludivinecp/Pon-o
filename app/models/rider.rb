@@ -19,4 +19,6 @@ class Rider < ActiveRecord::Base
 #    validates :nickname, uniqueness: {
 #       message: "Ce Pseudo est déjà pris."
 #     }
+# mount_uploaders :avatars, AvatarUploader
+  mount_uploader :avatar, PictureUploader
 end

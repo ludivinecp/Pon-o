@@ -1,4 +1,4 @@
-<%=form_for(@centre) do |f| %>
+<%=form_for(@centre, html: {multipart: true}) do |f| %>
 <div class="col-md-3"></div>
   <div class="col-md-6">
     <div class="form-group">
@@ -21,6 +21,18 @@
                 <%= f.label :Address %>
                 <%= f.text_area :address, class:'form-control' %>
               </div>
+              <span class="picture">
+                <%= f.file_field :picture1 %>
+              </span>
+              <span class="picture">
+                <%= f.file_field :picture2 %>
+              </span>
+              <span class="picture">
+                <%= f.file_field :picture3 %>
+              </span>
+              <span class="picture">
+                <%= f.file_field :picture4 %>
+              </span>
                       <div class="form-group">
                           <%= f.hidden_field :user_id, :value => current_user.id, class:'form-control' %>
                         </div>

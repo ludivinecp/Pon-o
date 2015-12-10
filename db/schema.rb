@@ -45,6 +45,10 @@ ActiveRecord::Schema.define(version: 20151209181713) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "phone"
+    t.string   "picture1"
+    t.string   "picture2"
+    t.string   "picture3"
+    t.string   "picture4"
   end
 
   add_index "centres", ["user_id"], name: "index_centres_on_user_id"
@@ -63,6 +67,7 @@ ActiveRecord::Schema.define(version: 20151209181713) do
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "avatar"
   end
 
   add_index "riders", ["user_id"], name: "index_riders_on_user_id"
@@ -78,6 +83,10 @@ ActiveRecord::Schema.define(version: 20151209181713) do
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
     t.integer  "category_id"
+    t.string   "image1"
+    t.string   "image2"
+    t.string   "image3"
+    t.string   "image4"
   end
 
   add_index "services", ["category_id"], name: "index_services_on_category_id"

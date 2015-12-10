@@ -3,6 +3,7 @@
   <div class="row">
     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
       <h3 class="about_me">Mon profil</h3>
+      <%= image_tag @rider.avatar.avatar.url, :class => "style_avatar" %>
             <ul>
                  <li><%= @rider.try(:last_name) %></li>
                  <li><%= @rider.try(:first_name) %></li>
@@ -11,11 +12,8 @@
                  <li><%= @rider.try(:tall) %></li>
                  <li><%= @rider.try(:phone) %></li>
                  <li><%= @rider.try(:address) %></li>
-                 <li><%= @rider.try(:city) %></li>
                  <li><%= @rider.try(:age) %></li>
                  <li><%= @rider.try(:level) %></li>
-                 <li><%= @rider.try(:city) %></li>
-                 <li><%= @rider.try(:avatar) %></li>
             </ul>
     </div>
 
