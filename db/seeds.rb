@@ -1,6 +1,7 @@
 
-# Service.create ([{Faker::Name.title 
-#                   category_id: 'sport',
+
+# Service.create ([{Faker::Name.title
+#                   category: 'sport',
 #                   Faker::Commerce.price,
 #                   Faker::Lorem.paragraph(2),
 #                   Faker::Date.forward(23),
@@ -10,7 +11,7 @@
 
 User.create([{ email: 'admin@wcs.com',
               password: 'jecode4laloupe',
-              admin: true              
+              admin: true
   }])
 
 User.create([{ email: 'rider@wcs.com',

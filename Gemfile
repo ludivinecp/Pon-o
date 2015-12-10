@@ -6,8 +6,11 @@ gem 'fastercsv'
 gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 
 gem 'jquery-turbolinks'
-gem 'carrierwave'
-gem 'masonry-rails'
+# Uploading images gems
+gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
+gem 'mini_magick'
+gem 'fog'
+# =====================
 gem 'bootstrap-sass'
 gem 'devise'
 gem 'pry'
