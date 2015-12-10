@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151209101847) do
+ActiveRecord::Schema.define(version: 20151209181713) do
 
   create_table "bookings", force: :cascade do |t|
     t.integer  "number_of_people"
@@ -56,15 +56,13 @@ ActiveRecord::Schema.define(version: 20151209101847) do
     t.integer  "tall"
     t.string   "nickname"
     t.string   "level"
-    t.boolean  "centre"
     t.string   "last_name"
     t.string   "first_name"
     t.integer  "phone"
     t.string   "address"
-    t.boolean  "admin",      default: false
     t.integer  "user_id"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_index "riders", ["user_id"], name: "index_riders_on_user_id"
