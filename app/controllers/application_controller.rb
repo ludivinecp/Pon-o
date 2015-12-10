@@ -9,35 +9,59 @@ class ApplicationController < ActionController::Base
     new_user_session_path
   end
 
+
+
   # before_action :configure_devise_permitted_parameters, if: :devise_controller?
-  def authenticate_admin!
-    unless current_user.admin
-      redirect_to root_path, alert: "Accès refusé"
+  # def authenticate_admin!
+  #   unless !!current_user.admin #unless current user is an admin redirect to root path
+  #     redirect_to root_path, alert: "Accès refusé"
+  #   end
+  # end
+
+  # def authenticate_centre!
+  #   unless !!current_user.centre
+  #     redirect_to root_path, alert: "Accès refusé"
+  #   end
+  # end
+
+  # def authenticate_rider!
+  #   unless !!current_user.rider
+  #     redirect_to root_path, alert: "Accès refusé"
+  #   end
+  # end
+
+  #  def rider?
+  # # renvoie true quand admin est false ET centre est false
+  # admin && centre
+  # end
+
+  # def centre?
+  # # renvoie true quand admin est false ET centre est true
+  # admin && !centre
+  # end
+
+
+
+
+  private
+    def check_admin_logged_in!
+      redirect_to root_path unless !!current_user.admin
     end
-  end
 
-  def authenticate_center!
-    unless !!current_user.centre
-      redirect_to root_path, alert: "Accès refusé"
+    def check_rider_or_admin_logged_in! # if admin is not logged in, user must be logged in
+      redirect_to root_path unless !!current_user.rider or !!current_user.admin
     end
-  end
 
-  def authenticate_rider!
-    unless !!current_user.rider
-      redirect_to root_path, alert: "Accès refusé"
+    def check_centre_or_admin_logged_in! # if admin is not logged in, user must be logged in
+      redirect_to root_path unless !!current_user.centre or !!current_user.admin
     end
-  end
 
-   def rider?
-  # renvoie true quand admin est false ET centre est false
-  admin && centre
-  end
-
-  def centre?
-  # renvoie true quand admin est false ET centre est true
-  admin && !centre
-  end
-
+    # def check_centre_or_admin_logged_in! # if admin is not logged in, user must be logged in
+    #   if !current_user.admin?
+    #     authenticate_centre!
+    #   end   
+    # end
+  
   # protected
 
   # def configure_devise_permitted_parameters

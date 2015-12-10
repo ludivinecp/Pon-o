@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :check_rider_or_admin_logged_in!
 
   def index
     @bookings = Booking.all
