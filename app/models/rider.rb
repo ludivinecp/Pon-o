@@ -20,4 +20,5 @@ class Rider < ActiveRecord::Base
 #       message: "Ce Pseudo est déjà pris."
 #     }
 # mount_uploaders :avatars, AvatarUploader
+  mount_uploader :avatar, PictureUploader
 end

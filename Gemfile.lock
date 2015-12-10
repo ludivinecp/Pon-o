@@ -1,14 +1,4 @@
 GIT
-  remote: git://github.com/carrierwaveuploader/carrierwave.git
-  revision: e3acabb512cb55b683b6d74a63db0723f06df091
-  specs:
-    carrierwave (0.10.0)
-      activemodel (>= 3.2.0)
-      activesupport (>= 3.2.0)
-      json (>= 1.7)
-      mime-types (>= 1.16)
-
-GIT
   remote: git://github.com/sferik/rails_admin.git
   revision: 02a5e588959ba096c33d45e0612f0beeabc077c4
   specs:
@@ -80,6 +70,11 @@ GEM
     builder (3.2.2)
     byebug (5.0.0)
       columnize (= 0.9.0)
+    carrierwave (0.10.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      json (>= 1.7)
+      mime-types (>= 1.16)
     coderay (1.1.0)
     coffee-rails (4.1.0)
       coffee-script (>= 2.2.0)
@@ -366,7 +361,7 @@ PLATFORMS
 DEPENDENCIES
   bootstrap-sass
   bootstrap_form
-  carrierwave!
+  carrierwave
   coffee-rails (~> 4.1.0)
   devise
   faker

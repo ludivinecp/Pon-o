@@ -25,7 +25,7 @@ class RidersController < ApplicationController
   def update
     @rider = Rider.find(params[:id])
     if @rider.update(rider_params)
-      redirect_to rider_path(@rider.id), notice: 'Rider was successfully created.'
+      redirect_to rider_path(@rider.id), notice: 'Vous avez bien mis à jour votre profil !'
     else
     render :edit
     end
@@ -42,6 +42,6 @@ class RidersController < ApplicationController
   private
     def rider_params
       params[:rider]
-      params.require(:rider).permit(:age, :gender, :weight, :tall, :nickname, :level, :centre, :last_name, :first_name, :phone, :address, :user_id )
+      params.require(:rider).permit(:age, :gender, :weight, :tall, :nickname, :level, :centre, :last_name, :first_name, :phone, :address, :user_id, :avatar)
     end
 end

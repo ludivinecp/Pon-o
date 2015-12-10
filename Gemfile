@@ -7,7 +7,7 @@ gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 
 gem 'jquery-turbolinks'
 # Uploading images gems
-gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
+gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog'
 # =====================

@@ -6,7 +6,32 @@ class PictureUploader < CarrierWave::Uploader::Base
   # include CarrierWave::RMagick
    include CarrierWave::MiniMagick
 
-  # Choose what kind of storage to use for this uploader:
+   version :avatar do
+     process resize_to_limit: [150, 150]
+   end
+   version :thumb do
+     process resize_to_limit: [300, 500]
+   end
+  #  version :thumb do
+  #    process resize_to_limit: [50, 50]
+  #  end
+  #  version :thumb do
+  #    process resize_to_limit: [50, 50]
+  #  end
+  #  version :thumb do
+  #    process resize_to_limit: [50, 50]
+  #  end
+  #  version :image2 do
+  #    process resize_to_limit: [50, 50]
+  #  end
+  #  version :image3 do
+  #    process resize_to_limit: [50, 50]
+  #  end
+  #  version :image4 do
+  #    process resize_to_limit: [50, 50]
+  #  end
+
+  # # Choose what kind of storage to use for this uploader:
   storage :file
   # storage :fog
 
