@@ -1,17 +1,38 @@
-<%= bootstrap_form_for(@service) do |f| %>
-  <% if @service.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@service.errors.count, "error") %> prohibited this service from being saved:</h2>
-
-      <ul>
-      <% @service.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<%=form_for(@service, html: {multipart: true}) do |f| %>
+<div class="col-md-3"></div>
+  <div class="col-md-6">
+    <div class="form-group">
+      <%= f.label :Nom_activité %> <span style="color:red">*</span>
+      <%= f.text_field :title, class:'form-control' %>
     </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit %>
+    <div class="form-group">
+        <%= f.label :Prix %><span style="color:red">*</span>
+        <%= f.number_field :price, class:'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :Description %> <span style="color:red">*</span>
+        <%= f.text_field :description, class:'form-control' %>
+      </div>
+              <span class="picture">
+                <%= f.file_field :image1 %>
+              </span>
+              <span class="picture">
+                <%= f.file_field :image2 %>
+              </span>
+              <span class="picture">
+                <%= f.file_field :image3 %>
+              </span>
+              <span class="picture">
+                <%= f.file_field :image4 %>
+              </span>
+                      <div class="form-group">
+                          <%= f.hidden_field :centre_id, :value => current_user.id, class:'form-control' %>
+                        </div>
+                        <div class="form-group">
+                            <%= f.hidden_field :centre, :value => true, class:'form-control' %>
+                          </div>
+      <div class="actions">
+        <%= f.submit "Valider ma prestation", class:'btn btn-defult' %>
+      </div>
   </div>
-<% end %>
+  <%end%>

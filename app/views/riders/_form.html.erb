@@ -1,6 +1,6 @@
 <div class="col-md-3"></div>
   <div class="col-md-6">
-<%=form_for(@rider) do |f| %>
+<%=form_for(@rider, html: {multipart: true}) do |f| %>
 <div class="form-group">
     <%= f.label :Prénom%> <span style="color:red">*</span>
     <p><%= @rider.errors[:first_name].first %></p>
@@ -21,6 +21,9 @@
         <p><%= @rider.errors[:nickname].first %></p>
         <%= f.text_field :nickname, class:'form-control' %>
       </div>
+      <span class="picture">
+        <%= f.file_field :avatar %>
+      </span>
       <div class="form-group">
           <%= f.label :Numéro_de_téléphone %> <span style="color:red">*</span>
           <p><%= @rider.errors[:phone].first %></p>
