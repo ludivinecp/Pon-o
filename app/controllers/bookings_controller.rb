@@ -51,6 +51,15 @@ class BookingsController < ApplicationController
       end
     end
   end
+  def booking_confirmation
+    @booking = Booking.find(params[:id])
+    @centre = Centre.find(params[:id])
+  
+     @booking.validator
+     @booking.save
+     redirect_to centre_path(@centre)
+ 
+  end
 
   def destroy
     @booking.destroy

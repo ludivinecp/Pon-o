@@ -46,53 +46,47 @@
     </div>
     <div class="section">
       <div class="container">
-        <div class="row">
-          <div class="col-md-4">
-            <img src="http://pingendo.github.io/pingendo-bootstrap/assets/placeholder.png"
-            class="img-responsive">
-            <h2>A Title</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisici elit,
-              <br>sed eiusmod tempor incidunt ut labore et dolore magna aliqua.
-              <br>Ut enim ad minim veniam, quis nostrud</p>
-          </div>
-          <div class="col-md-4">
-            <img src="http://pingendo.github.io/pingendo-bootstrap/assets/placeholder.png"
-            class="img-responsive">
-            <h2>A title</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisici elit,
-              <br>sed eiusmod tempor incidunt ut labore et dolore magna aliqua.
-              <br>Ut enim ad minim veniam, quis nostrud</p>
-          </div>
-          <div class="col-md-4">
-            <img src="http://pingendo.github.io/pingendo-bootstrap/assets/placeholder.png"
-            class="img-responsive">
-            <h2>A title</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisici elit,
-              <br>sed eiusmod tempor incidunt ut labore et dolore magna aliqua.
-              <br>Ut enim ad minim veniam, quis nostrud</p>
-          </div>
-
+        <% @services.in_groups_of(3, false).each do |group| %>
+          <div class="row">
+           <% group.each do |service|%>
+           <div class="col-sm-6 col-md-4">
+             <div class="thumbnail">
+               <%=service.try(:image)%>
+               <div class="caption">
+                   <h3><%= service.title %></h3>
+                   <%= service.date.strftime("%d/%m/%Y")%></br>
+                   <p><%= service.try(:description) %></p>
+                <%= link_to "Voir",service, class:'btn btn-success'%>
+                <% if current_user.is_centre? %>
               <p>Réservations</p>
-              <% if !Booking.where(centre_id: @centre)%>
+              <% if !@bookings%>
                 <p> Vous n'avez pas encore de réservation </p> 
               <% else %>
-              <ul>
-                <% Booking.where(centre_id: @centre).each do |booking| %>
-                    <%= booking.service.title%></br>
-                    <%= booking.number_of_people%>personne(s)</br>
-                    <%= booking.service.date.strftime("%d/%m/%Y")%></br>
-                    <%= @rider.try(:first_name)%></br>
-                    <%= @rider.try(:phone)%></br>
+                <ul>
+                            <% @bookings.each do |booking| %> 
+                          
+                              <li><%= booking.rider.try(:first_name)%></br>
+                                  0<%= booking.rider.try(:phone)%></br>
+                                  <%= booking.number_of_people %> personne(s)</br>
+                                     <%if !booking.validation?%>
+                                        <%= link_to "validez ?", booking_confirmation_path(booking), class: "btn btn-medium btn-default" %></b>
+                                     <%else%>
+                                        <p>Validé</p>
+                              </li>
+                                     <%end%>
+                            <%end%>
+                         
+                        </ul>
+                  <%end%>
                 </ul>
-                </p>
-                    <%if booking.validation?%>
-                      <p>En attente de validation</div>
-                    <%else%>
-                      <p><%=button_to "validez ?"%></p>
-                    <%end%>
-                <%end%>
-              </ul>
               <%end%>
-        </div>
+              </p>
+              <%end%> <!--current_user.is_centre? -->
+               </div>
+             </div>
+           </div>
+           <% end %>
+         </div>
+  
       </div>
     </div>

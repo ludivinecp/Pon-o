@@ -9,5 +9,9 @@ class Booking < ActiveRecord::Base
   # end
   # before_action :authenticate_user!
 
+  def validator
+   !validation
+ end
+
 
 end
