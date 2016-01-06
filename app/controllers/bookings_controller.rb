@@ -29,9 +29,11 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
-
+    BookingMailer.new_booking(@booking).deliver_now
       if @booking.save
-        redirect_to booking_path(@booking) 
+
+        redirect_to booking_path(@booking)
+        
       else
         redirect_to service_path(params[:id])
       end
