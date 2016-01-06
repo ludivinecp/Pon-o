@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   resources :bookings
   resources :riders
   get "bookings/:id/booking_confirmation" => "bookings#booking_confirmation", as: :booking_confirmation
+  post "booking/create" => "bookings#create", as: :create_booking
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
