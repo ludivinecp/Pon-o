@@ -1,7 +1,7 @@
 class ServicesController < ApplicationController
   # before_action :authenticate_user!, only: [:edit, :update]
-  before_action :check_admin_logged_in!, only: [:show, :new, :create, :delete]
-  before_action :check_centre_or_admin_logged_in!, only: [:edit, :update]
+  # before_action :check_admin_logged_in!, only: [:show, :new, :create, :delete]
+  # before_action :check_centre_or_admin_logged_in!, only: [:edit, :update]
 
 
 
@@ -28,7 +28,7 @@ class ServicesController < ApplicationController
 
   def show
     @service = Service.find(params[:id])
-    @centre = Centre.find(params[:id])
+    @centre = @service.centre
     @booking = Booking.new
 
   end
