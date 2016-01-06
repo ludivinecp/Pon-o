@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :check_rider_or_admin_logged_in!
+  # before_action :check_rider_or_admin_logged_in!
 
   def index
     @bookings = Booking.all
@@ -51,14 +51,12 @@ class BookingsController < ApplicationController
       end
     end
   end
+ 
   def booking_confirmation
     @booking = Booking.find(params[:id])
-    @centre = Centre.find(params[:id])
-  
-     @booking.validator
-     @booking.save
-     redirect_to centre_path(@centre)
- 
+    @centre = @booking.centre
+    @booking.update(validation: true)
+    redirect_to centre_path(@centre)
   end
 
   def destroy
