@@ -7,6 +7,11 @@
 #                   Faker::Date.forward(23),
 #                   Faker::Time.between(DateTime.now - 1, DateTime.now),
 #                   Faker::Number.number(10) }])
+Category.create name: "nature"
+
+Category.create name: "découverte"
+
+Category.create name: "sport"
 
 
 User.create([{ email: 'admin@wcs.com',
@@ -359,6 +364,7 @@ Service.create([{ title: 'sport4',
               time: '04:00:00',
               number_of_people: 3,
               centre_id: 10 }])
+
 
 Category.create name: "nature"
 

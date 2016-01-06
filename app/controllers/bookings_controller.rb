@@ -9,6 +9,19 @@ class BookingsController < ApplicationController
     @service = Service.find(params[:id])
     @centre = Centre.find(params[:id])
     @booking = Booking.find(params[:id])
+
+    # @booking.validation = !@booking.validation
+    # if @booking.update(booking_param)
+    #   if @booking.validation
+    #     message = "Réservation confirmée"
+    #   else
+    #     message = "Réservation annulée"
+    #   end
+    #   redirect_to centre_path(@centre), notice: message
+    # else
+    #   redirect_to centre_path(@centre), method: :get, alert: "Problème : contact l'administrateur)"
+    # end
+
   end
 
   def edit
@@ -53,6 +66,6 @@ class BookingsController < ApplicationController
     end
 
     def booking_params
-       params.require(:booking).permit(:number_of_people, :rider_id, :service_id, :centre_id)
+       params.require(:booking).permit(:number_of_people, :rider_id, :service_id, :centre_id, :validation)
     end
 end
