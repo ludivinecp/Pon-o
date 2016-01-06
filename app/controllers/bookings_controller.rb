@@ -29,9 +29,8 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
-    BookingMailer.new_booking(@booking).deliver_now
       if @booking.save
-
+        BookingMailer.new_booking(@booking).deliver_now
         redirect_to booking_path(@booking)
         
       else
@@ -58,6 +57,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     @centre = @booking.centre
     @booking.update(validation: true)
+    BookingMailer.confirmation_booking(@booking).deliver_now
     redirect_to centre_path(@centre)
   end
 
