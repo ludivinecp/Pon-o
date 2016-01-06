@@ -2,7 +2,7 @@
 
 <h2><%= @service.title %></h2>
 
-<%= @centre.name %></br>
+<%= link_to "#{@centre.name}", centre_path(@centre)%></br>
 <%= @centre.address %></br>
 <%= @booking.number_of_people %> personnes</br>
 <%= @booking.number_of_people * @service.price  %>€</br>

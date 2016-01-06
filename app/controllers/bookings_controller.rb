@@ -6,9 +6,9 @@ class BookingsController < ApplicationController
   end
 
   def show
-    @service = Service.find(params[:id])
-    @centre = Centre.find(params[:id])
     @booking = Booking.find(params[:id])
+    @centre = @booking.centre
+    @service = @booking.service
 
     # @booking.validation = !@booking.validation
     # if @booking.update(booking_param)

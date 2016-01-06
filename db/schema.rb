@@ -83,6 +83,7 @@ ActiveRecord::Schema.define(version: 20151209181713) do
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
     t.integer  "category_id"
+    t.integer  "categories_id"
     t.string   "image1"
     t.string   "image2"
     t.string   "image3"

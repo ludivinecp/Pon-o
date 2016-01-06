@@ -10,4 +10,8 @@ class Booking < ActiveRecord::Base
   # before_action :authenticate_user!
 
 
+  def booking_resume
+    BookingMailer.confirmation(self).deliver_now
+  end
+
 end
