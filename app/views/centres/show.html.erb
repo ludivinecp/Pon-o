@@ -3,8 +3,11 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-            <h4 class="text-right"><span class="btn btn-default"><%= link_to 'Modifier le profil', edit_centre_path(@centre) %></span>
-</h4>
+            <% if current_user.is_centre? %>
+              <h4 class="text-right"><span class="btn btn-default">
+                <%= link_to 'Modifier le profil', edit_centre_path(@centre) %></span>
+            <%end%>
+              </h4>
           </div>
         <div class="row">
           <div class="col-md-12">
