@@ -5,7 +5,7 @@
 
 <h2><%= @service.title %></h2>
 
-<%= @centre.name %></br>
+<%= link_to "#{@centre.name}", centre_path(@centre)%></br>
 <%= @service.price %>€</br>
 <%= @service.description %></br>
 <%=@service.date.strftime("%d/%m/%Y")%>
@@ -19,6 +19,7 @@
     <%= f.number_field :number_of_people%>
     <%=f.hidden_field :rider_id, :value => current_user.id%>
     <%=f.hidden_field :service_id, :value => @service.id%>
+    <%=f.hidden_field :centre_id, :value => @service.centre.id%>
     <%=f.submit "Reserver !"%>
   <%else%>
     <%=link_to "Connectez-vous afin de réserver", new_user_session_path%>

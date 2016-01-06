@@ -6,9 +6,10 @@ class BookingsController < ApplicationController
   end
 
   def show
-    @service = Service.find(params[:id])
-    @centre = Centre.find(params[:id])
     @booking = Booking.find(params[:id])
+    @centre = @booking.centre
+    @service = @booking.service
+
   end
 
   def edit
@@ -53,6 +54,6 @@ class BookingsController < ApplicationController
     end
 
     def booking_params
-       params.require(:booking).permit(:number_of_people, :rider_id, :service_id)
+       params.require(:booking).permit(:number_of_people, :rider_id, :service_id, :centre_id)
     end
 end

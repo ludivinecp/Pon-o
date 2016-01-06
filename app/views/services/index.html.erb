@@ -86,6 +86,7 @@
                         <p><% centre.services.each do |service|%></p>
                           <div class="box panel panel-default">
                             <h2><%= service.title %></h2>
+                            <%=centre.name%>
                             <div class="image_centre">
                             <%= image_tag service.image1.thumb.url%>
                               <p> price: € <%= service.price%></p>

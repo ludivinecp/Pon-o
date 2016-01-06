@@ -11,4 +11,8 @@ class Booking < ActiveRecord::Base
 
   scope :rider, -> {where(rider_id: 2)} #allow you to write "Booking.rider", instead of scope "Booking.where(rider_id: 2)}" every time you'll use it.
 
+  def booking_resume
+    BookingMailer.confirmation(self).deliver_now
+  end
+
 end
