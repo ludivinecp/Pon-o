@@ -71,6 +71,29 @@
               <br>sed eiusmod tempor incidunt ut labore et dolore magna aliqua.
               <br>Ut enim ad minim veniam, quis nostrud</p>
           </div>
+              <p>Réservations</p>
+              <% if Booking.where(centre_id: @centre).nil?%>
+                <p> Vous n'avez pas encore de réservation </p>
+              <% else %>
+              <ul>
+              <% Booking.where(centre_id: @centre).each do |booking| %>  
+                  <%= booking.service.title%></br>
+                  <%= booking.number_of_people%>personne(s)</br>
+                  <%= booking.service.date.strftime("%d/%m/%Y")%>
+                    <ul>
+                    <%= Service.find(@service).centre_id.each do |booking| %>
+                      <li><%= booking.rider_id.nickname %></li>
+                    <%end%>
+                    </ul>
+              </p>
+                <%if booking.validation?%>
+                    <p>Validé</p>
+                <%else%>
+                    <p>En attente de validation</div>
+                <%end%>
+              <%end%> 
+              </ul>
+          <%end%>
         </div>
       </div>
     </div>

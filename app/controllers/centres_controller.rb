@@ -9,9 +9,9 @@ class CentresController < ApplicationController
   end
 
   def show
-
     @centre = Centre.find(params[:id])
     @user = User.find(params[:id])
+    @service_booked = Service.find()
   end
 
   def new

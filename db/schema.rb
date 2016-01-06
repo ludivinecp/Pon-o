@@ -87,9 +87,10 @@ ActiveRecord::Schema.define(version: 20151209181713) do
     t.string   "image2"
     t.string   "image3"
     t.string   "image4"
+    t.integer  "categories_id"
   end
 
-
+  add_index "services", ["categories_id"], name: "index_services_on_categories_id"
   add_index "services", ["category_id"], name: "index_services_on_category_id"
   add_index "services", ["centre_id"], name: "index_services_on_centre_id"
 
