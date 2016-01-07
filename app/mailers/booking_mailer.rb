@@ -7,9 +7,10 @@ class BookingMailer < ApplicationMailer
   #
   def new_booking(booking)
     @booking = booking
-    @centre = booking.centre
-    @user = booking.rider.user
-    @service = booking.service
+    @centre = @booking.centre
+    @user = @booking.rider.user
+    @rider = @booking.rider.id
+    @service = @booking.service
     mail to: @user.email, 
          subject: "Résumé de votre réservation"
   end
@@ -21,10 +22,11 @@ class BookingMailer < ApplicationMailer
   #
   def confirmation_booking(booking)
    @booking = booking
-    @centre = booking.centre
-    @user = booking.rider.user
-    @service = booking.service
+    @centre = @booking.centre
+    @user = @booking.rider.user
+    @rider = @booking.rider
+    @service = @booking.service
     mail to: @user.email, 
-         subject: "confirmation de votre réservation"
+         subject: "Confirmation de votre réservation"
   end
 end
