@@ -30,6 +30,8 @@ class ServicesController < ApplicationController
     @service = Service.find(params[:id])
     @centre = @service.centre
     @booking = Booking.new
+    @user = current_user
+    @rider = @user.rider.id
 
   end
 
