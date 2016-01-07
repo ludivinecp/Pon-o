@@ -17,7 +17,7 @@
   <%if user_signed_in?%>
     <%= f.label :nombre_de_personnes%>
     <%= f.number_field :number_of_people%>
-    <%=f.hidden_field :rider_id, :value => current_user.id%>
+    <%=f.hidden_field :rider_id, :value => current_user.rider.id%>
     <%=f.hidden_field :service_id, :value => @service.id%>
     <%=f.hidden_field :centre_id, :value => @service.centre.id%>
     <%=f.submit "Reserver !"%>
