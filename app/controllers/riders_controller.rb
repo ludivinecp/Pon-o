@@ -6,11 +6,24 @@ class RidersController < ApplicationController
   end
   def edit
     @rider = Rider.find(params[:id])
+    session[:return_to] ||= request.referer #Allow user to be redirecting to the previous page (part 1/2)
   end
 
   def new
     @rider = Rider.new
   end
+
+  def create
+    @rider = Rider.new(user_params)
+      if @rider.save
+        binding.pry
+        redirect_to show_rider_path, notice: 'Rider was successfully created.'
+      render :show
+      else
+      render :edit
+      end
+  end
+
 
   def create
     @rider = Rider.new(user_params)
@@ -22,10 +35,11 @@ class RidersController < ApplicationController
       end
   end
 
+
   def update
     @rider = Rider.find(params[:id])
     if @rider.update(rider_params)
-      redirect_to rider_path(@rider.id), notice: 'Vous avez bien mis à jour votre profil !'
+          redirect_to session.delete(:return_to), notice: 'Vous avez bien mis à jour votre profil !'  #Allow user to be redirecting to the previous page (part 2/2)
     else
     render :edit
     end

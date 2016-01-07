@@ -31,7 +31,7 @@ class ServicesController < ApplicationController
     @centre = @service.centre
     @booking = Booking.new
     @user = current_user
-    @rider = @user.rider.id
+    
 
   end
 
