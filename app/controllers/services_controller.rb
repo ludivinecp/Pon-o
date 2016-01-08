@@ -3,6 +3,8 @@ class ServicesController < ApplicationController
   # before_action :check_admin_logged_in!, only: [:show, :new, :create, :delete]
   # before_action :check_centre_or_admin_logged_in!, only: [:edit, :update]
 
+  def home
+  end
 
 
   def index
