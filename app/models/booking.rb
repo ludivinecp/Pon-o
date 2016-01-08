@@ -14,4 +14,6 @@ class Booking < ActiveRecord::Base
     BookingMailer.confirmation(self).deliver_now
   end
 
+  
+
 end

@@ -30,9 +30,8 @@ class ServicesController < ApplicationController
     @service = Service.find(params[:id])
     @centre = @service.centre
     @booking = Booking.new
-    @user = current_user
-    
-
+    @user = current_user    
+    @remaining = @service.remaining_places
   end
 
   def new
