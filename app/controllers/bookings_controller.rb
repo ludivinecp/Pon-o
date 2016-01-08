@@ -9,33 +9,23 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     @centre = @booking.centre
     @service = @booking.service
-
-    # @booking.validation = !@booking.validation
-    # if @booking.update(booking_param)
-    #   if @booking.validation
-    #     message = "Réservation confirmée"
-    #   else
-    #     message = "Réservation annulée"
-    #   end
-    #   redirect_to centre_path(@centre), notice: message
-    # else
-    #   redirect_to centre_path(@centre), method: :get, alert: "Problème : contact l'administrateur)"
-    # end
-
   end
 
   def edit
   end
 
   def create
-    @booking = Booking.new(booking_params)
-      if @booking.save
-        BookingMailer.new_booking(@booking).deliver_now
-        redirect_to booking_path(@booking)
-        
-      else
-        redirect_to service_path(params[:id])
-      end
+    if !!!current_user.rider.first_name.blank? && !!!current_user.rider.last_name.blank? && !!!current_user.rider.phone.blank?  && !!!current_user.rider.level.blank?  && !!!current_user.rider.nickname.blank? 
+      @booking = Booking.new(booking_params)
+        if @booking.save
+          BookingMailer.new_booking(@booking).deliver_now
+          redirect_to booking_path(@booking)
+        else
+          redirect_to service_path(params[:id])
+        end
+    else 
+      redirect_to edit_rider_path(current_user.id), alert: 'Merci de renseigner les champs obligatoires avant de réserver.'
+    end
   end
 
   def update

@@ -7,11 +7,6 @@ class Booking < ActiveRecord::Base
   # def total_amount (number_of_people)
   # self.number_of_people * service.price   
   # end
-  # before_action :authenticate_user!
-
-
-  def booking_resume
-    BookingMailer.confirmation(self).deliver_now
-  end
+  # before_action :authenticate_user!  
 
 end
