@@ -15,6 +15,7 @@
 <div><%= image_tag @service.image4.thumb.url%></div><br/>
 <%=form_for @booking, url: create_booking_path, method: :post, action: :create do |f|%>   
   <%if user_signed_in?%>
+  <p><%= @remaining %> place(s) restante(s)</p>
     <%if @remaining != 0%>
       <%= f.label :nombre_de_personnes%>
       <%= f.number_field :number_of_people,  :value => 1, min: 1, max: @remaining%>
