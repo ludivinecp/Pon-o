@@ -7,7 +7,7 @@ $navbar-default-bg:                black;
 
 
 $navbar-default-link-color:         white;
-$brand-primary:                     #f39c12;
+
 // $jumbotron-bg:                      #FAFAFA;
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
@@ -42,5 +42,20 @@ $brand-primary:                     #f39c12;
   margin-top:40px;
 }
 
+.fb {
+  margin-top: 10px;
+  width: 100%;
+}
 
+.connexion {
+  margin-top: 10px;
+  width: 100%;
 
+}
+
+.suscribe {
+  margin-top: 10px;
+  width: 100%;
+  text-align: center;
+
+}
