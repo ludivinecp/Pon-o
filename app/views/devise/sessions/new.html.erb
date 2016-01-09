@@ -1,6 +1,6 @@
 
 <div class="container-fluid bg-connexion">
-  <div class="row">
+
   <div class="col-md-3"></div>
   <div class="col-md-6 back-form-connexion">
     <h1>Connexion</h1>
@@ -8,10 +8,10 @@
   <div class="form-froup">
     <%= f.label :email  %><br />
     <%= f.email_field :email, autofocus: true, class: "form-control" %>
-  </div>
+  </div></br>
 
   <div class="form-group">
-    <%= f.label :password %><br />
+    <%= f.label :mot_de_passe%><br />
     <%= f.password_field :password, autocomplete: "off", class:"form-control" %>
   </div>
 
@@ -34,6 +34,6 @@
     <%= button_to "Connexion via #{provider.to_s.titleize}", omniauth_authorize_path(resource_name, provider),class:'btn btn-primary btn-lg fb' %><br />
   <% end -%>
 
-</div>
+
 </div>
 </div>
