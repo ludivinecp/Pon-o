@@ -6,6 +6,21 @@ class ServicesController < ApplicationController
   def home
   end
 
+  def map
+    @centres = Centre.near(params[:search], 50)
+
+    @hash = Gmaps4rails.build_markers(@centres) do |centre, marker|
+        marker.lat centre.latitude
+        marker.lng centre.longitude
+        marker.infowindow render_to_string(:partial => "/services/gmap", :locals => { :centre => centre})
+        marker.picture({
+          "url" => "http://s29.postimg.org/4avln1f3n/gmapsmarkergreen.png",
+          "width" => 100,
+          "height" => 100
+          })
+      end
+  end
+
 
   def index
     if params[:search].present?
@@ -21,9 +36,9 @@ class ServicesController < ApplicationController
         marker.lng centre.longitude
         marker.infowindow render_to_string(:partial => "/services/gmap", :locals => { :centre => centre})
         marker.picture({
-          "url" => "http://people.mozilla.com/~faaborg/files/shiretoko/firefoxIcon/firefox-32.png",
-          "width" => 32,
-          "height" => 32
+          "url" => "http://s29.postimg.org/4avln1f3n/gmapsmarkergreen.png",
+          "width" => 100,
+          "height" => 100
           })
       end
   end

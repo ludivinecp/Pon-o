@@ -8,8 +8,8 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <!-- <%= link_to " Poneo", root_path, class:"navbar-brand"%> -->
-      <%= link_to "pONéO !", root_path, {:style=>"color: white; font-family: 'Luckiest Guy', cursive; font-size: 2.6em; padding-left: 30px;", :class => "css_class"}%>
+   
+      <%= link_to "pONéO !", root_path, {:style=>"color: white; font-family: 'Luckiest Guy', cursive; font-size: 2.6em; padding-left: 30px; text-decoration: none;"}%>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -19,9 +19,10 @@
         
         <% if user_signed_in? %>
 
-          <% if current_user.admin? %>
-            <%= link_to "Admin", rails_admin_path%>
+         <% if current_user.admin? %>
+             <li><%= link_to "Admin", rails_admin_path %></li>
           <%end%>
+
 
           <li style="color:white; padding-top: 16px; padding-left: 30px;">
           Bonjour <strong><%= current_user.centre.try(:name)%></strong>
