@@ -20,6 +20,6 @@
 
   <%- resource_class.omniauth_providers.each do |provider| %>
  
-    <%= button_to "Inscription en 2 secondes avec #{provider.to_s.titleize}", omniauth_authorize_path(resource_name, provider),class:'btn btn-primary btn-lg fb' %><br />
+    <%= button_to "Inscription via #{provider.to_s.titleize}", omniauth_authorize_path(resource_name, provider),class:'btn btn-primary btn-lg fb' %><br />
   <% end -%>
 <% end -%>
