@@ -69,17 +69,20 @@
                     <div class="col-md-12">
 
                       <p><% @centres.each do |centre|%></p>
-                      <div class="pins" class="transitions-enabled">
+                      <div class="transitions-enabled">
                         <p><% centre.services.each do |service|%></p>
                           <div class="box panel panel-default">
-                            <h2><%= service.title %></h2>
-                            <%=centre.name%>
-                            <div class="image_centre">
-                            <%= image_tag service.image1.thumb.url%>
-                              <p> price: € <%= service.price%></p>
-                              <p> Categorie: <%= Category.find(service.category_id).try(:name)%></p>                              
-                              <%= link_to 'Réserver', service, class:'btn btn-success'%>
-                            </div>
+    
+                            <%= image_tag service.image1.thumb.url, class:'image-service'%>
+                         
+
+                              <div class="description">
+                                <p> Categorie: <%= Category.find(service.category_id).try(:name)%></p> 
+                                <p> <%= service.price%> €</p>
+
+                              </div>                             
+                             
+                       
                           </div>
 
                         <% end %>
