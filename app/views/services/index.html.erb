@@ -12,33 +12,27 @@
               <div class="row">
                 <div class="col-md-12">
                   <div id="custom-search-input">
-                    <div class="input-group col-md-12">
-                      <input type="text" class="form-control input-lg" placeholder="Trouvez un lieu et amusez-vous !" />
-                        <span class="input-group-btn">
-                          <button class="btn btn-info btn-lg" type="button">
-                            <i class="glyphicon glyphicon-search"></i>
-                          </button>
-                        </span>
-                    </div>
+                    
                   </div>
                   <div class='col-md-offset-8'>
                     <%= link_to image_tag('map.png'), map_path %>
 
                   </div>
-                  <div id="custom-search-input">
-                      <div class="input-group col-md-12">
-                          <%= form_tag services_path, method: :get do %>
-                              <%= label :search, "Search services near : " %>
-                              <%= text_field_tag :search, params[:search] %>
-                              <%= submit_tag "Search" %>
-                          <%end %>
-<!-- search bar bootstrap/rails alike non fonctionnelle à retravailler:                          -->
-                              <%= text_field_tag :search, params[:search], class: "form-control input-lg", placeholder: "Trouver un lieu..." %>
-                           <%= button_tag(type: "submit", class: "btn btn-info btn-lg  ") do %>
-                            <i class="glyphicon glyphicon-search"></i>
-                          <%end%>
-                      </div>
-                  </div>
+
+                <div class="input-group col-md-12">
+                  <%= form_tag services_path, method: 'get', class: 'navbar-form', role: 'search' do %>
+                    <div class="input-group">
+                    <%= text_field_tag :search, params[:search], size: 60, placeholder: "Rechercher un lieu", class: "form-control"%>
+                    </div>
+
+                    <%= button_tag(type: "submit", class: "btn btn-success") do %>
+                    <i class="glyphicon glyphicon-search"></i>
+                  <% end %>
+                </div>
+
+                  <% end %>
+                </div>
+
                 </div>
               </div>
                 <div class="row"><div class="col-md-12"></div>
