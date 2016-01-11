@@ -4,7 +4,7 @@
   <% centre.services.each do |service| %>
 
   <%= service.price %>$</br>
-  <%= Category.find(service.category_id).try(:name) %></br>
+  <%= service.category.try(:name) %></br>
   <%= link_to 'Réserver', service_path(service), method: :get %>
 
   

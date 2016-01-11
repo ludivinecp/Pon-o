@@ -24,5 +24,6 @@ class Rider < ActiveRecord::Base
   def rider_bookings
     Booking.where(rider_id: self)
   end
-       
+
+   
 end

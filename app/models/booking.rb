@@ -20,4 +20,12 @@ class Booking < ActiveRecord::Base
   def total_price(service)
     self.number_of_people * service.price
   end   
+
+  def mailer_new_booking
+    BookingMailer.new_booking(self).deliver_now
+  end
+
+  def mailer_booking_confirmation
+    BookingMailer.confirmation_booking(self).deliver_now
+  end
 end

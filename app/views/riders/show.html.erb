@@ -23,7 +23,7 @@
         <ul>
                 <% @rider_bookings.each do |booking| %>
                     <% if booking.current_booking%>  
-                    <a href="/services/<%= booking.service.id%>"><%= booking.service.title%></a></br>
+                    <%= link_to "#{booking.service.title}", service_path(booking.service.id)%>
                     <%=booking.service.date.strftime("%d/%m/%Y")%>
                 </p>
                     <%if booking.validation?%>
