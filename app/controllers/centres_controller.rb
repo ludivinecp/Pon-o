@@ -63,7 +63,7 @@ class CentresController < ApplicationController
 
     def centre_params
       # params[:centre]
-      params.require(:centre).permit(:name, :ffe, :siret, :picture1, :picture2, :picture3, :picture4)
+      params.require(:centre).permit(:name, :ffe, :siret, :picture1, :picture2, :picture3, :picture4, :phone)
     end
 
 end
