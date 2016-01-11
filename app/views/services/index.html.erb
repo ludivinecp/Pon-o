@@ -71,20 +71,15 @@
                       <p><% @centres.each do |centre|%></p>
                       <div class="transitions-enabled">
                         <p><% centre.services.each do |service|%></p>
-                          <div class="box panel panel-default">
-    
+                        
+                        <div class="image-box">
                             <%= image_tag service.image1.thumb.url, class:'image-service'%>
                          
-
                               <div class="description">
-                                <p> Categorie: <%= Category.find(service.category_id).try(:name)%></p> 
+                                <p><%= Category.find(service.category_id).try(:name).capitalize%></p> 
                                 <p> <%= service.price%> €</p>
-
-                              </div>                             
-                             
-                       
-                          </div>
-
+                              </div>                         
+                        </div>                         
                         <% end %>
                       </div>
                         <% end %>
