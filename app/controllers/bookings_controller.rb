@@ -34,7 +34,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     respond_to do |format|
       if @booking.update(booking_params)
-        format.html { redirect_to @booking, notice: 'Booking was successfully updated.' }
+        format.html { redirect_to @booking, notice: 'Votre réservation à été mis à jour.' }
         format.json { render :show, status: :ok, location: @booking }
       else
         format.html { render :edit }

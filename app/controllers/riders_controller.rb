@@ -16,19 +16,7 @@ class RidersController < ApplicationController
   def create
     @rider = Rider.new(user_params)
       if @rider.save
-        binding.pry
-        redirect_to show_rider_path, notice: 'Rider was successfully created.'
-      render :show
-      else
-      render :edit
-      end
-  end
-
-
-  def create
-    @rider = Rider.new(user_params)
-      if @rider.save
-        redirect_to show_rider_path, notice: 'Rider was successfully created.'
+        redirect_to show_rider_path
       render :show
       else
       render :edit
