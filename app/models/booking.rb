@@ -9,4 +9,15 @@ class Booking < ActiveRecord::Base
   # end
   # before_action :authenticate_user!  
 
+  def passed_booking
+    self.service.date < DateTime.now
+  end 
+
+  def current_booking
+    self.service.date > DateTime.now
+  end     
+
+  def total_price(service)
+    self.number_of_people * service.price
+  end   
 end

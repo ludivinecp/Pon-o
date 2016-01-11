@@ -21,4 +21,8 @@ class Rider < ActiveRecord::Base
 #     }
 # mount_uploaders :avatars, AvatarUploader
   mount_uploader :avatar, PictureUploader
+  def rider_bookings
+    Booking.where(rider_id: self)
+  end
+       
 end

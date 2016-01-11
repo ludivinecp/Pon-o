@@ -5,7 +5,7 @@
 <%= link_to "#{@centre.name}", centre_path(@centre)%></br>
 <%= @centre.address %></br>
 <%= @booking.number_of_people %> personnes</br>
-<%= @booking.number_of_people * @service.price  %>€</br>
+<%= @booking.total_price(@service)  %>€</br>
 <%= @centre.phone %></br>
 <p> petit mot !</p>
 <p> paiement</p>

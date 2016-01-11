@@ -19,12 +19,10 @@
 
     <div id="mybookings"class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
       <p>Mes réservations</p>
-        <% if Booking.where(rider_id: @rider).nil?%>
-          <p> Vous n'avez pas encore effectué de réservation </p>
-        <% else %>
-            <ul>
-                <% Booking.where(rider_id: @rider).each do |booking| %>
-                    <% if booking.service.date > DateTime.now%>  
+        <% if !!@rider_bookings %>
+        <ul>
+                <% @rider_bookings.each do |booking| %>
+                    <% if booking.current_booking%>  
                     <a href="/services/<%= booking.service.id%>"><%= booking.service.title%></a></br>
                     <%=booking.service.date.strftime("%d/%m/%Y")%>
                 </p>
@@ -36,12 +34,16 @@
                 <%end%>
             <%end%> 
             </ul>
+         
+        <% else %>
+         <p> Vous n'avez pas encore effectué de réservation </p>
+            
         <%end%>
 
     <div id="my_text"class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
         <p>Mes anciennes réservations</p>        
-            <% Booking.where(rider_id: @rider).each do |booking| %>  
-            <% if booking.service.date < DateTime.now%>
+            <% @rider_bookings.each do |booking| %>  
+            <% if booking.passed_booking%>
             <%= booking.service.title%></a></br>
             <%= booking.service.date.strftime("%d/%m/%Y")%>
                 </p>

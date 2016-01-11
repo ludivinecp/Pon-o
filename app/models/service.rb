@@ -13,5 +13,8 @@ def remaining_places
       count -= resa.number_of_people
     end
     count
+end
+
+def service_category
   end
 end
