@@ -1,7 +1,7 @@
 
 <div class="jumbotron center">
   <div class="row">
-    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 " id="profile">
       <h3 class="about_me">Mon profil</h3>
       <%= image_tag @rider.avatar.avatar.url, :class => "style_avatar" %>
             <ul>
@@ -17,7 +17,7 @@
             </ul>
     </div>
 
-    <div id="my_text"class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+    <div id="mybookings"class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
       <p>Mes réservations</p>
         <% if Booking.where(rider_id: @rider).nil?%>
           <p> Vous n'avez pas encore effectué de réservation </p>
