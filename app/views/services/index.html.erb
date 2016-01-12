@@ -4,7 +4,11 @@
     <div class="section">
       <div class="container-fluid">
         <div class="row">
+<<<<<<< HEAD
           <div class="col-md-5 block-left " >
+=======
+          <div class="col-md-7 jumbotron" style="overflow:scroll">
+>>>>>>> master
             <h3 class="text-center" contenteditable="false">Recherche</h3>
             <br/>
           <div class="section">
@@ -12,20 +16,33 @@
               <div class="row">
                 <div class="col-md-12">
                   <div id="custom-search-input">
-                    
+                    <div class="input-group col-md-12">
+                      <input type="text" class="form-control input-lg" placeholder="Trouvez un lieu et amusez-vous !" />
+                        <span class="input-group-btn">
+                          <button class="btn btn-info btn-lg" type="button">
+                            <i class="glyphicon glyphicon-search"></i>
+                          </button>
+                        </span>
+                    </div>
                   </div>
-                  <div class='col-md-offset-8'>
-                    <%= link_to image_tag('map.png'), map_path %>
+                  <div id="custom-search-input">
+                      <div class="input-group col-md-12">
+                          <%= form_tag services_path, method: :get do %>
+                              <%= label :search, "Search services near : " %>
+                              <%= text_field_tag :search, params[:search] %>
+                              <%= submit_tag "Search" %>
+                          <%end %>
+<!-- search bar bootstrap/rails alike non fonctionnelle à retravailler:                          -->
+                              <%= text_field_tag :search, params[:search], class: "form-control input-lg", placeholder: "Trouver un lieu..." %>
+                           <%= button_tag(type: "submit", class: "btn btn-info btn-lg  ") do %>
+                            <i class="glyphicon glyphicon-search"></i>
+                          <%end%>
+                      </div>
                   </div>
-
-                <%= render "services/searchbar" %>
-                
-                </div>
-
                 </div>
               </div>
                 <div class="row"><div class="col-md-12"></div>
-                <div class="col-md-12"><hr></div>
+                <div class="col-md-12"><hr></div></div>
                 <div class="row">
 
                   <div class="col-md-offset-3">
@@ -70,6 +87,7 @@
                     <div class="col-md-offset-2 service-list ">
 
                       <p><% @centres.each do |centre|%></p>
+<<<<<<< HEAD
                    
                         <p><% centre.services.each do |service|%></p>
                         
@@ -84,6 +102,20 @@
                                 <p id="service"> <%= service.description.capitalize%></p>
 
                                 <%= link_to 'Réserver', service, class:'btn btn-success btn-book'%>
+=======
+                      <div class="pins" class="transitions-enabled">
+                        <p><% centre.services.each do |service|%></p>
+                          <div class="box panel panel-default">
+                            <h2><%= service.title %></h2>
+                            <%=centre.name%>
+                            <div class="image_centre">
+                            <%= image_tag service.image1.thumb.url%>
+                              <p> price: € <%= service.price%></p>
+                              <p> Categorie: <%= service.category.try(:name)%></p>                              
+                              <%= link_to 'Réserver', service, class:'btn btn-success'%>
+                            </div>
+                          </div>
+>>>>>>> master
 
                               </div>                         
                                             
@@ -98,9 +130,9 @@
                 </div>
               </div>
             </div>
-          <div class="col-md-7 block-right hidden-sm hidden-xs">
+          <div class="col-md-5 hidden-sm hidden-xs">
             <div>
-              <div id="map" style='width: 750px; height: 750px;'></div>
+              <div id="map" style='width: 515px; height: 650px;'></div>
             </div>
           </div>
             <script type="text/javascript">

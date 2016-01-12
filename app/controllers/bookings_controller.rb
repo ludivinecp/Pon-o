@@ -9,33 +9,23 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     @centre = @booking.centre
     @service = @booking.service
-
-    # @booking.validation = !@booking.validation
-    # if @booking.update(booking_param)
-    #   if @booking.validation
-    #     message = "Réservation confirmée"
-    #   else
-    #     message = "Réservation annulée"
-    #   end
-    #   redirect_to centre_path(@centre), notice: message
-    # else
-    #   redirect_to centre_path(@centre), method: :get, alert: "Problème : contact l'administrateur)"
-    # end
-
   end
 
   def edit
   end
 
   def create
-    @booking = Booking.new(booking_params)
-      if @booking.save
-        BookingMailer.new_booking(@booking).deliver_now
-        redirect_to booking_path(@booking)
-        
-      else
-        redirect_to service_path(params[:id])
-      end
+    if current_user.complete_profile
+      @booking = Booking.new(booking_params)
+        if @booking.save
+          @booking.mailer_new_booking
+          redirect_to booking_path(@booking)
+        else
+          redirect_to service_path(params[:id])
+        end
+    else 
+      redirect_to edit_rider_path(current_user.id), alert: 'Merci de renseigner les champs obligatoires avant de réserver.'
+    end
   end
 
   def update
@@ -44,7 +34,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     respond_to do |format|
       if @booking.update(booking_params)
-        format.html { redirect_to @booking, notice: 'Booking was successfully updated.' }
+        format.html { redirect_to @booking, notice: 'Votre réservation à été mis à jour.' }
         format.json { render :show, status: :ok, location: @booking }
       else
         format.html { render :edit }
@@ -57,7 +47,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     @centre = @booking.centre
     @booking.update(validation: true)
-    BookingMailer.confirmation_booking(@booking).deliver_now
+    @booking.mailer_booking_confirmation
     redirect_to centre_path(@centre)
   end
 

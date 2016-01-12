@@ -47,9 +47,8 @@ class ServicesController < ApplicationController
     @service = Service.find(params[:id])
     @centre = @service.centre
     @booking = Booking.new
-    @user = current_user
-    @rider = @user.rider.id
-
+    @user = current_user    
+    @remaining = @service.remaining_places
   end
 
   def new
@@ -87,6 +86,7 @@ class ServicesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to services_url, notice: 'Service was successfully destroyed.' }
       format.json { head :no_content }
+
     end
   end
 

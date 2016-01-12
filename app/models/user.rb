@@ -33,6 +33,22 @@ class User < ActiveRecord::Base
         user.password = Devise.friendly_token[0,20]
     end
   end
+
+   def complete_profile #check if profile is complete before allowing the rider to place a booking
+    nothing = []
+    self.rider.attributes.each do |k, v|
+      if ["nickname", "first_name", "last_name", "phone", "level"].include?(k)
+        nothing << v.blank?
+      end
+    end
+    
+    if nothing.include?(true)
+      false
+    else
+      true
+    end   
+  end
+     
   
   private
   def notification

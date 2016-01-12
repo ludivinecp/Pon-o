@@ -12,12 +12,15 @@
 <link rel="stylesheet" src="//normalize-css.googlecode.com/svn/trunk/normalize.css" />
 </head>
 <body>
-  <% if notice %>
-    <p class="alert alert-success"><%= notice %></p>
+<div id="flashes">
+  <% if flash[:notice] %>
+    <p class="alert alert-success" id="flash_notice"><%= flash[:notice] %></p>
+    <%= javascript_tag "$('#flash_notice').effect('highlight',{},1000);" %>
   <% end %>
   <% if alert %>
     <p class="alert alert-danger"><%= alert %></p>
   <% end %>
+</div>
 <%= render 'layouts/header' %>
  <div class="container-fluid">
 <%= yield %>
