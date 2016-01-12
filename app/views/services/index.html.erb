@@ -71,6 +71,7 @@
                             <%= image_tag service.image1.thumb.url, class:'image-service'%>
                          
                               <div class="description">
+
                                <p id="name"><%=centre.name%></p>
                                 <p id="category"><%= Category.find(service.category_id).try(:name).capitalize%></p> 
                                 <div class="price"><p> <%= service.price%> €</p>
@@ -78,8 +79,6 @@
                                 <p id="service"> <%= service.description.capitalize%></p>
 
                                 <%= link_to 'Réserver', service, class:'btn btn-success btn-book'%>
-
-
                               </div>                         
                                             
                         <% end %>
