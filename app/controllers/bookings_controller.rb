@@ -15,10 +15,10 @@ class BookingsController < ApplicationController
   end
 
   def create
-    if !!!current_user.rider.first_name.blank? && !!!current_user.rider.last_name.blank? && !!!current_user.rider.phone.blank?  && !!!current_user.rider.level.blank?  && !!!current_user.rider.nickname.blank? 
+    if current_user.complete_profile
       @booking = Booking.new(booking_params)
         if @booking.save
-          BookingMailer.new_booking(@booking).deliver_now
+          @booking.mailer_new_booking
           redirect_to booking_path(@booking)
         else
           redirect_to service_path(params[:id])
@@ -34,7 +34,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     respond_to do |format|
       if @booking.update(booking_params)
-        format.html { redirect_to @booking, notice: 'Booking was successfully updated.' }
+        format.html { redirect_to @booking, notice: 'Votre réservation à été mis à jour.' }
         format.json { render :show, status: :ok, location: @booking }
       else
         format.html { render :edit }
@@ -47,7 +47,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     @centre = @booking.centre
     @booking.update(validation: true)
-    BookingMailer.confirmation_booking(@booking).deliver_now
+    @booking.mailer_booking_confirmation
     redirect_to centre_path(@centre)
   end
 

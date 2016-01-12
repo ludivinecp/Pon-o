@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
       if @user.save
-        redirect_to show_user_path, notice: 'User was successfully created.'
+        redirect_to show_user_path, notice: 'Votre compte a été crée avec succès. Vérifiez votre boite mail !'
       render :show
       else
       render :edit
