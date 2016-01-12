@@ -4,7 +4,7 @@
     <div class="section">
       <div class="container-fluid">
         <div class="row">
-          <div class="col-md-5 block-left jumbotron" >
+          <div class="col-md-5 block-left " >
             <h3 class="text-center" contenteditable="false">Recherche</h3>
             <br/>
           <div class="section">
@@ -64,9 +64,9 @@
                 </div>
               </div>
               <div class="section">
-                <div class="container">
+                <div class="container-fluid">
                   <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-12 service-list ">
 
                       <p><% @centres.each do |centre|%></p>
                       <div class="transitions-enabled">
@@ -76,11 +76,11 @@
                             <%= image_tag service.image1.thumb.url, class:'image-service'%>
                          
                               <div class="description">
-                                <p><%=centre.name%></p>
-                                <p><%= Category.find(service.category_id).try(:name).capitalize%></p> 
+                               <p id="name"><%=centre.name%></p>
+                                <p id="category"><%= Category.find(service.category_id).try(:name).capitalize%></p> 
                                 <div class="price"><p> <%= service.price%> €</p>
                                 </div>
-                                <p> <%= service.description.capitalize%></p>
+                                <p id="service"> <%= service.description.capitalize%></p>
 
                                 <%= link_to 'Réserver', service, class:'btn btn-success btn-book'%>
 
