@@ -64,15 +64,16 @@
                 </div>
               </div>
               <div class="section">
-                <div class="container-fluid">
+       
                   <div class="row">
-                    <div class="col-md-12 service-list ">
+                   <div class="col-md-12">
+                    <div class="col-md-offset-2 service-list ">
 
                       <p><% @centres.each do |centre|%></p>
-                      <div class="transitions-enabled">
+                   
                         <p><% centre.services.each do |service|%></p>
                         
-                        <div class="image-box">
+                       
                             <%= image_tag service.image1.thumb.url, class:'image-service'%>
                          
                               <div class="description">
@@ -85,14 +86,15 @@
                                 <%= link_to 'Réserver', service, class:'btn btn-success btn-book'%>
 
                               </div>                         
-                        </div>                         
+                                            
                         <% end %>
-                      </div>
+                   
                         <% end %>
 
                       </div>
                     </div>
-                  </div>
+                  </div><!--md12-->
+             
                 </div>
               </div>
             </div>
