@@ -29,7 +29,9 @@
             <% if !!@rider_bookings %>
             <ul>
             <% @rider_bookings.each do |booking| %>
-                <% if booking.current_booking%>  
+                 <%= image_tag "#{booking.service.image1.thumb.url}", class:'image-booking'%>
+                <% if booking.current_booking%> 
+
                     <p><%= link_to "#{booking.service.title.capitalize}", service_path(booking.service.id), class:'service-link' %> - 
                     <%=booking.service.date.strftime("%d/%m/%Y")%>
                         <%if booking.validation?%>
