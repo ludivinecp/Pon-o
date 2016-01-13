@@ -41,6 +41,7 @@ class ServicesController < ApplicationController
           "height" => 100
           })
       end
+
   end
 
   def show
@@ -49,6 +50,7 @@ class ServicesController < ApplicationController
     @booking = Booking.new
     @user = current_user    
     @remaining = @service.remaining_places
+    
   end
 
   def new
