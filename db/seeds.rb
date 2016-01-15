@@ -366,8 +366,8 @@ Service.create([{ title: 'sport4',
               centre_id: 10 }])
 
 
-Category.create name: "nature"
+Category.create name: "Nature"
 
-Category.create name: "découverte"
+Category.create name: "Découverte"
 
-Category.create name: "sport"
+Category.create name: "Sport"

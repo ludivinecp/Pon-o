@@ -2,8 +2,8 @@
 <div class="jumbotron center booking-page">
   <div class="row">
     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 " id="main-profile">
-      <h2 class="about-me">Mon profil</h2>
       <%= image_tag @rider.avatar.avatar.url, :class => "style-avatar" %>
+        <h2 class="about-me">Mon profil</h2>
 
             <ul class="rider-profile">
                 <hr>
@@ -32,7 +32,7 @@
                  <%= image_tag "#{booking.service.image1.thumb.url}", class:'image-booking'%>
                 <% if booking.current_booking%> 
 
-                    <p><%= link_to "#{booking.service.title.capitalize}", service_path(booking.service.id), class:'service-link' %> - 
+                    <p><%= link_to "#{booking.service.title}", service_path(booking.service.id), class:'service-link' %> - 
                     <%=booking.service.date.strftime("%d/%m/%Y")%>
                         <%if booking.validation?%>
                             <p id="validated">Validée</p>

@@ -10,6 +10,8 @@ gem 'jquery-turbolinks'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog'
+#cropping image
+gem 'jcrop-rails-v2', '~> 0.9.12.3'
 # =====================
 gem 'bootstrap-sass'
 gem 'devise'
