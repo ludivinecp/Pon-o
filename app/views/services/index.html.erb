@@ -63,10 +63,7 @@
                     <div class="col-md-offset-2 service-list ">
 
                       <p><% @centres.each do |centre|%></p>
-
-                   
                         <p><% centre.services.each do |service|%></p>
-                        
                        
                             <%= image_tag service.image1.thumb.url, class:'image-service'%>
                          

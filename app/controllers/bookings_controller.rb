@@ -9,6 +9,16 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     @centre = @booking.centre
     @service = @booking.service
+
+    @hash = Gmaps4rails.build_markers(@centre) do |centre, marker|
+        marker.lat centre.latitude
+        marker.lng centre.longitude
+        marker.picture({
+          "url" => "http://s29.postimg.org/4avln1f3n/gmapsmarkergreen.png",
+          "width" => 100,
+          "height" => 100
+          })
+      end
   end
 
   def edit
