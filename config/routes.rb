@@ -20,9 +20,9 @@ Rails.application.routes.draw do
   resources :riders
   get "bookings/:id/booking_confirmation" => "bookings#booking_confirmation", as: :booking_confirmation
   post "booking/create" => "bookings#create", as: :create_booking
-  
-  #for the button return to result ....
-  post "service/create" => "services#create"
+
+
+
 
 
 
