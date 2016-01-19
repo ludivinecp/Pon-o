@@ -44,14 +44,11 @@ class ServicesController < ApplicationController
   end
 
   def filter_nature
-        if params[:search].present?
-    # @centres = Centre.near(params[:search], params[:distance] || 50, order: :distance)
-      @centres = Centre.near(params[:search], 50)
-    else
-      @centres = Centre.all
-      @services = Service.all
-    end
-
+    near_centres_ids = Centre.near(params[:search], 50).map(&:id)
+    @matching_services = Service.where(centre_id: near_centres_ids, category_id: 1)
+    @centres = @matching_services.map do |service|
+               service.centre
+               end
     @hash = Gmaps4rails.build_markers(@centres) do |centre, marker|
         marker.lat centre.latitude
         marker.lng centre.longitude
@@ -62,19 +59,14 @@ class ServicesController < ApplicationController
           "height" => 100
           })
     end
-
-    @services_nature = Service.where(category_id: 1)
   end
 
   def filter_discovery
-        if params[:search].present?
-    # @centres = Centre.near(params[:search], params[:distance] || 50, order: :distance)
-      @centres = Centre.near(params[:search], 50)
-    else
-      @centres = Centre.all
-      @services = Service.all
-    end
-
+    near_centres_ids = Centre.near(params[:search], 50).map(&:id)
+    @matching_services = Service.where(centre_id: near_centres_ids, category_id: 2)
+    @centres = @matching_services.map do |service|
+               service.centre
+               end
     @hash = Gmaps4rails.build_markers(@centres) do |centre, marker|
         marker.lat centre.latitude
         marker.lng centre.longitude
@@ -85,13 +77,14 @@ class ServicesController < ApplicationController
           "height" => 100
           })
     end
-    @search = params[:search]
-    @services_discovery = Service.where(category_id: 2)
   end
 
   def filter_sport
-    @centres = Centre.near(params[:search], 50)
-    binding.pry
+    near_centres_ids = Centre.near(params[:search], 50).map(&:id)
+    @matching_services = Service.where(centre_id: near_centres_ids, category_id: 3)
+    @centres = @matching_services.map do |service|
+               service.centre
+               end
     @hash = Gmaps4rails.build_markers(@centres) do |centre, marker|
         marker.lat centre.latitude
         marker.lng centre.longitude
@@ -102,9 +95,6 @@ class ServicesController < ApplicationController
           "height" => 100
           })
     end
-
-    # @services_sport = @centre.service.where(category_id: 3)
-
   end
 
   def show
