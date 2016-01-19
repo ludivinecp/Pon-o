@@ -2,6 +2,7 @@ class ServicesController < ApplicationController
   # before_action :authenticate_user!, only: [:edit, :update]
   # before_action :check_admin_logged_in!, only: [:show, :new, :create, :delete]
   # before_action :check_centre_or_admin_logged_in!, only: [:edit, :update]
+  # before_action :service_params, only: :create
 
   def home
   end
@@ -97,6 +98,15 @@ class ServicesController < ApplicationController
 
     def service_params
       #params[:service]
-      params.require(:service).permit( :category, :price, :description, :date, :time, :number_of_people, :image1, :image2, :image3, :image4)
+      params.require(:service).permit(:category,
+                                      :price,
+                                      :description,
+                                      :date, 
+                                      :time, 
+                                      :number_of_people, 
+                                      :image1, 
+                                      :image2, 
+                                      :image3, 
+                                      :image4)
     end
 end
