@@ -1,22 +1,19 @@
 <%= render'services/header_search'%>  
 <%= render'services/searchbar'%>
 <%= render'services/filter'%>
-                      <p><% @centres.each do |centre|%></p>
-                        <p><% centre.services.each do |service|%></p>
+
+                        <p><% @matching_services.each do |service|%></p>
                             <%= image_tag service.image1.thumb.url, class:'image-service'%>
                          
                               <div class="description">
-                               <p id="name"><%=centre.name%></p>
+                               <p id="name"><%=service.centre.name%></p>
                                 <p id="category"><%= Category.find(service.category_id).try(:name).capitalize%></p> 
                                 <div class="price"><p> <%= service.price%> €</p>
                                 </div>
                                 <p id="service"> <%= service.description.capitalize%></p>
-
                                 <%= link_to 'Réserver', service, class:'btn btn-success btn-book'%>
-
                               </div>                         
-                        <% end %>
-                        <% end %>
+                          <% end %>
                       </div>
                     </div>
                   </div><!--md12-->

@@ -40,7 +40,61 @@ class ServicesController < ApplicationController
           "width" => 100,
           "height" => 100
           })
-      end
+    end
+  end
+
+  def filter_nature
+    near_centres_ids = Centre.near(params[:search], 50).map(&:id)
+    @matching_services = Service.where(centre_id: near_centres_ids, category_id: 1)
+    @centres = @matching_services.map do |service|
+               service.centre
+               end
+    @hash = Gmaps4rails.build_markers(@centres) do |centre, marker|
+        marker.lat centre.latitude
+        marker.lng centre.longitude
+        marker.infowindow render_to_string(:partial => "/services/gmap", :locals => { :centre => centre})
+        marker.picture({
+          "url" => "http://s29.postimg.org/4avln1f3n/gmapsmarkergreen.png",
+          "width" => 100,
+          "height" => 100
+          })
+    end
+  end
+
+  def filter_discovery
+    near_centres_ids = Centre.near(params[:search], 50).map(&:id)
+    @matching_services = Service.where(centre_id: near_centres_ids, category_id: 2)
+    @centres = @matching_services.map do |service|
+               service.centre
+               end
+    @hash = Gmaps4rails.build_markers(@centres) do |centre, marker|
+        marker.lat centre.latitude
+        marker.lng centre.longitude
+        marker.infowindow render_to_string(:partial => "/services/gmap", :locals => { :centre => centre})
+        marker.picture({
+          "url" => "http://s29.postimg.org/4avln1f3n/gmapsmarkergreen.png",
+          "width" => 100,
+          "height" => 100
+          })
+    end
+  end
+
+  def filter_sport
+    near_centres_ids = Centre.near(params[:search], 50).map(&:id)
+    @matching_services = Service.where(centre_id: near_centres_ids, category_id: 3)
+    @centres = @matching_services.map do |service|
+               service.centre
+               end
+    @hash = Gmaps4rails.build_markers(@centres) do |centre, marker|
+        marker.lat centre.latitude
+        marker.lng centre.longitude
+        marker.infowindow render_to_string(:partial => "/services/gmap", :locals => { :centre => centre})
+        marker.picture({
+          "url" => "http://s29.postimg.org/4avln1f3n/gmapsmarkergreen.png",
+          "width" => 100,
+          "height" => 100
+          })
+    end
   end
 
   def show
