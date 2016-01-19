@@ -12,10 +12,8 @@
 <link rel="stylesheet" src="//normalize-css.googlecode.com/svn/trunk/normalize.css" />
 </head>
 <body>
-<div id="flashes">
-  <% if flash[:notice] %>
-    <p class="alert alert-success" id="flash_notice"><%= flash[:notice] %></p>
-    <%= javascript_tag "$('#flash_notice').effect('highlight',{},1000);" %>
+  <% if notice %>
+  <p class="alert alert-success"> <%= notice %></p>
   <% end %>
   <% if alert %>
     <p class="alert alert-danger"><%= alert %></p>
@@ -26,6 +24,5 @@
 <%= yield %>
 
   </div>
-
 </body>
 </html>
