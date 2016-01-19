@@ -1,6 +1,7 @@
 
 <div class="jumbotron center booking-page">
   <div class="row">
+    <%= link_to " Retour ", url_for(:back), class:'btn btn-success glyphicon glyphicon-arrow-left' %>
     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 " id="main-profile">
       <%= image_tag @rider.avatar.avatar.url, :class => "style-avatar" %>
         <h2 class="about-me">Mon profil</h2>

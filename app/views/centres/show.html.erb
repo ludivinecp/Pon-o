@@ -20,6 +20,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-4">
+            <%= link_to " Retour ", url_for(:back), class:'btn btn-success glyphicon glyphicon-arrow-left' %>
             <div><%= image_tag @centre.picture1.thumb.url%></div><br/>
             <div><%= image_tag @centre.picture2.thumb.url%></div><br/>
             <div><%= image_tag @centre.picture3.thumb.url%></div><br/>
