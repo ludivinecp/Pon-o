@@ -1,59 +1,66 @@
 
-<div class="jumbotron center">
+<div class="jumbotron center booking-page">
   <div class="row">
-    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 " id="profile">
-      <h3 class="about_me">Mon profil</h3>
-      <%= image_tag @rider.avatar.avatar.url, :class => "style_avatar" %>
-            <ul>
-                 <li><%= @rider.try(:last_name) %></li>
-                 <li><%= @rider.try(:first_name) %></li>
-                 <li><%= @rider.try(:nickname) %></li>
-                 <li><%= @rider.try(:weight) %></li>
-                 <li><%= @rider.try(:tall) %></li>
-                 <li><%= @rider.try(:phone) %></li>
-                 <li><%= @rider.try(:address) %></li>
-                 <li><%= @rider.try(:age) %></li>
-                 <li><%= @rider.try(:level) %></li>
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 " id="main-profile">
+      <%= image_tag @rider.avatar.avatar.url, :class => "style-avatar" %>
+        <h2 class="about-me">Mon profil</h2>
+
+            <ul class="rider-profile">
+                <hr>
+                 <li><p><span>Nom:</span> <%= @rider.try(:last_name) %></p></li>
+                 <li><p><span>Prénom:</span> <%= @rider.try(:first_name) %></p></li>
+                 <li><p><span>Pseudo:</span> <%= @rider.try(:nickname) %></p></li>
+                 <hr>
+                 <li><p><span>Poids:</span> <%= @rider.try(:weight) %>kg</p></li>
+                 <li><p><span>Taille:</span> <%= @rider.try(:tall) %>cm</p></li>
+                 <li><p><span>Tel:</span> <%= @rider.try(:phone) %></p></li>
+                 <li><p><span>Adresse:</span> <%= @rider.try(:address) %></p></li>
+                 <li><p><span>Age:</span> <%= @rider.try(:age) %></p></li>
+                 <li><p><span>Niveau:</span> <%= @rider.try(:level) %></p></li>
             </ul>
-    </div>
+            <hr>
+              <%= link_to "Modifier mon Profil", edit_rider_path(current_user.id), class:'btn btn-success btn-profile'%>
+    </div><!--main profile-->
 
     <div id="mybookings"class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-      <p>Mes réservations</p>
-        <% if !!@rider_bookings %>
-        <ul>
-                <% @rider_bookings.each do |booking| %>
-                    <% if booking.current_booking%>  
-                    <%= link_to "#{booking.service.title}", service_path(booking.service.id)%>
-                    <%=booking.service.date.strftime("%d/%m/%Y")%>
-                </p>
-                    <%if booking.validation?%>
-                        <p>Validé</p>
-                    <%else%>
-                        <p>En attente de validation</div>
-                    <%end%>
-                <%end%>
-            <%end%> 
-            </ul>
-         
-        <% else %>
-         <p> Vous n'avez pas encore effectué de réservation </p>
+        <div id="incomming-bookings">
+            <h2>Mes réservations</h2>
             
-        <%end%>
+            <% if !!@rider_bookings %>
+            <ul>
+            <% @rider_bookings.each do |booking| %>
+                 <%= image_tag "#{booking.service.image1.thumb.url}", class:'image-booking'%>
+                <% if booking.current_booking%> 
 
-    <div id="my_text"class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-        <p>Mes anciennes réservations</p>        
+                    <p><%= link_to "#{booking.service.title}", service_path(booking.service.id), class:'service-link' %> - 
+                    <%=booking.service.date.strftime("%d/%m/%Y")%>
+                        <%if booking.validation?%>
+                            <p id="validated">Validée</p>
+                        <%else%>
+                            <p id="to-be-validated">En attente de validation</p>
+                        <%end%>
+                    <%end%>
+                <%end%> 
+            </ul>
+            <%else%>
+                <p> Vous n'avez pas encore effectué de réservation </p>
+            <%end%>
+        </div><!--#incomming-bookings -->
+
+        <div id="old-bookings"class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+
+        <h2>Mes anciennes réservations</h2>        
             <% @rider_bookings.each do |booking| %>  
             <% if booking.passed_booking%>
-            <%= booking.service.title%></a></br>
-            <%= booking.service.date.strftime("%d/%m/%Y")%>
-                </p>
+                <p><%= booking.service.title.capitalize%> -
+                <%= booking.service.date.strftime("%d/%m/%Y")%></p>
             <%end%>
         <%end%>
 
-    </div>
-    </div>
-  </div>
-</div>
-<%= link_to "Modifier mon Profil", edit_rider_path(current_user.id)%>
+        </div><!--#old-bookings -->
+    </div><!--#my-bookings-->
+  </div><!--.row -->
+</div><!--.jumbotron -->
+
 
 

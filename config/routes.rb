@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'services#home'
 
+
   get 'services/map' => "services#map" , as: :map 
   resources :users
   resources :centres
@@ -19,6 +20,11 @@ Rails.application.routes.draw do
   resources :riders
   get "bookings/:id/booking_confirmation" => "bookings#booking_confirmation", as: :booking_confirmation
   post "booking/create" => "bookings#create", as: :create_booking
+
+
+
+
+
 
   
   # The priority is based upon order of creation: first created -> highest priority.
