@@ -1,11 +1,8 @@
-<p id="notice"><%= notice %></p>
 <div class="section">
       <div class="container">
         <div class="row">
           <div class="col-md-12">
             <% if current_user.is_centre? %>
-              <h4 class="text-right"><span class="btn btn-default">
-                <%= link_to 'Modifier le profil', edit_centre_path(@centre) %></span>
             <%end%>
               </h4>
           </div>
@@ -72,12 +69,11 @@
                               <li><%= booking.rider.try(:first_name)%></br>
                                   0<%= booking.rider.try(:phone)%></br>
                                   <%= booking.number_of_people %> personne(s)</br>
-                                     <%if !booking.validation?%>
-                                        <%= link_to "validez ?", booking_confirmation_path(booking), class: "btn btn-medium btn-default" %></b>
-                                     <%else%>
+                                     <%if booking.validation?%>
                                         <p>Validé</p>
+                                      <%end%>
                               </li>
-                                     <%end%>
+                                     
                             <%end%>
                          
                         </ul>

@@ -6,20 +6,20 @@ class ServicesController < ApplicationController
   def home
   end
 
-  def map
-    @centres = Centre.near(params[:search], 50)
+  # def map
+  #   @centres = Centre.near(params[:search], 50)
 
-    @hash = Gmaps4rails.build_markers(@centres) do |centre, marker|
-        marker.lat centre.latitude
-        marker.lng centre.longitude
-        marker.infowindow render_to_string(:partial => "/services/gmap", :locals => { :centre => centre})
-        marker.picture({
-          "url" => "http://s29.postimg.org/4avln1f3n/gmapsmarkergreen.png",
-          "width" => 100,
-          "height" => 100
-          })
-      end
-  end
+  #   @hash = Gmaps4rails.build_markers(@centres) do |centre, marker|
+  #       marker.lat centre.latitude
+  #       marker.lng centre.longitude
+  #       marker.infowindow render_to_string(:partial => "/services/gmap", :locals => { :centre => centre})
+  #       marker.picture({
+  #         "url" => "http://s29.postimg.org/4avln1f3n/gmapsmarkergreen.png",
+  #         "width" => 100,
+  #         "height" => 100
+  #         })
+  #     end
+  # end
 
 
   def index
@@ -41,6 +41,7 @@ class ServicesController < ApplicationController
           "height" => 100
           })
       end
+
   end
 
   def show
@@ -49,6 +50,7 @@ class ServicesController < ApplicationController
     @booking = Booking.new
     @user = current_user    
     @remaining = @service.remaining_places
+    
   end
 
   def new

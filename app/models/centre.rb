@@ -8,4 +8,8 @@ class Centre < ActiveRecord::Base
   mount_uploader :picture2, PictureUploader
   mount_uploader :picture3, PictureUploader
   mount_uploader :picture4, PictureUploader
+
+  rails_admin do
+     exclude_fields :latitude, :longitude
+  end
 end

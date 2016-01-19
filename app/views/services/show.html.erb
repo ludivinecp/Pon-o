@@ -1,9 +1,5 @@
-<p id="notice"><%= notice %></p>
-<%= button_to "retour aux résultats", services_path%>
-<h1>Services#show</h1>
 
-
-<h2><%= @service.title %></h2>
+<h1><%= @service.title %></h1>
 
 <%= link_to "#{@centre.name}", centre_path(@centre)%></br>
 <%= @service.price %>€</br>
