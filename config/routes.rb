@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
- 
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
   #facebook Authentification (with devise)
-  #devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" } 
+  #devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
  devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -11,7 +11,8 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'services#home'
 
-  get 'services/map' => "services#map" , as: :map 
+  get 'services/map' => "services#map" , as: :map
+  resources :charges
   resources :users
   resources :centres
   resources :services
@@ -20,7 +21,7 @@ Rails.application.routes.draw do
   get "bookings/:id/booking_confirmation" => "bookings#booking_confirmation", as: :booking_confirmation
   post "booking/create" => "bookings#create", as: :create_booking
 
-  
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

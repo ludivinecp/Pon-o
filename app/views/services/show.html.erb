@@ -8,12 +8,12 @@
 <%= link_to "#{@centre.name}", centre_path(@centre)%></br>
 <%= @service.price %>€</br>
 <%= @service.description %></br>
-<%=@service.date.strftime("%d/%m/%Y")%>
+<%=@service.date%>
 <div><%= image_tag @service.image1.thumb.url%></div><br/>
 <div><%= image_tag @service.image2.thumb.url%></div><br/>
 <div><%= image_tag @service.image3.thumb.url%></div><br/>
 <div><%= image_tag @service.image4.thumb.url%></div><br/>
-<%=form_for @booking, url: create_booking_path, method: :post, action: :create do |f|%>   
+<%=form_for @booking, url: create_booking_path, method: :post, action: :create do |f|%>
   <%if user_signed_in?%>
   <p><%= @remaining %> place(s) restante(s)</p>
     <%if @remaining != 0%>
