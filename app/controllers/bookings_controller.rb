@@ -4,7 +4,6 @@ class BookingsController < ApplicationController
   def index
     @bookings = Booking.all
   end
-
   def show
     @booking = Booking.find(params[:id])
     @centre = @booking.centre
@@ -28,12 +27,11 @@ class BookingsController < ApplicationController
     if current_user.complete_profile
       @booking = Booking.new(booking_params)
         if @booking.save
-          @booking.mailer_new_booking
           redirect_to booking_path(@booking)
         else
           redirect_to service_path(params[:id])
         end
-    else 
+    else
       redirect_to edit_rider_path(current_user.id), alert: 'Merci de renseigner les champs obligatoires avant de réserver.'
     end
   end
@@ -52,7 +50,7 @@ class BookingsController < ApplicationController
       end
     end
   end
- 
+
   def booking_confirmation
     @booking = Booking.find(params[:id])
     @centre = @booking.centre

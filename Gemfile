@@ -12,6 +12,7 @@ gem 'mini_magick'
 gem 'fog'
 # =====================
 gem 'bootstrap-sass'
+gem 'stripe'
 gem 'devise'
 gem 'pry'
 gem 'bootstrap_form'
