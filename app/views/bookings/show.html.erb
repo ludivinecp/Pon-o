@@ -13,20 +13,39 @@
 <%= @booking.total_price(@service)  %>€</br>
 <p>En cas de questions vous pouvez joindre le centre au : <%= @centre.phone %></p>
 <p> paiement</p>
-   <div class="col-md-7 hidden-sm hidden-xs">
-            <div>
-              <div id="map" style='width: 400px; height: 400px;'></div>
-            </div>
-          </div>
-            <script type="text/javascript">
-            handler = Gmaps.build('Google');
-            handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-              markers = handler.addMarkers(<%=raw @hash.to_json %>);
-              handler.bounds.extendWith(markers);
-              handler.fitMapToBounds();
-            });
-
-            </script>
-          </div>
-        </div>
+<%= form_tag charges_path do %>
+  <article>
+    <% if flash[:error].present? %>
+      <div id="error_explanation">
+        <p><%= flash[:error] %></p>
       </div>
+    <% end %>
+    <label class="amount">
+      <span><%= @booking.total_price(@service)  %>€</span>
+    </label>
+  </article>
+
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-image="http://s18.postimg.org/rpso4pdv9/stripe_horse.jpg"
+          data-name="Paiement Ponéo."
+          data-description="Vous ne le regretterez pas"
+          data-locale="auto"></script>
+<% end %>
+<div class="col-md-7 hidden-sm hidden-xs">
+         <div>
+           <div id="map" style='width: 400px; height: 400px;'></div>
+         </div>
+       </div>
+         <script type="text/javascript">
+         handler = Gmaps.build('Google');
+         handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+           markers = handler.addMarkers(<%=raw @hash.to_json %>);
+           handler.bounds.extendWith(markers);
+           handler.fitMapToBounds();
+         });
+
+         </script>
+       </div>
+     </div>
+   </div>
