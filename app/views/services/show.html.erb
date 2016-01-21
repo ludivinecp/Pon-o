@@ -1,49 +1,46 @@
 
 <div class="jumbotron service-summary"><p id="notice"><%= notice %></p>
 <%= link_to " Retour ", url_for(:back), class:'btn btn-success btn-return glyphicon glyphicon-arrow-left ' %>
-
-<div class="container-fluid">
   <div class="row">
-
-  <h1><%= @service.title %></h1></br></br>
-  <hr>
-      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 summary-images">
-        
+    <hr>
+      
+      <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 summary-images">
+        <h2><%= link_to "#{@centre.name}", centre_path(@centre)%></h2></br>
+        <hr>
         <div><%= image_tag @service.image1.thumb.url%></div></br>
         <div><%= image_tag @service.image2.thumb.url%></div></br>
         <div><%= image_tag @service.image3.thumb.url%></div></br>
         <div><%= image_tag @service.image4.thumb.url%></div></br>
-
       </div>
 
-
       <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 summary-details">
-      
-        <div class="sum-details-align"><h2><%= link_to "#{@centre.name}", centre_path(@centre)%></h2></br>
+        <h1><%= @service.title %></h1>
+ 
+      <div class="sum-details-align">
+        <hr>
         <p><span>Prix:</span><br><br> <%= @service.price %>€</p>
         <p><span>Description:</span><br><br> <%= @service.description %></p>
         <p><span>Date:</span><br><br> <%=@service.date.strftime("%d/%m/%Y")%></p>
         <hr>
-        <%=form_for @booking, url: create_booking_path, method: :post, action: :create do |f|%>   
-          <%if user_signed_in?%>
-          <p><%= @remaining %> place(s) restante(s)</p>
-            <%if @remaining != 0%>
-              <%= f.label :nombre_de_personnes%>
-              <%= f.number_field :number_of_people,  :value => 1, min: 1, max: @remaining%>
-              <%=f.hidden_field :rider_id, :value => @user.rider.id%>
-              <%=f.hidden_field :service_id, :value => @service.id%>
-              <%=f.hidden_field :centre_id, :value => @service.centre.id%>
-              <%=f.submit "Réserver !", class:'btn btn-success btn-book-2'%>
+          <%=form_for @booking, url: create_booking_path, method: :post, action: :create do |f|%>   
+            <%if user_signed_in?%>
+            <p><%= @remaining %> place(s) restante(s)</p>
+              <%if @remaining != 0%>
+                <%= f.label :nombre_de_personnes%>
+                <%= f.number_field :number_of_people,  :value => 1, min: 1, max: @remaining%>
+                <%=f.hidden_field :rider_id, :value => @user.rider.id%>
+                <%=f.hidden_field :service_id, :value => @service.id%>
+                <%=f.hidden_field :centre_id, :value => @service.centre.id%>
+                <%=f.submit "Réserver !", class:'btn btn-success btn-book-2'%>
+              <%else%>
+              <p> Il ne reste plus de places disponibles pour cette activité</p>
+              <%end%>
             <%else%>
-            <p> Il ne reste plus de places disponibles pour cette activité</p>
+              <%=link_to "Connectez-vous afin de réserver", new_user_session_path%>
             <%end%>
-          <%else%>
-            <%=link_to "Connectez-vous afin de réserver", new_user_session_path%>
           <%end%>
-        <%end%>
         <hr>
-      </div>
-      </div>
-    </div><!--row-->
-    </div>
+      </div><!--sum-details-align-->
+    </div><!--summary-details-->
+  </div><!--row-->
 </div><!--jumbotron-->

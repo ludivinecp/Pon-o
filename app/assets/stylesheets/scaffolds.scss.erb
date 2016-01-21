@@ -1,27 +1,5 @@
+/* GENERAL*/
 
-
-body {
-  background-color: white;
-  color: #fff;
-  font-size: 16px;
-  line-height: 18px;
-  padding-top: 50px;
-  width:100%;
-  height:100%;
-  color:#fff;
-}
-// .style_avatar{
-//   height: 50px;
-//   border-radius: 50px;
-// }
-
-p, ol, ul, td {
-  font-size: 13px;
-  line-height: 18px;
-}
-.container-fluid{
-  padding:0px;
-}
 .navbar{
 /* IE10+ */ 
 background-image: -ms-linear-gradient(bottom, #0D0905 0%, #2E1706 100%);
@@ -45,23 +23,28 @@ box-shadow: 0px 2px 2px rgba(0,0,0,0.37);
 padding-right: 50px;
 }
 
+body {
+  background-color: white;
+  color: #fff;
+  font-size: 16px;
+  line-height: 18px;
+  padding-top: 50px;
+  width:100%;
+  height:100%;
+  color:#fff;
+}
+
+ .container-fluid {
+  padding:0px;
+ }
+
+p, ol, ul, td {
+  font-size: 13px;
+  line-height: 18px;
+}
+
 .btn-return {
   margin-bottom: 20px;
-
-}
-.block-left{
--webkit-box-shadow: 2px 0px 6px 0px rgba(0,0,0,0.37);
--moz-box-shadow: 2px 0px 6px 0px rgba(0,0,0,0.37);
-box-shadow: 2px 0px 6px 0px rgba(0,0,0,0.37);
-  z-index: 1;
-  height:750px;
-    overflow:scroll;
-}
-.block-right{
-  padding-left: 0px;
-  padding-right: 0px;
-  top:0px;
-
 }
 
 pre {
@@ -129,12 +112,25 @@ div {
   margin-top: 30px;
 }
 
-.image_centre {
-  margin-top: 20px;
-  text-align: center;
+/* ############### GENERAL END ##############*/
+
+/*Service/Index*/
+.block-left{
+  -webkit-box-shadow: 2px 0px 6px 0px rgba(0,0,0,0.37);
+  -moz-box-shadow: 2px 0px 6px 0px rgba(0,0,0,0.37);
+  box-shadow: 2px 0px 6px 0px rgba(0,0,0,0.37);
+  z-index: 1;
+  height:750px;
+  overflow:scroll;
+}
+.block-right{
+  padding-left: 0px;
+  padding-right: 0px;
+  top:0px;
 
 }
 
+/* background of home inscription and connexion*/
 .bg-home {
   height: 800px;
   background-size: cover;
@@ -152,11 +148,7 @@ div {
   background-image: url(<%= asset_path 'bg-session1.jpg' %>)
 }
 
-
-.index-search-title{
-  font-size: 20px;
-}
-
+/*Search Bar */
 .search-bar {
 margin-bottom:10%;
 margin-top: 9%;
@@ -180,7 +172,7 @@ margin-top: 9%;
   border-radius: 4px;
 
 }
-
+/*Back-Form Registrations Sessions Services*/
 .back-form h1 {
   color: #fff;
   text-align: center;
@@ -199,7 +191,6 @@ margin-top: 9%;
 }
 
 .back-form strong {
-
   color: #fff;
 }
 
@@ -265,6 +256,7 @@ margin-top: 9%;
   padding-bottom:30px;
 
 }
+/*####Back-Form Registrations Sessions Services####*/
 
 /* box service */
 .price {
@@ -281,8 +273,6 @@ margin-top: 9%;
 -moz-box-shadow: inset 0px 5px 14px -3px rgba(0,0,0,0.5);
 box-shadow: inset 0px 5px 14px -3px rgba(0,0,0,0.5);
 }
-
-
 
 .description {
  width: 300px;
@@ -407,7 +397,6 @@ box-shadow: 2px 0px 6px 0px rgba(0,0,0,0.37);
 }
 
 
-
 #old-bookings {
   margin-top: 5px;
   background-color: #DDD;
@@ -431,12 +420,9 @@ box-shadow: 2px 0px 6px 0px rgba(0,0,0,0.37);
   color: #CC6B14!important;
 }
 
-
-
  #validated {
   color:#008C00!important;
 }
-
 
 .service-link {
   color:#0D0905!important;
@@ -447,22 +433,17 @@ box-shadow: 2px 0px 6px 0px rgba(0,0,0,0.37);
   text-decoration: none;
 }
 
-
-
 .image-booking {
   width: 80px;
   margin-top: 15px;
-  margin-bottom: 12 px;
+  margin-bottom: 12px;
 }
-/*service Summary*/
-.service-summary {
-  color:#0D0905;
-  margin:30px;
-}
+
 /*Booking Summary*/
 
 .booking-summary {
   color: #0D0905;
+
 }
  .summary {
   margin: auto;
@@ -482,16 +463,26 @@ box-shadow: 2px 0px 6px 0px rgba(0,0,0,0.37);
 
 
 /* show service */
+
+
 .summary-images img {
-margin-top: 20px;
-margin-left:10%;
+margin-top:20px;
 -webkit-box-shadow: 2px 0px 6px 0px rgba(0,0,0,0.37);
 -moz-box-shadow: 2px 0px 6px 0px rgba(0,0,0,0.37);
 box-shadow: 2px 0px 6px 0px rgba(0,0,0,0.37);
 }
 
+.summary-images {
+  text-align: center;
+  margin-right: 40px;
+   background-color: #DDD;
+   -webkit-box-shadow: 2px 0px 6px 0px rgba(0,0,0,0.37);
+   -moz-box-shadow: 2px 0px 6px 0px rgba(0,0,0,0.37);
+   box-shadow: 2px 0px 6px 0px rgba(0,0,0,0.37);
+}
+
 .service-summary {
-  background-color: #DDD;
+    color:#0D0905;
   height:auto;
   padding-top: 10px;
   padding-left: 10px;
@@ -502,6 +493,14 @@ box-shadow: 2px 0px 6px 0px rgba(0,0,0,0.37);
 
 }
 
+.summary-details {
+  width:70%;
+  background-color: #DDD;
+   -webkit-box-shadow: 2px 0px 6px 0px rgba(0,0,0,0.37);
+   -moz-box-shadow: 2px 0px 6px 0px rgba(0,0,0,0.37);
+   box-shadow: 2px 0px 6px 0px rgba(0,0,0,0.37);
+}
+
 .summary-details span {
  font-weight:bold;
 }
@@ -509,11 +508,12 @@ box-shadow: 2px 0px 6px 0px rgba(0,0,0,0.37);
   margin:7%;
 }
 
-.summary-details h2 a {
+
+.summary-images h2 a {
   font-size: 50px;
 }
 
-.summary-details h2 a:visited {
+.summary-images h2 a:visited {
  color:#0D0905;
 }
 
