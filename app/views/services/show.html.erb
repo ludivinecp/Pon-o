@@ -1,9 +1,11 @@
 <div class="service-summary"><p id="notice"><%= notice %></p>
-<%= link_to " Retour ", url_for(:back), class:'btn btn-success glyphicon glyphicon-arrow-left' %>
+<%= link_to " Retour ", url_for(:back), class:'btn btn-success btn-return glyphicon glyphicon-arrow-left ' %>
 <h1>Services#show</h1>
 
 
 <h2><%= @service.title %></h2>
+
+
 
 <%= link_to "#{@centre.name}", centre_path(@centre)%></br>
 <%= @service.price %>€</br>
