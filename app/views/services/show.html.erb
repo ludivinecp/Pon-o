@@ -5,9 +5,10 @@
 <div class="container-fluid">
   <div class="row">
 
-  <h1><%= @service.title %></h1></br>
+  <h1><%= @service.title %></h1></br></br>
+  <hr>
       <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 summary-images">
-        <hr>
+        
         <div><%= image_tag @service.image1.thumb.url%></div></br>
         <div><%= image_tag @service.image2.thumb.url%></div></br>
         <div><%= image_tag @service.image3.thumb.url%></div></br>
@@ -17,8 +18,8 @@
 
 
       <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 summary-details">
-        <hr>
-        <div class="sum-details-align"><h2><%= link_to "#{@centre.name}", centre_path(@centre)%></h2>
+      
+        <div class="sum-details-align"><h2><%= link_to "#{@centre.name}", centre_path(@centre)%></h2></br>
         <p><span>Prix:</span><br><br> <%= @service.price %>€</p>
         <p><span>Description:</span><br><br> <%= @service.description %></p>
         <p><span>Date:</span><br><br> <%=@service.date.strftime("%d/%m/%Y")%></p>
@@ -32,7 +33,7 @@
               <%=f.hidden_field :rider_id, :value => @user.rider.id%>
               <%=f.hidden_field :service_id, :value => @service.id%>
               <%=f.hidden_field :centre_id, :value => @service.centre.id%>
-              <%=f.submit "Reserver !", class:'btn btn-success btn-book-2'%>
+              <%=f.submit "Réserver !", class:'btn btn-success btn-book-2'%>
             <%else%>
             <p> Il ne reste plus de places disponibles pour cette activité</p>
             <%end%>

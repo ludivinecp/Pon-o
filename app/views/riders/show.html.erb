@@ -1,6 +1,6 @@
 
 <div class="jumbotron center booking-page">
-   <%= link_to " Retour ", url_for(:back), class:'btn btn-success btrn-return glyphicon glyphicon-arrow-left' %>
+   <%= link_to " Retour ", url_for(:back), class:'btn btn-success btn-return glyphicon glyphicon-arrow-left' %>
   <div class="row">
 
 
@@ -40,8 +40,10 @@
                     <%=booking.service.date.strftime("%d/%m/%Y")%>
                         <%if booking.validation?%>
                             <p id="validated">Validée</p>
+                            <hr>
                         <%else%>
                             <p id="to-be-validated">En attente de validation</p>
+                            <hr>
                         <%end%>
                     <%end%>
                 <%end%> 
@@ -58,6 +60,7 @@
             <% if booking.passed_booking%>
                 <p><%= booking.service.title.capitalize%> -
                 <%= booking.service.date.strftime("%d/%m/%Y")%></p>
+                <hr>
             <%end%>
         <%end%>
 
