@@ -8,26 +8,20 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-   
+
       <%= link_to "pONéO !", root_path, {:style=>"color: white; font-family: 'Luckiest Guy', cursive; font-size: 2.6em; padding-left: 30px; text-decoration: none;"}%>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-        
-        
+
+
         <% if user_signed_in? %>
 
          <% if current_user.admin? %>
              <li><%= link_to "Admin", rails_admin_path %></li>
           <%end%>
-
-
-          <li style="color:white; padding-top: 16px; padding-left: 30px;">
-          Bonjour <strong><%= current_user.centre.try(:name)%></strong>
-          <strong><%= current_user.rider.try(:first_name)%>!</strong></li>
-
           <li><%= link_to "Mon compte", edit_user_registration_path %></li>
             <% if current_user.is_centre? %>
             <li><%= link_to "Mon profil", centre_path(current_user.centre.id)  %></li>
