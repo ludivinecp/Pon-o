@@ -18,6 +18,10 @@ Rails.application.routes.draw do
   resources :services
   resources :bookings
   resources :riders
+  get "filter_nature" => "services#filter_nature"
+  get "filter_discovery" => "services#filter_discovery"
+  get "filter_sport" => "services#filter_sport"
+
   get "bookings/:id/booking_confirmation" => "bookings#booking_confirmation", as: :booking_confirmation
   post "booking/create" => "bookings#create", as: :create_booking
 

@@ -17,8 +17,7 @@ Devise.setup do |config|
 
   #Add your ID and secret here
   #ID first, secret second
-  config.omniauth :facebook, "182575595424095", "bf226afdbb4554c6011127f4d6d426eb"
-                  #callback_url: "http://localhost:3000/users/auth/facebook/callback"
+  config.omniauth :facebook, ENV['APPID'], ENV['APPSECRET']                  #callback_url: "http://localhost:3000/users/auth/facebook/callback"
 
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing

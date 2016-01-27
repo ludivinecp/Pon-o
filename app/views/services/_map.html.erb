@@ -1,0 +1,14 @@
+      <div class="col-md-7 hidden-sm hidden-xs">
+            <div>
+              <div id="map" style='width: 750px; height: 800px;'></div>
+            </div>
+          </div>
+            <script type="text/javascript">
+            handler = Gmaps.build('Google');
+            handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+              markers = handler.addMarkers(<%=raw @hash.to_json %>);
+              handler.bounds.extendWith(markers);
+              handler.fitMapToBounds();
+            });
+
+            </script>
