@@ -6,7 +6,7 @@ class RidersController < ApplicationController
     @rider_bookings = @rider.rider_bookings
   end
   def edit
-    @rider = Rider.find(params[:id])
+    @rider = current_user.rider
     session[:return_to] ||= request.referer #Allow user to be redirecting to the previous page (part 1/2)
   end
 

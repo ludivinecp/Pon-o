@@ -20,6 +20,7 @@ class ChargesController < ApplicationController
       :currency    => 'eur'
     )
     @booking.mailer_new_booking
+    @booking.update(payed: true)
 
   rescue Stripe::CardError => e
     flash[:error] = e.message

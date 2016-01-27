@@ -8,7 +8,7 @@
           </div>
         <div class="row">
           <div class="col-md-12">
-            <h1 style="text-align:center;">Profil de: <%=@centre.name%></h1><br/><br>
+            <h1 style="text-align:center;"> <%=@centre.name%></h1><br/><br>
           </div>
         </div>
       </div>
@@ -21,17 +21,6 @@
             <div><%= image_tag @centre.picture2.thumb.url%></div><br/>
             <div><%= image_tag @centre.picture3.thumb.url%></div><br/>
             <div><%= image_tag @centre.picture4.thumb.url%></div><br/>
-          </div>
-          <div class="col-md-7">
-            <h3>Description</h3>
-            <p class="lead">Lorem c quam felis, ultricies
-              nec, pellentesque eu, pretium quis, sem. Nulla consequat massa&nbsp;</p>
-            <ul>
-              <li>Name: <%=@centre.name%></li>
-              <li>Numéro ffe: <%=@centre.ffe%></li>
-              <li>Numéro siret: <%=@centre.siret%></li>
-              <li>Téléphone: <%=@centre.phone%></li>
-            </ul>
           </div>
         </div>
       </div>
