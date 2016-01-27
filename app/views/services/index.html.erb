@@ -13,7 +13,7 @@
             <div class="container-fluid">
               <div class="row">
                 <div class="col-md-12">
-                  
+
 <%= render'services/searchbar'%>
                 </div>
               </div>
@@ -50,26 +50,21 @@
                   </div>
                 </div>
                 <div class="row">
-                  <div class="col-md-12">
                     <hr>
                     <h3 class="text-center">Résultats</h3>
-                  </div>
                 </div>
               </div>
               <div class="section">
-       
-                  <div class="row">
-                   <div class="col-md-12">
-                    <div class="col-md-offset-2 service-list ">
 
-                      <p><% @centres.each do |centre|%></p>
-                        <p><% centre.services.each do |service|%></p>
-                       
+                  <div class="row">
+                   <div class="col-md-12 service-list">
+                      <% @centres.each do |centre|%>
+                        <% centre.services.each do |service|%>
+                        <div class="card">
                             <%= image_tag service.image1.thumb.url, class:'image-service'%>
-                         
                               <div class="description">
                                <p id="name"><%=centre.name%></p>
-                                <p id="category"><%= Category.find(service.category_id).try(:name).capitalize%></p> 
+                                <p id="category"><%= Category.find(service.category_id).try(:name).capitalize%></p>
                                 <div class="price"><p> <%= service.price%> €</p>
                                 </div>
                                 <p id="service"> <%= service.description.capitalize%></p>
@@ -77,20 +72,18 @@
                                 <%= link_to 'Réserver', service, class:'btn btn-success btn-book'%>
 
 
-                              </div>                         
-                                            
-                        <% end %>
-                   
-                        <% end %>
+                              </div>
+                            </div>
 
-                      </div>
+                        <% end %>
+                        <% end %>
                     </div>
                   </div><!--md12-->
-             
+
                 </div>
               </div>
             </div>
-          <div class="col-md-7 hidden-sm hidden-xs">
+          <div class="col-md-7 hidden-sm hidden-xs block-right">
             <div>
               <div id="map" style='width: 750px; height: 800px;'></div>
             </div>
