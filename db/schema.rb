@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160107185020) do
+ActiveRecord::Schema.define(version: 20160126191304) do
 
   create_table "bookings", force: :cascade do |t|
     t.integer  "number_of_people"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20160107185020) do
     t.integer  "service_id"
     t.integer  "rider_id"
     t.boolean  "validation",       default: false
+    t.boolean  "payed",            default: false
   end
 
   add_index "bookings", ["centre_id"], name: "index_bookings_on_centre_id"
