@@ -46,42 +46,43 @@ $navbar-default-link-color:         white;
 
 .btn-primary {
     color: #fff;
- 
-/* IE10+ */ 
+
+/* IE10+ */
 background-image: -ms-linear-gradient(bottom, #0F3387 0%, #254ABA 100%);
 
-/* Mozilla Firefox */ 
+/* Mozilla Firefox */
 background-image: -moz-linear-gradient(bottom, #0F3387 0%, #254ABA 100%);
 
-/* Opera */ 
+/* Opera */
 background-image: -o-linear-gradient(bottom, #0F3387 0%, #254ABA 100%);
 
-/* Webkit (Safari/Chrome 10) */ 
+/* Webkit (Safari/Chrome 10) */
 background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #0F3387), color-stop(100, #254ABA));
 
-/* Webkit (Chrome 11+) */ 
+/* Webkit (Chrome 11+) */
 background-image: -webkit-linear-gradient(bottom, #0F3387 0%, #254ABA 100%);
 
-/* W3C Markup */ 
+/* W3C Markup */
 background-image: linear-gradient(to top, #0F3387 0%, #254ABA 100%);
+border-radius: 3px;
 }
 .btn-primary:hover {
- /* IE10+ */ 
+ /* IE10+ */
 background-image: -ms-linear-gradient(bottom, #0A0A42 0%, #1A3482 100%);
 
-/* Mozilla Firefox */ 
+/* Mozilla Firefox */
 background-image: -moz-linear-gradient(bottom, #0A0A42 0%, #1A3482 100%);
 
-/* Opera */ 
+/* Opera */
 background-image: -o-linear-gradient(bottom, #0A0A42 0%, #1A3482 100%);
 
-/* Webkit (Safari/Chrome 10) */ 
+/* Webkit (Safari/Chrome 10) */
 background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #0A0A42), color-stop(100, #1A3482));
 
-/* Webkit (Chrome 11+) */ 
+/* Webkit (Chrome 11+) */
 background-image: -webkit-linear-gradient(bottom, #0A0A42 0%, #1A3482 100%);
 
-/* W3C Markup */ 
+/* W3C Markup */
 background-image: linear-gradient(to top, #0A0A42 0%, #1A3482 100%);
 }
 .buttons {

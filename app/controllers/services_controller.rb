@@ -29,8 +29,8 @@ class ServicesController < ApplicationController
     else
       @centres = Centre.all
       @services = Service.all
-    end
 
+    end
     @hash = Gmaps4rails.build_markers(@centres) do |centre, marker|
         marker.lat centre.latitude
         marker.lng centre.longitude
@@ -48,9 +48,9 @@ class ServicesController < ApplicationController
     @service = Service.find(params[:id])
     @centre = @service.centre
     @booking = Booking.new
-    @user = current_user    
+    @user = current_user
     @remaining = @service.remaining_places
-    
+
   end
 
   def new
@@ -64,7 +64,7 @@ class ServicesController < ApplicationController
 
   def create
     @service = Service.new(service_params)
-    
+
       if @service.save
         format.html { redirect_to @service, notice: 'Service was successfully created.' }
         format.json { render :show, status: :created, location: @service }

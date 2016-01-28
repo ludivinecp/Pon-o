@@ -16,7 +16,7 @@
             <%= link_to 'Modifier mon profil', edit_rider_path, class:'btn-success modif-button'%>
     </div>
       <div class="col-lg-7 col-md-7 col-sm-8 col-xs-12 profile-content" id="up" >
-        <h1>Mes reservations</h1>
+        <h1>Mes reservations en cours</h1>
           <% if !!@rider_bookings %>
           <ul>
                   <% @rider_bookings.each do |booking| %>
@@ -26,7 +26,7 @@
                       <%if booking.validation?%>
                           <p>Validé</p>
                       <%else%>
-                          <p>En attente de validation</div>
+                          <p>En attente de validation</p>
                       <%end%>
                   <%end%>
               <%end%>
@@ -38,7 +38,7 @@
           <%end%>
 
       </div>
-      <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12 profile" id="down">
+      <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12 profile-content" id="down">
           <h1>Anciennes reservations</h1>
           <% @rider_bookings.each do |booking| %>
           <% if booking.passed_booking%>
