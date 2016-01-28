@@ -1,0 +1,29 @@
+<div class="container-fluid bg-service">
+    <h1><%= @service.title %></h1>
+
+    <%= link_to "#{@centre.name}", centre_path(@centre)%></br>
+    <%= @service.price %>€</br>
+    <%= @service.description %></br>
+    <%=@service.date%>
+    <div><%= image_tag @service.image1.thumb.url%></div><br/>
+    <div><%= image_tag @service.image2.thumb.url%></div><br/>
+    <div><%= image_tag @service.image3.thumb.url%></div><br/>
+    <div><%= image_tag @service.image4.thumb.url%></div><br/>
+    <%=form_for @booking, url: create_booking_path, method: :post, action: :create do |f|%>
+      <%if user_signed_in?%>
+      <p><%= @remaining %> place(s) restante(s)</p>
+        <%if @remaining != 0%>
+          <%= f.label :nombre_de_personnes%>
+          <%= f.number_field :number_of_people,  :value => 1, min: 1, max: @remaining%>
+          <%=f.hidden_field :rider_id, :value => @user.rider.id%>
+          <%=f.hidden_field :service_id, :value => @service.id%>
+          <%=f.hidden_field :centre_id, :value => @service.centre.id%>
+          <%=f.submit "Reserver !"%>
+        <%else%>
+        <p> Il ne reste plus de places disponibles pour cette activité</p>
+        <%end%>
+      <%else%>
+        <%=link_to "Connectez-vous afin de réserver", new_user_session_path%>
+      <%end%>
+    <%end%>
+</div>

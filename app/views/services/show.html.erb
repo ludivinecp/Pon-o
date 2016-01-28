@@ -1,27 +1,41 @@
-<h1><%= @service.title %></h1>
+<div class="container-fluid bg-service">
+  <div class="row">
+    <div class="col-lg-1 col-md-1 col-sm-1"></div>
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 service-content">
+      <%= link_to "Retour", url_for(:back), class:'btn btn-success retour' %>
 
-<%= link_to "#{@centre.name}", centre_path(@centre)%></br>
-<%= @service.price %>€</br>
-<%= @service.description %></br>
-<%=@service.date%>
-<div><%= image_tag @service.image1.thumb.url%></div><br/>
-<div><%= image_tag @service.image2.thumb.url%></div><br/>
-<div><%= image_tag @service.image3.thumb.url%></div><br/>
-<div><%= image_tag @service.image4.thumb.url%></div><br/>
-<%=form_for @booking, url: create_booking_path, method: :post, action: :create do |f|%>
-  <%if user_signed_in?%>
-  <p><%= @remaining %> place(s) restante(s)</p>
-    <%if @remaining != 0%>
-      <%= f.label :nombre_de_personnes%>
-      <%= f.number_field :number_of_people,  :value => 1, min: 1, max: @remaining%>
-      <%=f.hidden_field :rider_id, :value => @user.rider.id%>
-      <%=f.hidden_field :service_id, :value => @service.id%>
-      <%=f.hidden_field :centre_id, :value => @service.centre.id%>
-      <%=f.submit "Reserver !"%>
-    <%else%>
-    <p> Il ne reste plus de places disponibles pour cette activité</p>
-    <%end%>
-  <%else%>
-    <%=link_to "Connectez-vous afin de réserver", new_user_session_path%>
-  <%end%>
-<%end%>
+      <h1> <%= link_to "#{@centre.name}", centre_path(@centre)%></h1>
+      <hr>
+      <div><%= image_tag @service.image1.thumb.url%></div><br/>
+      <div><%= image_tag @service.image2.thumb.url%></div><br/>
+      <div><%= image_tag @service.image3.thumb.url%></div><br/>
+      <div><%= image_tag @service.image4.thumb.url%></div><br/>
+    </div>
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 service-content" id="aside-service" >
+        <h1><%= @service.title %></h1>
+        <hr>
+        <ul>
+          <li><span>Description: </span><%= @service.description %></li>
+          <li><span>Prix: </span><%= @service.price %>€</li>
+          <li><span>Date: </span><%=@service.date%></li>
+          <li><span>place(s) restante(s): </span><%= @remaining %></li>
+        </ul>
+        <%=form_for @booking, url: create_booking_path, method: :post, action: :create do |f|%>
+          <%if user_signed_in?%>
+          <div class="col-md-4 col-md-offset-4">
+            <%if @remaining != 0%>
+              <%= f.label :nombre_de_personnes, class:'nb_personnes'%>
+              <%= f.number_field :number_of_people, class:'form-control',  :value => 1, min: 1, max: @remaining%>
+              <%=f.hidden_field :rider_id, :value => @user.rider.id%>
+              <%=f.hidden_field :service_id, :value => @service.id%>
+              <%=f.hidden_field :centre_id, :value => @service.centre.id%>
+              <%=f.submit "Reserver !", class:'btn-success reserver-button'%>
+            <%else%>
+            <p> Il ne reste plus de places disponibles pour cette activité</p>
+            <%end%>
+          <%else%>
+            <%=link_to "Connectez-vous afin de réserver", new_user_session_path%>
+          </div>
+          <%end%>
+        <%end%>
+      </div>
