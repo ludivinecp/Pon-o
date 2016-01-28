@@ -1,20 +1,18 @@
-<%= render'services/header_search'%>  
+
+<%= render'services/header_search'%>
 <%= render'services/searchbar'%>
 <%= render'services/filter'%>
                       <p><% @centres.each do |centre|%></p>
                         <p><% centre.services.each do |service|%></p>
                             <%= image_tag service.image1.thumb.url, class:'image-service'%>
-                         
                               <div class="description">
                               <p id="name"><%=service.title%></p>
                                <p id="category"><%=centre.name%></p>
                                 <p id="category"><%= Category.find(service.category_id).try(:name).capitalize%></p> 
                                 <div class="price"><p> <%= service.price%> €</p>
                                 </div>
-
                                 <%= link_to 'Réserver', service, class:'btn btn-success btn-book'%>
-
-                              </div>                         
+                              </div>
                         <% end %>
                         <% end %>
                       </div>

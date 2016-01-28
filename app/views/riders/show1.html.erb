@@ -1,0 +1,57 @@
+
+<div class="jumbotron center">
+  <div class="row">
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 " id="profile">
+      <h3 class="about_me">Mon profil</h3>
+      <%= image_tag @rider.avatar.avatar.url, :class => "style_avatar" %>
+            <ul>
+                 <li><%= @rider.try(:last_name) %></li>
+                 <li><%= @rider.try(:first_name) %></li>
+                 <li><%= @rider.try(:nickname) %></li>
+                 <li><%= @rider.try(:weight) %></li>
+                 <li><%= @rider.try(:tall) %></li>
+                 <li><%= @rider.try(:phone) %></li>
+                 <li><%= @rider.try(:address) %></li>
+                 <li><%= @rider.try(:age) %></li>
+                 <li><%= @rider.try(:level) %></li>
+            </ul>
+    </div>
+
+    <div id="mybookings"class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+      <p>Mes réservations</p>
+        <% if !!@rider_bookings %>
+        <ul>
+                <% @rider_bookings.each do |booking| %>
+                    <% if booking.current_booking%>
+                    <%= link_to "#{booking.service.title}", service_path(booking.service.id)%>
+                    <%=booking.service.date.strftime("%d/%m/%Y")%>
+                </p>
+                    <%if booking.validation?%>
+                        <p>Validé</p>
+                    <%else%>
+                        <p>En attente de validation</div>
+                    <%end%>
+                <%end%>
+            <%end%>
+            </ul>
+
+        <% else %>
+         <p> Vous n'avez pas encore effectué de réservation </p>
+
+        <%end%>
+
+    <div id="my_text"class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+        <p>Mes anciennes réservations</p>
+            <% @rider_bookings.each do |booking| %>
+            <% if booking.passed_booking%>
+            <%= booking.service.title%></a></br>
+            <%= booking.service.date.strftime("%d/%m/%Y")%>
+                </p>
+            <%end%>
+        <%end%>
+
+    </div>
+    </div>
+  </div>
+</div>
+<%= link_to "Modifier mon Profil", edit_rider_path(current_user.id)%>
