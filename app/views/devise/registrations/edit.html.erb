@@ -1,7 +1,7 @@
-<h2>Mon compte</h2>
-
+<div class="container-fluid bg-edit">
 <div class="col-md-3"></div>
-  <div class="col-md-6">
+  <div class="col-md-6 back-form-edit">
+    <h1>Mon compte</h1>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 <h2>Modifier mot de passe</h2>
@@ -29,7 +29,7 @@
     <%= f.password_field :current_password, autocomplete: "off", class:"form-control" %>
   </div>
   <div class="actions">
-      <%= f.submit "Mettre à jour", class:'btn btn-default' %>
+      <%= f.submit "Mettre à jour", class:'btn btn-success' %>
     </div>
 
   <% end %>
@@ -39,5 +39,6 @@
   <p>Cette action est irréversible et supprime toutes vos données</p>
   <%= button_to "Je confirme la suppression définitive de mon compte",
         registration_path(resource_name), data: { confirm: "Are you sure?" },
-        method: :delete, class: "btn btn-small btn-danger" %>
+        method: :delete, class: "btn btn-sm btn-danger" %>
+  </div>
 </div>

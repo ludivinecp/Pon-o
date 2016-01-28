@@ -1,0 +1,68 @@
+            <!-- <% if current_user.is_centre? %>
+            <%end%> -->
+
+            <h1 style="text-align:center;">Profil de: <%=@centre.name%></h1><br/><br>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 centre-content">
+            <div><%= image_tag @centre.picture1.thumb.url%></div><br/>
+            <div><%= image_tag @centre.picture2.thumb.url%></div><br/>
+            <div><%= image_tag @centre.picture3.thumb.url%></div><br/>
+            <div><%= image_tag @centre.picture4.thumb.url%></div><br/>
+          </div>
+          <div class="col-md-7 centre-content">
+            <h3>Description</h3>
+            <p class="lead">Lorem c quam felis, ultricies
+              nec, pellentesque eu, pretium quis, sem. Nulla consequat massa&nbsp;</p>
+            <ul>
+              <li>Name: <%=@centre.description%></li>
+              <li>Name: <%=@centre.name%></li>
+              <li>Numéro ffe: <%=@centre.ffe%></li>
+              <li>Numéro siret: <%=@centre.siret%></li>
+              <li>Téléphone: <%=@centre.phone%></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+          <div class="col-md-12">
+            <h1>Prestations délivrées:</h1>
+        <% @services.in_groups_of(3, false).each do |group| %>
+          <div class="row">
+           <% group.each do |service|%>
+               <%=service.try(:image)%>
+                   <h3><%= service.title %></h3>
+                   <%= service.date.strftime("%d/%m/%Y")%></br>
+                   <p><%= service.try(:description) %></p>
+                <%= link_to "Voir",service, class:'btn btn-success'%>
+                <% if current_user.is_centre? %>
+              <p>Réservations</p>
+              <% if !@bookings%>
+                <p> Vous n'avez pas encore de réservation </p>
+              <% else %>
+                <ul>
+                            <% @bookings.each do |booking| %>
+
+                              <li><%= booking.rider.try(:first_name)%></br>
+                                  0<%= booking.rider.try(:phone)%></br>
+                                  <%= booking.number_of_people %> personne(s)</br>
+                                     <%if booking.validation?%>
+                                        <p>Validé</p>
+                                      <%end%>
+                              </li>
+
+                            <%end%>
+
+                        </ul>
+                  <%end%>
+                </ul>
+              <%end%>
+              </p>
+              <%end%>
+               </div>
+             </div>
+           </div>
+           <% end %>
+         </div>
+
+      </div>
+    </div>
