@@ -18,21 +18,59 @@
       <span class="glyphicon glyphicon-home" style="color:rgba(117, 83, 51, 0.61);"></span><p><%=@centre.address%></p>
       <span class="glyphicon glyphicon-earphone"style="color:rgba(117, 83, 51, 0.61);"></span><p><%=@centre.phone%></p>
     </div>
-    <div class="col-md-7 hidden-sm hidden-xs block-right">
-      <div>
-        <div id="map" style='width: 720px; height:750px;'></div>
-      </div>
-    </div>
-      <script type="text/javascript">
-      handler = Gmaps.build('Google');
-      handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-        markers = handler.addMarkers(<%=raw @hash.to_json %>);
-        handler.bounds.extendWith(markers);
-        handler.fitMapToBounds();
-      });
-
-      </script>
-    </div>
-    </div>
   </div>
 </div>
+<div class="section">
+     <div class="container">
+       <div class="row">
+         <div class="col-md-12 centre-show">
+           <h1>Prestations délivrées:</h1>
+         </div>
+       </div>
+     </div>
+   </div>
+   <div class="section">
+     <div class="container">
+       <% @services.in_groups_of(3, false).each do |group| %>
+         <div class="row">
+          <% group.each do |service|%>
+          <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+              <%=service.try(:image)%>
+              <div class="caption">
+                  <h3><%= service.title %></h3>
+                  <%= service.date.strftime("%d/%m/%Y")%></br>
+                  <p><%= service.try(:description) %></p>
+               <%= link_to "Voir",service, class:'btn btn-success'%>
+               <% if current_user.is_centre? %>
+             <p>Réservations</p>
+             <% if !@bookings%>
+               <p> Vous n'avez pas encore de réservation </p>
+             <% else %>
+               <ul>
+                           <% @bookings.each do |booking| %>
+
+                             <li><%= booking.rider.try(:first_name)%></br>
+                                 0<%= booking.rider.try(:phone)%></br>
+                                 <%= booking.number_of_people %> personne(s)</br>
+                                    <%if booking.validation?%>
+                                       <p>Validé</p>
+                                     <%end%>
+                             </li>
+
+                           <%end%>
+
+                       </ul>
+                 <%end%>
+               </ul>
+             <%end%>
+             </p>
+             <%end%> <!--current_user.is_centre? -->
+              </div>
+            </div>
+          </div>
+          <% end %>
+        </div>
+
+     </div>
+   </div>
