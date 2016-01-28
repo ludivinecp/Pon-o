@@ -1,5 +1,5 @@
 
-<%= render'services/header_search'%>  
+<%= render'services/header_search'%>
 <%= render'services/searchbar'%>
 <%= render'services/filter'%>
                       <p><% @centres.each do |centre|%></p>
@@ -12,7 +12,7 @@
                                 <div class="price"><p> <%= service.price%> €</p>
                                 </div>
                                 <%= link_to 'Réserver', service, class:'btn btn-success btn-book'%>
-                              </div>                         
+                              </div>
                         <% end %>
                         <% end %>
                       </div>

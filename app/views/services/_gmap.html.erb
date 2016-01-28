@@ -1,15 +1,11 @@
-<h1> <%=link_to centre.name, centre %> </h1>
-	<%= centre.address %></br>
-	
+<div class="container-fluid gmap-pop">
+<h1> <%=centre.name %> </h1>
+<ul>
   <% centre.services.each do |service| %>
-
-  <%= service.price %>$</br>
-  <%= service.category.try(:name) %></br>
-  <%= link_to 'Réserver', service_path(service), method: :get %>
-
-  
+	<li><span>Adresse: </span> <%= centre.address %></li>
+  <li><span>Prix: </span> <%= service.price %>€</br></li>
+  <li><span>Catégorie: </span> <%= service.category.try(:name) %></li>
+</ul>
+  <%= link_to 'Voir', service_path(service), method: :get, class:'btn btn-success voir-button' %>
 <% end %>
-       
-
-
-
+</div>
